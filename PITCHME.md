@@ -1,13 +1,13 @@
-### Kernels of epimorphisms of finitely generated free lattices
+## Kernels of epimorphisms of finitely generated free lattices
  
 
-#### William DeMeo $$^{†}$$, Peter Mayr $$^{†}$$, Nik Ruskuc $$^{‡}$$
+### William DeMeo $^{†}$, Peter Mayr $^{†}$, Nik Ruskuc $^{‡}$
 
 † University of Colorado, Boulder
 
 ‡ St Andrews University
 
-View the slides at: https://gitpitch.com/universalalgebra/fg-free-lat/master?n=true
+View the slides at: https://gitpitch.com/universalalgebra/fg-free-lat/master
 
 ---
 
@@ -20,13 +20,23 @@ Then $h$ is bounded if and only if $\ker h$ is finitely generated.
 ---
 
 **Proof.** 
-($\Rightarrow$) Assume $h$ is bounded.  That is, the preimage of each $y\in L$ under $h$ is bounded.  For each $y\in L$, let $\alpha y= \bigvee h^{-1}\{y\}$ and $\beta y = \bigwedge h^{-1}\{y\}$ denote the greatest and least elements of $h^{-1}\{y\}$, respectively (both of which exist by the boundedness assumption).  Observe that $h \alpha h = h$, and $h \beta h = h$. In fact, $\alpha$ and $\beta$ are adjoint to $h$. Indeed, it is easy to see that
-\[
-h x \leqslant y \quad \Leftrightarrow \quad x \leqslant \alpha y,
-\]
-\[
-y \leqslant h x \quad \Leftrightarrow \quad \beta y \leqslant x.
-\]
+($\Rightarrow$) Assume $h$ is bounded.  
+
+That is, the preimage of each $y\in L$ under $h$ is bounded.  
+
+For each $y\in L$, let $\alpha y= \bigvee h^{-1}\{y\}$ and $\beta y = \bigwedge h^{-1}\{y\}$ denote the greatest and least elements of $h^{-1}\{y\}$.
+
+Observe $h \alpha h = h$, and $h \beta h = h$. 
+
+In fact, $\alpha$ and $\beta$ are adjoint to $h$. 
+
+Indeed, it is easy to see that
+
+$$h x \leqslant y \quad \Leftrightarrow \quad x \leqslant \alpha y,$$
+
+$$y \leqslant h x \quad \Leftrightarrow \quad \beta y \leqslant x.$$
+
+
 ---
 
 For each $y \in L$, let $X_y := X\cap h^{-1}\{y\}$, the set of generators that lie in the inverse image of $y$ under $h$.
