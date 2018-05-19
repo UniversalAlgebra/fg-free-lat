@@ -1,7 +1,7 @@
-# Kernels of epimorphisms of finitely generated free lattices
+### Kernels of epimorphisms of finitely generated free lattices
  
 
-## William DeMeo $^{†}$, Peter Mayr $^{†}$, Nik Ruskuc $^{‡}$
+#### William DeMeo $$^{†}$$, Peter Mayr $$^{†}$$, Nik Ruskuc $$^{‡}$$
 
 † University of Colorado, Boulder
 
