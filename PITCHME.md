@@ -27,14 +27,9 @@ Then $h$ is bounded if and only if $\ker h$ is finitely generated.
 ($\Rightarrow$) Assume $h$ is bounded.  
 
 @ul
-- For each $y\in L$, let 
-  $$\alpha y= \bigvee h^{-1}\{y\} \quad\text{ and } \quad \beta y = \bigwedge h^{-1}\{y\}$$ 
-  be the greatest and least elements of $h^{-1}\{y\}$. |
-- Observe,  $\quad h \alpha h = h \quad$ and $\quad h \beta h = h$.  
-  In fact, $\alpha$ and $\beta$ are left/right adjoints of $h$.    
-  Indeed, it is easy to check
-  $$h x \leqslant y \quad \Longleftrightarrow \quad x \leqslant \alpha y$$
-  $$y \leqslant h x \quad \Longleftrightarrow \quad \beta y \leqslant x.$$
+- For each $y\in L$, let $$\alpha y= \bigvee h^{-1}\{y\} \quad\text{ and } \quad \beta y = \bigwedge h^{-1}\{y\}$$ be the greatest and least elements of $h^{-1}\{y\}$.
+- Observe,  $\quad h \alpha h = h \quad$ and $\quad h \beta h = h$. In fact, $\alpha$ and $\beta$ are left/right adjoints of $h$.
+- Indeed, it is easy to check $$h x \leqslant y \quad \Longleftrightarrow \quad x \leqslant \alpha y$$ $$y \leqslant h x \quad \Longleftrightarrow \quad \beta y \leqslant x.$$
 @ulend
 
 Note: for finite lattices, $h$ bounded simply means the preimage of each $y\in L$ under $h$ is bounded.  
