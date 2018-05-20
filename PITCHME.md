@@ -447,7 +447,7 @@ Define
 + **Lemma 1.** For $u \in \\{0, x, y, z\\}$, the sequence $\\{m_{u,n} : n < \omega\\}$ 
   is strictly ascending: 
 
-  $m_{u,0} < m_{u,1} < m_{u,2} < \cdots$
+  $m\_{u,0} < m\_{u,1} < m\_{u,2} < \cdots$
 
 + **Lemma 2.** $(\forall u \in \\{x, y, z\\}) \, (\forall p \in C_u \cup C_0)$ 
 
@@ -469,10 +469,10 @@ $m_{0, 0} = (x\wedge y) \vee (x\wedge z)\vee (y\wedge z)$ and $m_{x, i+1} = m_{x
 
 Fix $u\in \\{0, x, y, z\\}$. 
 
-Since $K$ finite, there exists $\exists M < \omega$ such that for all
-$\pmatrix{p\\\ q} \in K$
+Since $K$ finite, there exists $\exists M < \omega$ such that
+$\forall \pmatrix{p\\\ q} \in K$
 
-$p, q \in C_u \quad \Longrightarrow \quad \pmatrix{p\\\ q} \leqslant m_{u, M}$.
+$p, q \in C\_u \quad \Longrightarrow \quad \pmatrix{p\\\ q} \leqslant m\_{u, M}$.
 
 ---
 
@@ -496,7 +496,7 @@ Fix $\pmatrix{p\\\ q} \in \langle K \rangle$. Then $p, q \in C_u$ for some $u\in
   
   Assume $q_1\leqslant u$.
   
-  $\quad \text{ (IH) } \quad \Longrightarrow \quad p_1\leqslant m_{uM}\quad \Longrightarrow \quad p = p_1\wedge p_2 \leqslant m_{uM}$.
+  $\quad \text{ (IH) } \quad \Longrightarrow \quad p\_1\leqslant m\_{u,M}\quad \Longrightarrow \quad p = p\_1\wedge p\_2 \leqslant m\_{u,M}$.
 
 ---
 
@@ -508,11 +508,11 @@ Fix $\pmatrix{p\\\ q} \in \langle K \rangle$. Then $p, q \in C_u$ for some $u\in
 
   *Observe:* $q_i \leqslant u$ for $i = 1, 2$.
 
-  $∴\quad \text{ (IH) } \quad \Longrightarrow \quad p_1,p_2 \leqslant m_{u,M} \quad \Longrightarrow \quad p = p_1\vee p_2 \leqslant m_{u,M}$.
+  $∴\quad \text{ (IH) } \quad \Longrightarrow \quad p\_1, p\_2 \leqslant m\_{u,M} \quad \Longrightarrow \quad p = p\_1\vee p\_2 \leqslant m\_{u,M}$.
   
-From the claim just proved, and [Lemma 1](#lemma-1), 
+From the claim just proved and [Lemma 1](#lemma-1), 
 
-$\pmatrix{m_{x, M+1}\\\ x}\in \eta \setminus \langle K \rangle$.
+$\qquad \pmatrix{m\_{x, M+1}\\\ x}\in \eta \setminus \langle K \rangle$.
 
 ∎
 ---
