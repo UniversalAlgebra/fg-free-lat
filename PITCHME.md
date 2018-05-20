@@ -68,9 +68,7 @@ $\text{(Ind hyp)} \quad \bigl\\{\pmatrix{s\\\ \alpha {h(s)}}, \;
 \pmatrix{s\\\ \beta{h(s)}},\, \pmatrix{t\\\ \alpha {h(t)}},\;
 \pmatrix{t\\\ \beta{h(t)}}\bigr\\} \subseteq \langle K \rangle$
 
-Then 
-
-$\qquad y = h (r) = h(s\vee t) = h (s)\vee h(t)$
+Then $y = h (r) = h(s\vee t) = h (s)\vee h(t)$.
 
 ∴ $\qquad h(\alpha {h(s)} \vee \alpha {h(t)})= h\alpha h(s) \vee h\alpha h(t)=
 h(s) \vee h(t) = y.$
