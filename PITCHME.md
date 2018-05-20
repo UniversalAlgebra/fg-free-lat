@@ -31,8 +31,8 @@
 
 ### Motivation
 
-<img src="assets/img/MayrRuskuc.png" alt="Mayr-Ruškuc-paper" style="width: 150px; float: right"/>
-
+<!-- <img src="assets/img/MayrRuskuc.png" alt="Mayr-Ruškuc-paper" style="width: 150px; float: right"/>
+ -->
 Mayr & Ruškuc  
 "Generating subdirect products" (2018) 
 
@@ -92,12 +92,13 @@ $\bigcup_{y \in L}\\{\pmatrix{x\\\ \alpha y},  \pmatrix{\alpha y\\\ x}, \pmatrix
 
 ---
 
-@ul
+We show, by induction on term complexity:
 
-+ We show, by induction on term complexity:<p>
 $\quad (\forall y \in L)\; (\forall r \in h^{-1}\{y\}) 
-\quad \bigl\\{\pmatrix{r\\\ \alpha y}, \, \pmatrix{r\\\ \beta y}\bigr\\} \subseteq \langle K \rangle$</p>
+\quad \bigl\\{\pmatrix{r\\\ \alpha y}, \, \pmatrix{r\\\ \beta y}\bigr\\} \subseteq \langle K \rangle$
  <!-- \leqslant \mathbf F \times \mathbf F$. -->
+
+@ul
 
 + **Case 0.** If $r \in X$, then $\pmatrix{r\\\ \alpha y}$ and $\pmatrix{r\\\ \beta y}$ belong to $K$ (nothing to prove)
 
@@ -516,7 +517,7 @@ $\pmatrix{m_{x, M+1}\\\ x}\in \eta \setminus \langle K \rangle$.
 ∎
 ---
 
-<img src="assets/img/tenor.jpg" alt="booya"/>
+<img src="assets/img/tenor.gif" alt="booya"/>
  <!-- style="width: 600px"/> -->
 
 
