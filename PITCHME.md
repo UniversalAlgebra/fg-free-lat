@@ -512,9 +512,9 @@ Fix $\pmatrix{p\\\ q} \in \langle K \rangle$. Then $p, q \in C_u$ for some $u\in
   
 From the claim just proved and [Lemma 1](#lemma-1), 
 
-$\qquad \pmatrix{m\_{x, M+1}\\\ x}\in \eta \setminus \langle K \rangle$.
+$\qquad \pmatrix{m\_{x, M+1}\\\ x}\in \eta \setminus \langle K \rangle\qquad\qquad\qquad$ ∎
 
-∎
+
 ---
 
 <img src="assets/img/tenor.gif" alt="booya"/>
