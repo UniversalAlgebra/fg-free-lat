@@ -434,7 +434,7 @@ Define
 
 - $\{m_{u,i} : i<\omega\}$, by mutual recursion:
 
-  + $m_{0, i} = (m_{x,i} \wedge m_{y,i}) \vee (m_{x,i} \wedge m_{z,i})\vee (m_{y,i} \wedge m_{z,i})$;
+  $m_{0, i} = (m_{x,i} \wedge m_{y,i}) \vee (m_{x,i} \wedge m_{z,i})\vee (m_{y,i} \wedge m_{z,i})$;
 
   + $m_{u,0} = u$,  
     $m_{u, i+1} = m_{u, i}\vee m_{0,i}\qquad$ $(u \in \{x, y, z\})$
@@ -446,7 +446,7 @@ Define
 + **Lemma 1.** For $u \in \{0, x, y, z\}$, the sequence $\{m_{u,n} : n < \omega\}$ 
   is strictly ascending: 
 
-  $\qquad m_{u,0} < m_{u,1} < m_{u,2} < \cdots$
+  $m_{u,0} < m_{u,1} < m_{u,2} < \cdots$
 
 + **Lemma 2.** $(\forall u \in \{x, y, z\}) \, (\forall p \in C_u \cup C_0)$ 
 
@@ -471,7 +471,7 @@ Fix $u\in \{0, x, y, z\}$.
 Since $K$ finite, there exists $\exists M < \omega$ such that for all
 $\pmatrix{p\\\ q} \in K$
 
-$\qquad p, q \in C_u \quad \Longrightarrow \quad \pmatrix{p\\\ q} \leqslant m_{u, M}$.
+$p, q \in C_u \quad \Longrightarrow \quad \pmatrix{p\\\ q} \leqslant m_{u, M}$.
 
 ---
 
