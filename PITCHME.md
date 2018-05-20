@@ -31,20 +31,18 @@
 
 ### Motivation
 
-<img src="assets/img/MayrRuskuc.png" alt="Mayr-Ruškuc-paper" style="width: 300px; float: right"/>
-
-Mayr and Ruškuc, "Generating subdirect products", 2018.
-
-https://arxiv.org/pdf/1802.09325.pdf
-
-
+<img src="assets/img/MayrRuskuc.png" alt="Mayr-Ruškuc-paper" style="width: 150px"/>
+<!-- ; float: right"/> -->
+Mayr & Ruškuc  
+"Generating subdirect products" (2018) 
 
 ```bibtex
 @misc{1802.09325,
 Author = {Peter Mayr and Nik Ruskuc},
-Title = {Generating subdirect products},
-Year = {2018},
+ Title = {Generating subdirect products},
+  Year = {2018},
 Eprint = {arXiv:1802.09325},
+   URL = {https://arxiv.org/pdf/1802.09325.pdf}
 }
 ```
 
