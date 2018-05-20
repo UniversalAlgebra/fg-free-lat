@@ -8,3 +8,7 @@
     text-align: left;
     font-size: 0.6em;
 }
+.reveal section img {
+  border: 0;
+  box-shadow: none;
+}
