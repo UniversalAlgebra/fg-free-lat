@@ -495,7 +495,7 @@ Fix $\pmatrix{p\\\ q} \in \langle K \rangle$. Then $p, q \in C_u$ for some $u\in
   
   Assume $q_1\leqslant u$.
   
-  $∴\quad \text{ (IH) } \quad \Longrightarrow \quad p_1\leqslant m_{u, M}\quad \Longrightarrow \quad p = p_1\wedge p_2 \leqslant m_{u, M}$.
+  $∴\quad \text{ (IH) } \quad \Longrightarrow \quad p_1\leqslant m_{uM}\quad \Longrightarrow \quad p = p_1\wedge p_2 \leqslant m_{uM}$.
 
 ---
 
