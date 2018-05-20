@@ -303,7 +303,8 @@ Note: since $K$ is an arbitrary finite subset of $\ker h$, this will prove $\ker
 
 *With loss of generality*
 
-suppose there is a generator $x_0\in X$ of $\mathbf F$ in the unbounded class $h^{-1}\{y_0\}$ (ie, $h(x_0) = y_0$).
+suppose $\exists x_0\in X$ of $\mathbf F$ in an unbounded class $h^{-1}\{y_0\}$. 
+<!-- (ie, $h(x_0) = y_0$). -->
 
 **Claim 1.** $(\exists N<\omega) \; \bigl(\forall \pmatrix{p_i\\\ q_i}\in K\bigr)\;
 \bigl(p_i \geqslant x_0 \; \Longrightarrow \; q_i \geqslant \beta_N (y_0)\bigr)$.
@@ -335,7 +336,7 @@ Then $x_0 = x_0\wedge p_i$
   
   $\quad\text{ so } (\exists n>0) \, (x\_0 \wedge q\_i \geqslant\beta\_{n}y\_0)$. 
   
-  Let $N_i = n_i$ (so $q_i \geqslant \beta\_{N\_i}y\_0$).
+  Let $N\_i = n\_i$ (so $q\_i \geqslant \beta\_{N\_i}y\_0$).
 <!-- Therefore (since $\{\beta_i y_0\}$ is an infinite descending chain in $h^{-1}\{y_0\}$) -->
 
 ---
