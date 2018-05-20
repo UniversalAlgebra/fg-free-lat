@@ -64,9 +64,9 @@ $\quad (\forall y \in L)\; (\forall r \in h^{-1}\{y\})
 ---
 **Case 1.** Suppose $r = s \vee t$, where
 
-$\text{(Ind hyp)} \quad \bigl\\{\pmatrix{s\\\ \alpha {h(s)}}, \; 
+$\bigl\\{\pmatrix{s\\\ \alpha {h(s)}}, \; 
 \pmatrix{s\\\ \beta{h(s)}},\, \pmatrix{t\\\ \alpha {h(t)}},\;
-\pmatrix{t\\\ \beta{h(t)}}\bigr\\} \subseteq \langle K \rangle$
+\pmatrix{t\\\ \beta{h(t)}}\bigr\\} \subseteq \langle K \rangle \quad \text{(Ind hyp)}$
 
 Then $y = h (r) = h(s\vee t) = h (s)\vee h(t)$.
 
