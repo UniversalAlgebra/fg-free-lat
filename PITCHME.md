@@ -303,7 +303,7 @@ Note: since $K$ is an arbitrary finite subset of $\ker h$, this will prove $\ker
 
 *With loss of generality*
 
-suppose $\exists x_0\in X$ of $\mathbf F$ in an unbounded class $h^{-1}\{y_0\}$. 
+suppose $\exists x_0\in X$ in an unbounded class $h^{-1}\{y_0\}$. 
 <!-- (ie, $h(x_0) = y_0$). -->
 
 **Claim 1.** $(\exists N<\omega) \; \bigl(\forall \pmatrix{p_i\\\ q_i}\in K\bigr)\;
@@ -351,8 +351,7 @@ $(\star)  \qquad \qquad \qquad \qquad \qquad p_i \geqslant x_0 \quad \Longrighta
 
 This completes the proof of Claim 1.
 
------
-
+---
 
 **Claim 2.** $(\exists N < \omega) \, \bigl(\forall \pmatrix{p\\\ q} \in \langle K \rangle\bigr)$
 
@@ -373,7 +372,7 @@ $\pmatrix{p\\\ q}$.
 
 **Case 1.** Assume $\pmatrix{p\\\ q}= \pmatrix{p_1\\\ q_1}\wedge \pmatrix{p_2\\\ q_2}$ where $p_i$, $q_i$  satisfy ($\ast$). 
 
-Assume: $p\geqslant x_0.\qquad$  To show: $q \geqslant \beta_N(y_0)$
+Assume: $p\geqslant x_0.\qquad$  Want to show: $q \geqslant \beta_N(y_0)$
 
 Observe: $p = p_1 \wedge p_2 \geqslant x_0.\qquad$ ∴ $p_1 \geqslant x_0$ and $p_2 \geqslant x_0$.
 
@@ -403,10 +402,10 @@ Therefore, $q = q_1 \vee q_2 \geqslant q_1 \geqslant \beta_N(y_0)$.
 
 $\beta_0y_0 > \beta_1y_0 > \cdots$ is an infinite descending chain. 
 
-In particular $\beta_{N}y_0 > \beta_{N+1}y_0$. 
+In particular $\beta\_{N}y\_0 > \beta\_{N+1}y\_0$. 
 
 
-$∴\quad \pmatrix{x_0\\\ \beta_{N+1} y_0} \in \ker h \setminus \langle K\rangle$.
+$∴\quad \pmatrix{x\_0\\\ \beta\_{N+1} y\_0} \in \ker h \setminus \langle K\rangle$.
 
 Since $K$ was an arbitrary finite subset of $\ker h$, we're done.
 
@@ -432,25 +431,25 @@ Define
 
 - $\eta := \operatorname{ker} h$.
 
-- $C_u := u/\eta := \{v \in F : h(v) = h(u)\}\qquad$ $(u \in \{x, y, z\})$
+- $C_u := u/\eta := \\{v \in F : h(v) = h(u)\\}\qquad$ $(u \in \\{x, y, z\\})$
 
-- $\{m_{u,i} : i<\omega\}$, by mutual recursion:
+- $\\{m_{u,i} : i<\omega\\}$, by mutual recursion:
 
-  $m_{0, i} = (m_{x,i} \wedge m_{y,i}) \vee (m_{x,i} \wedge m_{z,i})\vee (m_{y,i} \wedge m_{z,i})$;
+  + $m\_{0, i} = (m\_{x,i} \wedge m\_{y,i}) \vee (m\_{x,i} \wedge m\_{z,i})\vee (m\_{y,i} \wedge m\_{z,i})$;
 
-  + $m_{u,0} = u$,  
-    $m_{u, i+1} = m_{u, i}\vee m_{0,i}\qquad$ $(u \in \{x, y, z\})$
+  + $m\_{u,0} = u$,  
+    $m\_{u, i+1} = m\_{u, i}\vee m\_{0,i}\qquad$ $(u \in \\{x, y, z\\})$
 
 ---
 
 #### Two key lemmas 
 
-+ **Lemma 1.** For $u \in \{0, x, y, z\}$, the sequence $\{m_{u,n} : n < \omega\}$ 
++ **Lemma 1.** For $u \in \\{0, x, y, z\\}$, the sequence $\\{m_{u,n} : n < \omega\\}$ 
   is strictly ascending: 
 
   $m_{u,0} < m_{u,1} < m_{u,2} < \cdots$
 
-+ **Lemma 2.** $(\forall u \in \{x, y, z\}) \, (\forall p \in C_u \cup C_0)$ 
++ **Lemma 2.** $(\forall u \in \\{x, y, z\\}) \, (\forall p \in C_u \cup C_0)$ 
 
   $\qquad (\exists n <\omega) \quad p\leqslant m_{u,n}$  
 
@@ -468,7 +467,7 @@ $m_{0, 0} = (x\wedge y) \vee (x\wedge z)\vee (y\wedge z)$ and $m_{x, i+1} = m_{x
 
 **To Show:** $\exists \pmatrix{p\\\ q} \in \eta \setminus \langle K \rangle$  
 
-Fix $u\in \{0, x, y, z\}$. 
+Fix $u\in \\{0, x, y, z\\}$. 
 
 Since $K$ finite, there exists $\exists M < \omega$ such that for all
 $\pmatrix{p\\\ q} \in K$
@@ -477,13 +476,13 @@ $p, q \in C_u \quad \Longrightarrow \quad \pmatrix{p\\\ q} \leqslant m_{u, M}$.
 
 ---
 
-**Claim.** For $\pmatrix{p\\\ q} \in \langle K \rangle$ and $u \in \{x, y, z\}$, the following implication holds:
+**Claim.** For $\pmatrix{p\\\ q} \in \langle K \rangle$ and $u \in \\{x, y, z\\}$, the following implication holds:
 
 $(\star) \quad \qquad q \leqslant u \quad \Longrightarrow \quad p\leqslant m_{u, M}$.
 
 **Proof.** (by induction on term complexity)
 
-Fix $\pmatrix{p\\\ q} \in \langle K \rangle$. Then $p, q \in C_u$ for some $u\in \{x, y, z\}$.
+Fix $\pmatrix{p\\\ q} \in \langle K \rangle$. Then $p, q \in C_u$ for some $u\in \\{x, y, z\\}$.
 
 + **Case 0.** $\pmatrix{p\\\ q}\in K$. Then by definition of $M$ we have $p, q \leqslant m_{u, M}$.
 
