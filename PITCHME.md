@@ -38,15 +38,15 @@ Note: for finite lattices, $h$ bounded simply means the preimage of each $y\in L
 
 ---
 
-@ul
-- For $y \in L$ let $\quad X_y := X\cap h^{-1}\{y\}\quad$
+For $y \in L$ 
 
-- Define the (finite) set of pairs in $\mathbf F \times \mathbf F$<p>
-$$K := \bigcup_{y \in L}\\{\pmatrix{x\\\ \alpha y},  \pmatrix{\alpha y\\\ x}, \pmatrix{x\\\ \beta y}, \pmatrix{\beta y\\\ x},  \pmatrix{\alpha y\\\ \beta y},  \pmatrix{\beta y\\\ \alpha y} \,: \,x \in X_y\\}.$$</p>
+$\quad X_y := X\cap h^{-1}\{y\}$
 
-- **Claim.** $K$ generates $\ker h$.
+Let $K$ be the following (finite) set of pairs in $\mathbf F \times \mathbf F$:
 
-@ulend
+$\quad K := \bigcup_{y \in L}\\{\pmatrix{x\\\ \alpha y},  \pmatrix{\alpha y\\\ x}, \pmatrix{x\\\ \beta y}, \pmatrix{\beta y\\\ x},  \pmatrix{\alpha y\\\ \beta y},  \pmatrix{\beta y\\\ \alpha y} \,: \,x \in X_y\\}.$
+
+**Claim.** $K$ generates $\ker h$.
 
 ---
 
