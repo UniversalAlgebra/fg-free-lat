@@ -33,11 +33,8 @@
 
 <!-- <img src="assets/img/MayrRuskuc.png" alt="Mayr-Ruškuc-paper" style="width: 150px; float: right"/>
  -->
-Mayr & Ruškuc  
-"Generating subdirect products" (2018) 
+Mayr & Ruškuc "Generating subdirect products" (2018) 
 
-<br>
-<br>
 <br>
 
 ```bibtex
@@ -49,6 +46,8 @@ Eprint = {arXiv:1802.09325},
    URL = {https://arxiv.org/pdf/1802.09325.pdf}
 }
 ```
+
+Example 7.5 and onward.
 
 ---
 
