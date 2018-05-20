@@ -291,7 +291,7 @@ Let $y_0\in L$ satisfy $\beta_0y_0 > \beta_1y_0 > \beta_2y_0 > \cdots$
 
 Let $K$ be a finite subset of $\ker h$, say, 
 
-$\bigl\\{\pmatrix{p_1 \\\ q_1}, \dots, \pmatrix{p_{m}\\\ q_{m}}\\} \subseteq \ker h$.
+$\bigl\\{\pmatrix{p\_1 \\\ q\_1}, \dots, \pmatrix{p\_{m}\\\ q\_{m}}\\} \subseteq \ker h$.
 
 We prove $\langle K \rangle \neq \ker h$. 
 
