@@ -319,10 +319,11 @@ Define $N_i$ as follows:
 
 ---  
 
-#### Case 1. $p_i\geqslant x_0$.
+#### Case 1. 
 
-  Then $x_0 = x_0\wedge p_i$ 
+**Assume:** $p_i\geqslant x_0$
 
+Then $x_0 = x_0\wedge p_i$
 
   $\quad\text{ so } y_0 = h(x_0) = h(x_0) \wedge h(p_i) \leqslant h(p_i)$ 
   
@@ -332,9 +333,9 @@ Define $N_i$ as follows:
   
   $\quad\text{ so } x_0\wedge q_i \in h^{-1}\{y_0\}$ 
   
-  $\quad\text{ so } (\exists n>0) \, (x_0 \wedge q_i \geqslant\beta_{n}y_0)$. 
+  $\quad\text{ so } (\exists n>0) \, (x\_0 \wedge q\_i \geqslant\beta\_{n}y\_0)$. 
   
-  Let $N_i = n_i$ (so $q_i \geqslant \beta_{N_i}y_0$).
+  Let $N_i = n_i$ (so $q_i \geqslant \beta\_{N\_i}y\_0$).
 <!-- Therefore (since $\{\beta_i y_0\}$ is an infinite descending chain in $h^{-1}\{y_0\}$) -->
 
 ---
