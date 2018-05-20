@@ -38,13 +38,13 @@ Note: for finite lattices, $h$ bounded simply means the preimage of each $y\in L
 
 ---
 
-For $y \in L$ 
+For $y \in L$, define
 
 $\quad X_y := X\cap h^{-1}\{y\}$
 
 Let $K$ be the following (finite) set of pairs in $\mathbf F \times \mathbf F$:
 
-$\quad K := \bigcup_{y \in L}\\{\pmatrix{x\\\ \alpha y},  \pmatrix{\alpha y\\\ x}, \pmatrix{x\\\ \beta y}, \pmatrix{\beta y\\\ x},  \pmatrix{\alpha y\\\ \beta y},  \pmatrix{\beta y\\\ \alpha y} \,: \,x \in X_y\\}.$
+$\bigcup_{y \in L}\\{\pmatrix{x\\\ \alpha y},  \pmatrix{\alpha y\\\ x}, \pmatrix{x\\\ \beta y}, \pmatrix{\beta y\\\ x},  \pmatrix{\alpha y\\\ \beta y},  \pmatrix{\beta y\\\ \alpha y} \,: \,x \in X_y\\}.$
 
 **Claim.** $K$ generates $\ker h$.
 
@@ -66,15 +66,13 @@ $\quad (\forall y \in L)\; (\forall r \in h^{-1}\{y\})
 
 $\text{(Ind hyp)} \quad \bigl\\{\pmatrix{s\\\ \alpha {h(s)}}, \; 
 \pmatrix{s\\\ \beta{h(s)}},\, \pmatrix{t\\\ \alpha {h(t)}},\;
-\pmatrix{t\\\ \beta{h(t)}}\bigr\\} \subseteq \langle K \rangle.$
+\pmatrix{t\\\ \beta{h(t)}}\bigr\\} \subseteq \langle K \rangle$
 
 Then 
 
 $\qquad y = h (r) = h(s\vee t) = h (s)\vee h(t)$
 
-so
-
-$\qquad h(\alpha {h(s)} \vee \alpha {h(t)})= h\alpha h(s) \vee h\alpha h(t)=
+∴ $\qquad h(\alpha {h(s)} \vee \alpha {h(t)})= h\alpha h(s) \vee h\alpha h(t)=
 h(s) \vee h(t) = y.$
 
 ---
