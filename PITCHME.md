@@ -493,22 +493,21 @@ Fix $\pmatrix{p\\\ q} \in \langle K \rangle$. Then $p, q \in C_u$ for some $u\in
   
   *Observe:* $q_1\leqslant u$ or $q_2\leqslant u$ (generators of free lattice are $\wedge$-prime) 
   
-  If $q_1\leqslant u$, then
+  Assume $q_1\leqslant u$.
   
-  $\text{ (IH) } \quad \Longrightarrow \quad p_1\leqslant m_{u, M}
-   \quad \Longrightarrow \quad p = p_1\wedge p_2 \leqslant m_{u, M}$.
+  $∴\quad \text{ (IH) } \quad \Longrightarrow \quad p_1\leqslant m_{u, M}\quad \Longrightarrow \quad p = p_1\wedge p_2 \leqslant m_{u, M}$.
 
 ---
 
-+ **Case 2.** $\pmatrix{p\\\ q} = \pmatrix{p_1\\\ q_1} \vee \pmatrix{p_2\\\ q_2}$,
-  where each
-  $\pmatrix{p_i\\\ q_i}$ satisfies ($\star$).
++ **Case 2.** 
+  $\pmatrix{p\\\ q} = \pmatrix{p_1\\\ q_1} \vee \pmatrix{p_2\\\ q_2}$,
+  where each $\pmatrix{p_i\\\ q_i}$ satisfies ($\star$).
   
   *Assume:* $q= q_1 \vee q_2 \leqslant u$.
 
   *Observe:* $q_i \leqslant u$ for $i = 1, 2$.
 
-$∴\quad \text{ (IH) } \quad \Longrightarrow \quad p_1, p_2 \leqslant m_{u, M} \quad \Longrightarrow \quad p = p_1 \vee p_2 \leqslant m_{u, M}$.
+  $∴\quad \text{ (IH) } \quad \Longrightarrow \quad p_1,p_2 \leqslant m_{u,M} \quad \Longrightarrow \quad p = p_1\vee p_2 \leqslant m_{u,M}$.
   
 From the claim just proved, and [Lemma 1](#lemma-1), 
 
