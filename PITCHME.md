@@ -508,7 +508,7 @@ Fix $\pmatrix{p\\\ q} \in \langle K \rangle$. Then $p, q \in C_u$ for some $u\in
 
   *Observe:* $q_i \leqslant u$ for $i = 1, 2$.
 
-  ∴ $\quad \text{ (IH) } \quad \Longrightarrow \quad p_1, p_2 \leqslant m_{u, M} \quad \Longrightarrow \quad p = p_1 \vee p_2 \leqslant m_{u, M}$.
+  ∴ $\text{(IH)} \quad \Longrightarrow \quad p_1, p_2 \leqslant m_{u, M} \quad \Longrightarrow \quad p = p_1 \vee p_2 \leqslant m_{u, M}$.
   
 From the claim just proved, and [Lemma 1](#lemma-1), 
 
