@@ -66,7 +66,7 @@ $\quad (\forall y \in L)\; (\forall r \in h^{-1}\{y\})
 
 $\bigl\\{\pmatrix{s\\\ \alpha {h(s)}}, \; 
 \pmatrix{s\\\ \beta{h(s)}},\, \pmatrix{t\\\ \alpha {h(t)}},\;
-\pmatrix{t\\\ \beta{h(t)}}\bigr\\} \subseteq \langle K \rangle \quad \text{(Ind hyp)}$
+\pmatrix{t\\\ \beta{h(t)}}\bigr\\} \subseteq \langle K \rangle \quad \text{(Ind Hyp)}$
 
 Then $y = h (r) = h(s\vee t) = h (s)\vee h(t)$.
 
@@ -75,15 +75,9 @@ h(s) \vee h(t) = y.$
 
 ---
 
-Similarly
+Similarly $\qquad h(\beta{h(s)} \vee \beta {h(t)})= h(s) \vee h(t) = y$.
 
-$\qquad h(\beta{h(s)} \vee \beta {h(t)})= h(s) \vee h(t) = y$
-
-so
-
-$\qquad \beta y \leqslant \beta h(s) \vee \beta h(t) \leqslant \alpha {h(s)} \vee \alpha {h(t)} \leqslant \alpha y.$
-<!-- 
-Also $r \leqslant \alpha y$, so $r = \alpha y \wedge (s\vee t)$.   -->
+∴ $\qquad \beta y \leqslant \beta h(s) \vee \beta h(t) \leqslant \alpha {h(s)} \vee \alpha {h(t)} \leqslant \alpha y.$
 
 Therefore
 
@@ -93,6 +87,8 @@ $\begin{pmatrix}r \\\ \beta y \end{pmatrix} =
 
 $\qquad\quad = \pmatrix{\alpha y\\\ \beta y} \wedge 
 \left[\pmatrix{s\\\ \beta {h(s)}} \vee \pmatrix{t\\\ \beta {h(t)}}\right]\in \langle K \rangle.$
+
+Note: Also $r \leqslant \alpha y$, so $r = \alpha y \wedge (s\vee t)$.
 
 ---
 
