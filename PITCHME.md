@@ -31,10 +31,17 @@
 
 ### Motivation
 
-<img src="assets/img/MayrRuskuc.png" alt="Mayr-Ruškuc-paper" style="width: 150px"/>
-<!-- ; float: right"/> -->
+<img src="assets/img/MayrRuskuc.png" alt="Mayr-Ruškuc-paper" style="width: 150px; float: right"/>
+
 Mayr & Ruškuc  
 "Generating subdirect products" (2018) 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ```bibtex
 @misc{1802.09325,
