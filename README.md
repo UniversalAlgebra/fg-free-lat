@@ -100,7 +100,7 @@ Let $x_0\in X$ be a generator of $\mathbf F$ that belongs to the class $h^{-1}\{
 
 *Proof:* Fix $i$ and $(p_i, q_i) \in K$ (so, $h(p_i) = h(q_i)$). Define $N_i$ as follows:
 
-+ *Case 0:* If $p_i \ngeq x_0$, let $N_i = 0$.  
++ *Case 0:* If $\neg (p_i \geq x_0)$, let $N_i = 0$.  
 
 + *Case 1:* If $p_i\geq x_0$, then $x_0 = x_0\wedge p_i$, so $y_0 = h(x_0) = h(x_0) \wedge h(p_i) \leq h(p_i)$, so $y_0\leq h(q_i)$. Also, $h(x_0 \wedge q_i) = h(x_0) \wedge h(q_i) = y_0$, so $x_0\wedge q_i \in h^{-1}\{y_0\}$. Therefore (since $\{\beta_i(y_0)\}$ is an infinite descending chain in $h^{-1}\{y_0\}$) there exists $n_i>0$ such that $x_0 \wedge q_i \geq\beta_{n}(y_0)$. Let $N_i = n_i$ in this case (so $q_i \geq \beta_{N_i}(y_0)$).
 
@@ -191,7 +191,7 @@ For each $u \in \{0, x, y, z\}$, the sequence $\{m_{u,n} : n \in \mathbb N\}$ is
 
   *Subclaim.* For all $n\in \mathbb N$,
   1. $m_{x,n}\in C_x$, 
-  2. $m_{x,n}\ngeq y$, and $m_{x,n}\ngeq z$.
+  2. $\neg(m_{x,n}\geq y)$ and $\neg(m_{x,n}\geq z)$.
 
   The first subclaim is obvious. For the second, if $m_{x,n}\geq y$, then $m_{x,n}\wedge y = y$, and then $0 = h(m_{x,n}\wedge y) = h(y) = b$.  A similar contradiction is reach if we assume $m_{x,n}\geq z$, so the subclaim is proved.
 
