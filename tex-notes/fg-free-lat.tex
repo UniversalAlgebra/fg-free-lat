@@ -174,6 +174,8 @@ MRREVIEWER = {James B. Nation},
 
 \usepackage[mathcal]{euscript}
 \usepackage{comment}
+\usepackage{tikz}
+\usetikzlibrary{math} %needed tikz library
 
 \renewcommand{\th}[2]{#1\mathrel{\theta}#2}
 \newcommand{\infixrel}[3]{#2\mathrel{#1}#3}
@@ -494,8 +496,9 @@ For each $u \in \{0, x, y, z\}$, the sequence $\{m_{u,n} : n \in \mathbb N\}$ is
   $m_{0, n+1} := (m_{x,n+1} \wedge m_{y,n+1}) \vee (m_{x,n+1} \wedge m_{z,n+1})\vee (m_{y,n+1} \wedge m_{z,n+1})$,
 
   By the first Case above, $m_{u,n} < m_{u,n+1}$.
-
 \end{proof}
+
+\pagebreak
 
 \begin{lemma}\label{lem:2} %##### Lemma 2
 For all $u \in \{x, y, z\}$ and $p \in C_u \cup C_0$ there exists $n \in \mathbb N$ such that $p\leqslant m_{u,n}$.  
@@ -530,13 +533,71 @@ The symbol $F$ denotes the universe of $\mathbf{F}$.
 Then the kernel of an epimorphism $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ is a finitely generated sublattice of $\mathbf{F} \times \mathbf{F}$.
 \item[{\bf Ex 2.}] Let $X = \{x, y, z\}$ and let $\mathbf{L} = \mathbf{3}$ be the 3-element chain.    
 Then the kernel of an epimorphism $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ is finitely generated.
-\item[{\bf Ex 4.}] Let $n > 2$, $X = \{x_0, x_1,\dots, x_{n-1}\}$, and $\mathbf{L} = \mathbf{2} \times \mathbf{2}$.  
+\item[{\bf Ex 3.}] Let $n > 2$, $X = \{x_0, x_1,\dots, x_{n-1}\}$, and $\mathbf{L} = \mathbf{2} \times \mathbf{2}$.  
 Let $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ be an epimorphism. Then $K = \operatorname{ker}h$ is finitely generated.  
+\item[{\bf Ex 4.}] Let $\mathbf{F} = \mathbf{F}(x,y,z)$, and let $\mathbf{L} = \mathbf{F}_{\mathbf{M}_3}(3)$ (see Figure~\ref{fig:1}).  
+Let $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ be an epimorphism. Then $K = \operatorname{ker}h$ is not finitely generated.  
 \end{itemize}
+
+\newcommand{\dotsize}{0.8pt}
+\tikzstyle{lat} = [circle,draw,inner sep=\dotsize]
+\newcommand{\figscale}{1}
+\begin{figure}
+\begin{tikzpicture}[scale=\figscale]
+  \foreach \j in {0,...,8} {
+    \node[lat] (0\j) at (0,\j) {};
+  }
+  \foreach \j in {1,2,4,6,7} {
+    \node[lat] (n1\j) at (-1,\j) {};
+    \node[lat] (1\j) at (1,\j) {};
+  }
+  \foreach \j in {3,5} {
+    \node[lat] (n2\j) at (-2,\j) {};
+    \node[lat] (2\j) at (2,\j) {};
+  }
+  \node[lat] (n34) at (-3,4) {};
+  \node[lat] (34) at (3,4) {};
+
+  \draw[semithick] (00) -- (01);
+  \draw[semithick] (02) -- (03) -- (04) -- (05) -- (06);
+  \draw[semithick] (07) -- (08);
+  \draw[semithick] (n16) -- (n17);
+  \draw[semithick] (16) -- (17);
+  \draw[semithick] (n11) -- (n12);
+  \draw[semithick] (11) -- (12);
+
+  \draw[semithick] (00) -- (n11) -- (02) -- (11) -- (00);
+  \draw[semithick] (06) -- (n17) -- (08) -- (17) -- (06);
+
+  \draw[semithick] (01) -- (n12) -- (n23) -- (n34);
+  \draw[semithick] (01) -- (12) -- (23) -- (34);
+  \draw[semithick] (12) -- (03) -- (n14) -- (n25);
+  \draw[semithick] (n12) -- (03) -- (14) -- (25);
+  \draw[semithick] (23) -- (14) -- (05) -- (n16);
+  \draw[semithick] (n23) -- (n14) -- (05) -- (16);
+  \draw[semithick] (34) -- (25) -- (16) -- (07);
+  \draw[semithick] (n34) -- (n25) -- (n16) -- (07);
+
+  \node[lat] (n13) at (-1,3) {};
+  \node[lat] (n15) at (-1,5) {};
+  \node[lat] (n24) at (-2,4) {};
+  \draw[thick,red] (02) -- (n13) -- (n24) -- (n15) -- (06);
+  \draw[thick,red] (n13) -- (04) -- (n15);
+
+  \node (x) at (-3,4) [circle,fill,inner sep=\dotsize]{};
+  \node (y) at (3,4) [circle,fill,inner sep=\dotsize]{};
+  \node (z) at (-2,4) [circle,fill,inner sep=\dotsize]{};
+  \draw (x) node[left] {$x$};
+  \draw (y) node[right] {$y$};
+  \draw (z) node[left] {$z$};
+  \end{tikzpicture}
+  \caption{The free lattice over $M_3$.}
+  \label{fig:1}
+\end{figure}
 
 \medskip
 
-\noindent {\it Proof of Ex 4.} Let the universe of $\mathbf{L} = \mathbf{2} \times \mathbf{2}$ be $\{0, a, b, 1\}$, where $a\vee b = 1$ and $a\wedge b = 0$.  
+\noindent {\it Proof of claim in Ex 3.} Let the universe of $\mathbf{L} = \mathbf{2} \times \mathbf{2}$ be $\{0, a, b, 1\}$, where $a\vee b = 1$ and $a\wedge b = 0$.  
 For each $y \in L$, denote by $X_y = X \cap h^{-1}\{y\}$ the set of generators mapped by $h$ to $y$. 
 Denote the least and greatest elements of $h^{-1}\{y\}$ (if they exist) by $\ell_y$ and $g_y$, respectively.  For example, 
 $\ell_a = \bigwedge h^{-1}\{a\} = \bigwedge \{x\in F: h(x) = a\},\;$ $\quad g_b = \bigvee \{x\in F : h(x) = b\},\quad$ etc. 
@@ -544,22 +605,22 @@ In the present example, the least and greatest elements exist is each case, as w
 
 \medskip
 
-\noindent {\it Claim 4.1.} $h^{-1}\{a\}$ has least and greatest elements, namely $\ell_a = \bigwedge (X_a \cup X_1)$ and $g_a = \bigvee (X_a\cup X_0)$.  (Similarly, 
+\noindent {\it Claim 3.1.} $h^{-1}\{a\}$ has least and greatest elements, namely $\ell_a = \bigwedge (X_a \cup X_1)$ and $g_a = \bigvee (X_a\cup X_0)$.  (Similarly, 
 $h^{-1}\{b\}$ has least and greatest elements, $\ell_b$ and $g_b$.)
 
 \bigskip
 
 
-\noindent {\it Claim 4.2.} $h^{-1}\{0\}$ has least and greatest elements, 
+\noindent {\it Claim 3.2.} $h^{-1}\{0\}$ has least and greatest elements, 
 namely, $\ell_0 = \bigwedge X$ and $g_0 = g_a \wedge g_b$.
 
 \bigskip
 
-\noindent {\it Claim 4.3.} $h^{-1}\{1\}$ has least and greatest elements, namely $\ell_1 = \ell_a \vee \ell_b$ and $g_1 = \bigvee X$.
+\noindent {\it Claim 3.3.} $h^{-1}\{1\}$ has least and greatest elements, namely $\ell_1 = \ell_a \vee \ell_b$ and $g_1 = \bigvee X$.
 
 \medskip
 
-\noindent {\it Proof of Claim 4.1.}
+\noindent {\it Proof of Claim 3.1.}
 Let $M(a):=\bigwedge (X_a\cup X_1)$ and $J(a):=\bigvee (X_a\cup X_0)$ and 
 note that these values exist in $F$, since the sets involved are finite. Also, 
 Then $h(M(a)) = a = h(J(a))$. Fix $r \in h^{-1}\{a\}$.  
@@ -581,7 +642,7 @@ Similarly, every $r \in h^{-1}\{a\}$ is below $J(a)$, so $g_a = J(a)$.  The proo
 
 \medskip
 
-\noindent {\it Proof of Claim 4.2.}
+\noindent {\it Proof of Claim 3.2.}
 $\ell_0 = \bigwedge X$ is obvious, so we need only verify that $g_0 = g_a \wedge g_b$. 
 Observe that $h(g_a \wedge g_b) = h(g_a) \wedge h(g_b) = a \wedge b = 0$, so 
 $g_a \wedge g_b \in h^{-1}\{0\}$. It remains to prove that $r \leqslant g_a \wedge g_b$ holds for all $r \in h^{-1}\{0\}$.
@@ -591,7 +652,7 @@ $r\leqslant g_a$.  Similarly, $r\leqslant g_b$.
 
 \medskip
 
-\noindent {\it Proof of Claim 4.3.}
+\noindent {\it Proof of Claim 3.3.}
 $g_1 = \bigvee X$ is obvious, so we need only verify that $\ell_1 = \ell_a \vee \ell_b$. 
 Observe that $h(\ell_a \vee \ell_b) = h(\ell_a) \vee h(\ell_b) = a \vee b = 1$, so 
 $\ell_a \vee \ell_b \in h^{-1}\{1\}$. It remains to prove that $r \geqslant \ell_a \vee \ell_b$ holds for all $r \in h^{-1}\{1\}$.
@@ -601,7 +662,7 @@ $r\geqslant \ell_a$.  Similarly, $r\geqslant \ell_b$.
 Now let $Y = \{(x, g_p), (g_p, x), (x, \ell_p),(\ell_p, x) : p \in \{0, a, b, 1\}, x \in X_p\}$.
 
 \medskip
-\noindent {\it Claim 4.} If $r \in F$ and $h(r) = p$, then $(r, \ell_p), (r, g_p) \in \langle Y \rangle$.
+\noindent {\it Claim 3.4.} If $r \in F$ and $h(r) = p$, then $(r, \ell_p), (r, g_p) \in \langle Y \rangle$.
 
 \noindent {{\it Proof.}\\
   \noindent {\it Case 0.} If $r \in X_p$, then the pair belongs to $Y$ and the claim is trivial.
@@ -650,7 +711,13 @@ Similarly, in each of the Subcases 1.1--1.3, we have $(r, g_p) \in \langle Y \ra
   \end{itemize}
 Similarly, in each of the Subcases 2.1--2.3, we have $(r, g_p) \in \langle Y \rangle$.
 
+
 \bigskip
+
+
+\noindent {\it Proof of claim in Ex 4.} 
+
+{\bf To Do:} fill in proof.
 
   \appendix
 
