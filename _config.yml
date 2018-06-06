@@ -1,0 +1,6 @@
+mathjax: TeX-MML-AM_HTMLorMML-full
+footnote: "EMAIL:  williamdemeo@gmail.com | URL: https://github.com/UniversalAlgebra/fg-free-lat"
+theme-override: css/PITCHME.css
+revealjs: 3.4.1
+
+highlighter: rouge
