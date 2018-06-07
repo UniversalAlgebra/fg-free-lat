@@ -132,14 +132,14 @@ MRREVIEWER = {James B. Nation},
 \def\OPTbindingoffset{0.35in} % Extra offset on the inner side
 %% \def\OPToutermargin{0.75in}   % Margin on the outer side of the page
 \def\OPToutermargin{1in}   % Margin on the outer side of the page
-\usepackage[papersize={\OPTpagesize},
-            twoside,
-            includehead,
-            top=\OPTtopmargin,
-            bottom=\OPTbottommargin,
-            inner=\OPTinnermargin,
-            outer=\OPToutermargin,
-            bindingoffset=\OPTbindingoffset]{geometry}
+% \usepackage[papersize={\OPTpagesize},
+%             twoside,
+%             includehead,
+%             top=\OPTtopmargin,
+%             bottom=\OPTbottommargin,
+%             inner=\OPTinnermargin,
+%             outer=\OPToutermargin,
+%             bindingoffset=\OPTbindingoffset]{geometry}
 \usepackage{url,amssymb,enumerate,tikz,scalefnt}
 \usepackage[normalem]{ulem} % for \sout (strikeout)   wjd: could remove this in final draft
 \usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
@@ -167,7 +167,9 @@ MRREVIEWER = {James B. Nation},
 \usepackage{pdfcomment}
 \usepackage{color}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{mathtools}
 \usepackage{amscd}
 %% \usepackage{exers}
 \usepackage{inputs/wjdlatexmacs}
@@ -498,7 +500,6 @@ For each $u \in \{0, x, y, z\}$, the sequence $\{m_{u,n} : n \in \mathbb N\}$ is
   By the first Case above, $m_{u,n} < m_{u,n+1}$.
 \end{proof}
 
-\pagebreak
 
 \begin{lemma}\label{lem:2} %##### Lemma 2
 For all $u \in \{x, y, z\}$ and $p \in C_u \cup C_0$ there exists $n \in \mathbb N$ such that $p\leqslant m_{u,n}$.  
@@ -595,9 +596,11 @@ Let $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ be an epimorphism. Then $
   \label{fig:1}
 \end{figure}
 
-\medskip
+\bigskip
+\hrule
+\bigskip
 
-\noindent {\it Proof of claim in Ex 3.} Let the universe of $\mathbf{L} = \mathbf{2} \times \mathbf{2}$ be $\{0, a, b, 1\}$, where $a\vee b = 1$ and $a\wedge b = 0$.  
+\noindent {\bf Proof of the claim in Ex 3.} Let the universe of $\mathbf{L} = \mathbf{2} \times \mathbf{2}$ be $\{0, a, b, 1\}$, where $a\vee b = 1$ and $a\wedge b = 0$.  
 For each $y \in L$, denote by $X_y = X \cap h^{-1}\{y\}$ the set of generators mapped by $h$ to $y$. 
 Denote the least and greatest elements of $h^{-1}\{y\}$ (if they exist) by $\ell_y$ and $g_y$, respectively.  For example, 
 $\ell_a = \bigwedge h^{-1}\{a\} = \bigwedge \{x\in F: h(x) = a\},\;$ $\quad g_b = \bigvee \{x\in F : h(x) = b\},\quad$ etc. 
@@ -618,7 +621,6 @@ namely, $\ell_0 = \bigwedge X$ and $g_0 = g_a \wedge g_b$.
 
 \noindent {\it Claim 3.3.} $h^{-1}\{1\}$ has least and greatest elements, namely $\ell_1 = \ell_a \vee \ell_b$ and $g_1 = \bigvee X$.
 
-\medskip
 
 \noindent {\it Proof of Claim 3.1.}
 Let $M(a):=\bigwedge (X_a\cup X_1)$ and $J(a):=\bigvee (X_a\cup X_0)$ and 
@@ -672,16 +674,13 @@ Now let $Y = \{(x, g_p), (g_p, x), (x, \ell_p),(\ell_p, x) : p \in \{0, a, b, 1\
   \noindent {\it Case 1.} Suppose $r = s \wedge t$.
 
   \begin{itemize}
-  \item[{\it Subcase 1.1.}]
-  $h(r) = 1$ implies $h(s) = h(t) = 1$.  If we assume (the induction hypothesis) that $(s, \ell_1), (s, g_1), (t, \ell_1), (t, g_1)$ belong to $\langle Y \rangle$, then $(r, \ell_1) = (s \wedge t, \ell_1) =  (s, \ell_1) \wedge (t, \ell_1) \in \langle Y \rangle$. 
+  \item If $h(r) = 1$, then $h(s) = h(t) = 1$.  If we assume (the induction hypothesis) that $(s, \ell_1), (s, g_1), (t, \ell_1), (t, g_1)$ belong to $\langle Y \rangle$, then $(r, \ell_1) = (s \wedge t, \ell_1) =  (s, \ell_1) \wedge (t, \ell_1) \in \langle Y \rangle$. 
   
-\item[{\it Subcase 1.2.}]
-  $h(r) = a$ implies (wlog) $h(s) = a$ and $h(t) \in \{a, 1\}$.  Assume (the induction hypothesis) that $(s, \ell_a), (s, g_a), (t, \ell_p), (t, g_p)$ belong to $\langle Y \rangle$. By Claim 1, $\ell_a \leqslant \ell_1$, so $\ell_a = \ell_a \wedge \ell_1$.\\
+\item If $h(r) = a$, then (wlog) $h(s) = a$ and $h(t) \in \{a, 1\}$.  Assume (the induction hypothesis) that $(s, \ell_a), (s, g_a), (t, \ell_p), (t, g_p)$ belong to $\langle Y \rangle$. By Claim 1, $\ell_a \leqslant \ell_1$, so $\ell_a = \ell_a \wedge \ell_1$.\\
   - If $h(t) = 1$, then $(r, \ell_a) = (s \wedge t, \ell_a \wedge \ell_1) =  (s, \ell_a) \wedge (t, \ell_1) \in \langle Y \rangle$.\\
   - If $h(t) = a$, then $(r, \ell_a) = (s \wedge t, \ell_a \wedge \ell_a) =  (s, \ell_a) \wedge (t, \ell_a) \in \langle Y \rangle$.
   
-\item[{\it Subcase 1.3.}]
-  $h(r) = 0$ implies (wlog) that either (i) $h(s) = 0$, or (ii) $h(s) = a$, $h(t)=b$.  
+\item If $h(r) = 0$, then (wlog) that either (i) $h(s) = 0$, or (ii) $h(s) = a$, $h(t)=b$.  
   If $h(s) = 0$, then $(s, \ell_0) \in \langle Y \rangle$ implies 
   $(r, \ell_0) = (s \wedge t, \ell_0) =  (s, \ell_0) \wedge (t, \ell_p) \in \langle Y \rangle$. If 
   If $h(s) = a$, $h(t) = b$, and
@@ -689,19 +688,16 @@ Now let $Y = \{(x, g_p), (g_p, x), (x, \ell_p),(\ell_p, x) : p \in \{0, a, b, 1\
   $(r, \ell_0) = (s \wedge t, \ell_0) =  (s, \ell_a) \wedge (t, \ell_b) \in \langle Y \rangle$.
   
   \end{itemize}
-Similarly, in each of the Subcases 1.1--1.3, we have $(r, g_p) \in \langle Y \rangle$.
+Similarly, in each of these three subcases we have $(r, g_p) \in \langle Y \rangle$.
 
   \medskip
 \noindent {\it Case 2.} Suppose $r = s \vee t$.
   \begin{itemize}
-  \item[{\it Subcase 2.1.}]
-  $h(r) = 0$ implies $h(s) = h(t) = 0$.  If we assume (the induction hypothesis) that $(s, \ell_p), (s, g_p), (t, \ell_p), (t, g_p)$ belong to $\langle Y \rangle$, then $(r, \ell_p) = (s \vee t, \ell_p) =  (s, \ell_p) \vee (t, \ell_p) \in \langle Y \rangle$. 
+  \item If $h(r) = 0$, then $h(s) = h(t) = 0$.  If we assume (the induction hypothesis) that $(s, \ell_p), (s, g_p), (t, \ell_p), (t, g_p)$ belong to $\langle Y \rangle$, then $(r, \ell_p) = (s \vee t, \ell_p) =  (s, \ell_p) \vee (t, \ell_p) \in \langle Y \rangle$. 
 
-  \item[{\it Subcase 2.2.}]
-  $h(r) = a$ implies (wlog) $h(s) = a$ and $h(t) \in \{a, 0\}$.  If we assume (the induction hypothesis) that $(s, \ell_p), (s, g_p), (t, \ell_p), (t, g_p)$ belong to $\langle Y \rangle$, then $(r, \ell_p) = (s \vee t, \ell_p) =  (s, \ell_p) \vee (t, \ell_p) \in \langle Y \rangle$. 
+  \item If $h(r) = a$, then (wlog) $h(s) = a$ and $h(t) \in \{a, 0\}$.  If we assume (the induction hypothesis) that $(s, \ell_p), (s, g_p), (t, \ell_p), (t, g_p)$ belong to $\langle Y \rangle$, then $(r, \ell_p) = (s \vee t, \ell_p) =  (s, \ell_p) \vee (t, \ell_p) \in \langle Y \rangle$. 
 
-  \item[{\it Subcase 2.3.}]
-  $h(r) = 1$ implies (wlog) that either (i) $h(s) = 1$, or (ii) $h(s) = a$, $h(t)=b$.\\
+  \item If $h(r) = 1$, then (wlog) that either (i) $h(s) = 1$, or (ii) $h(s) = a$, $h(t)=b$.\\
   - If $h(s) = 1$, then $(s, \ell_1) \in \langle Y \rangle$ implies 
   $(r, \ell_1) = (s \vee t, \ell_1) =  (s, \ell_1) \vee (t, \ell_p) \in \langle Y \rangle$.\\
   - If $h(s) = a$, $h(t) = b$, and
@@ -709,15 +705,71 @@ Similarly, in each of the Subcases 1.1--1.3, we have $(r, g_p) \in \langle Y \ra
   $(r, \ell_1) = (s \vee t, \ell_1) =  (s, \ell_a) \vee (t, \ell_b) \in \langle Y \rangle$.
 
   \end{itemize}
-Similarly, in each of the Subcases 2.1--2.3, we have $(r, g_p) \in \langle Y \rangle$.
+Similarly, in each of these three subcases, we have $(r, g_p) \in \langle Y \rangle$.
+
+
+\bigskip
+
+\hrule
 
 
 \bigskip
 
 
-\noindent {\it Proof of claim in Ex 4.} 
+\noindent {\bf Proof of the claim in Ex 4.} 
+Define the sequences $\{m_n\}$, $\{x_n\}$, $\{y_n\}$, $\{z_n\}$ ($n< \omega$) of elements of $\mathbf{F}(X)$ as follows: 
 
-{\bf To Do:} fill in proof.
+Let  $x_0 = x$, $y_0 = y$, $z_0 = z$, and for $n\geqslant 0$, 
+\begin{align*}
+  m_n &= (x_n \wedge y_n) \vee (x_n \wedge z_n) \vee (y_n \wedge z_n);\\
+  % m_0 &= (m_{x0}\wedge m_{y0}) \vee (m_{x0} \wedge m_{z0}) \vee (m_{y0} \wedge m_{z0})= (x\wedge y) \vee (x \wedge z) \vee (y \wedge z);\\
+  % m_{x1} &= x\vee m_0 = x \vee (y \wedge z), \; \text{ Define $m_{y1}$ and $m_{z1}$ similarly;}\\
+  x_{n+1} &= x_n\vee m_n = x_n \vee (y_n \wedge z_n).
+\end{align*}
+Define $y_{n+1}$ and $z_{n+1}$ similarly.
+
+\bigskip
+
+\noindent \underline{Claim 4.1} If $\{s_n\}$ is any one of the four sequences just defined, then for $n>0$, we have $s_{n+1} > s_n$ and $h(s_{n+1}) = h(s_n)$.
+
+\medskip
+
+\wjd{fill in proof}
+%\noindent {\bf To Do:} Prove Claim 4.1.
+
+\bigskip
+
+\noindent \underline{Claim 4.2} If $\{s_n\}$ is any one of the four sequences just defined, then for $n>0$, we have $s_{n+1} > s_n$ and $h(s_{n+1}) = h(s_n)$.
+
+\medskip
+
+\wjd{fill in proof}
+%\noindent {\bf To Do:} Prove Claim 4.2.
+
+\bigskip
+
+\noindent For now, let's assume Claims 4.1 and 4.2 are true.
+
+\medskip
+
+\noindent Let $K$ be a finite subset of $\ker h$.  Since $K$ is finite, we can find an $N < \omega$ such that for all $\binom{p}{q} \in K$, if $p \leqslant x_1$ and $p \nleqslant y_1 \wedge z_1$, then $q \leqslant x_N$.
+
+\medskip
+
+\noindent \underline{Claim 4.3} If $N$ is chosen as just described, and if $\binom{p}{q} \in \langle K \rangle$ is such that $p \leqslant x_1$ and $p\nleqslant y_1 \wedge z_1$, then $q \leq x_N$.
+
+\medskip
+
+\noindent {\bf Proof of Claim 4.3.}
+
+\wjd{fill in proof}
+
+\bigskip
+
+
+\bigskip
+\hrule
+\bigskip
 
   \appendix
 
