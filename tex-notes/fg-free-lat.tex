@@ -501,7 +501,7 @@ For each $u \in \{0, x, y, z\}$, the sequence $\{m_{u,n} : n \in \mathbb N\}$ is
 \end{proof}
 
 
-\begin{lemma}\label{lem:2} %##### Lemma 2
+\begin{lemma}\label{lem:2} %##### Lemma 2 
 For all $u \in \{x, y, z\}$ and $p \in C_u \cup C_0$ there exists $n \in \mathbb N$ such that $p\leqslant m_{u,n}$.  
 \end{lemma}
 
@@ -750,19 +750,75 @@ Define $y_{n+1}$ and $z_{n+1}$ similarly.
 
 \noindent For now, let's assume Claims 4.1 and 4.2 are true.
 
+\newpage
+
+\noindent Let $K$ be a finite subset of $\ker h$.  Since $K$ is finite, we can find an $N < \omega$ such that for all $\binom{p}{q} \in K$, the following implications are satisfied:
+\begin{align}
+p &\leqslant x \quad \Longrightarrow \quad q \leqslant x_N\nonumber\\
+p &\leqslant y \quad \Longrightarrow \quad q \leqslant y_N\label{eq:imp1}\\
+p &\leqslant z \quad \Longrightarrow \quad q \leqslant z_N\nonumber
+\end{align}
+\begin{align}
+p &\leqslant x \vee (y \wedge z) \quad \Longrightarrow \quad q \leqslant x_{N+1}\nonumber\\
+p &\leqslant y \vee (x \wedge z) \quad \Longrightarrow \quad q \leqslant y_{N+1}\label{eq:imp2}\\
+p &\leqslant z \vee (x \wedge y) \quad \Longrightarrow \quad q \leqslant z_{N+1}\nonumber
+\end{align}
+
 \medskip
 
-\noindent Let $K$ be a finite subset of $\ker h$.  Since $K$ is finite, we can find an $N < \omega$ such that for all $\binom{p}{q} \in K$, if $p \leqslant x_1$ and $p \nleqslant y_1 \wedge z_1$, then $q \leqslant x_N$.
+\noindent {\bf Claim 4.3} If $N$ is chosen as just described, and if $\binom{p}{q} \in \langle K \rangle$ then the implications~\ref{eq:imp1} and~\ref{eq:imp2} hold.
+
+\begin{proof}
+  As usual, we proceed by induction on term complexity.
+If $\binom{p}{q} \in K$, then by choice of $N$, there is nothing to prove.
 
 \medskip
+\noindent {\it Case 1.} Suppose $\binom{p}{q} = \binom{p_1}{q_1} \vee \binom{p_2}{q_2}$, where $\binom{p_1}{q_1}$ and $\binom{p_2}{q_2}$ satisfy~(\ref{eq:imp1}) and~(\ref{eq:imp2}). We show that $\binom{p}{q}$ satisfies these two implications as well.
+Recall, in the notation above, $x_1:=x \vee (y \wedge z)$.
 
-\noindent \underline{Claim 4.3} If $N$ is chosen as just described, and if $\binom{p}{q} \in \langle K \rangle$ is such that $p \leqslant x_1$ and $p\nleqslant y_1 \wedge z_1$, then $q \leq x_N$.
+
+Assume $p\leqslant x_1$. We show $q \leq x_{N+1}$.
+Since $p = p_1 \vee p_2 \leq x_1$, we have 
+$p_1 \leqslant x_1$ and 
+$p_2 \leqslant x_1$, so by the induction hypothesis,  
+$q_1 \leqslant x_{N+1}$ and 
+$q_2 \leqslant x_{N+1}$.  Therefore, $q = q_1 \vee q_2 \leq x_{N+1}$, as desired.
+
+Now assume $p\leqslant x$. We show $q\leqslant x_N$. 
+Since $p = p_1 \vee p_2 \leq x$, we have 
+$p_1 \leqslant x$ and 
+$p_2 \leqslant x$, so by the induction hypothesis,  
+$q_1 \leqslant x_{N}$ and 
+$q_2 \leqslant x_{N}$.  Therefore, $q = q_1 \vee q_2 \leq x_{N}$, as desired.
+
 
 \medskip
+\noindent {\it Case 2.} Suppose $\binom{p}{q} = \binom{p_1}{q_1} \wedge \binom{p_2}{q_2}$, where $\binom{p_1}{q_1}$ and $\binom{p_2}{q_2}$ satisfy~(\ref{eq:imp1}) and~(\ref{eq:imp2}). 
 
-\noindent {\bf Proof of Claim 4.3.}
+Assume $p\leqslant x_1 = x \vee (y \wedge z)$. 
+We must show $q\leqslant x_{N+1}$. 
+Since $p_1 \wedge p_2 \leqslant x_1$, then according to Theorem~\ref{thm:wordprob}, at least one of the following inequalities must hold:
+\begin{enumerate}
+  \item $p_1 \leqslant x_1$;
+  \item $p_2 \leqslant x_1$;
+  \item $p_1 \wedge p_2 \leqslant x$;
+  \item $p_1 \wedge p_2 \leqslant y \wedge z$.
+\end{enumerate}
+By the induction hypothesis, (1) implies $q_1 \leq x_{N+1}$  and (2) implies $q_2 \leq x_{N+1}$.  In either case, $q = q_1 \wedge q_2 \leq x_{N+1}$, as desired.  In case (3), Theorem~\ref{thm:wordprob} implies that either $p_1 \leq x$ or $p_2 \leq x$, since $x$ is a generator. Therefore, $q_1 \leq x_N$ or $q_2 \leq x_N$ and we conclude that 
+$q \leq x_N \leq x_{N+1}$, as desired.  It remains to prove $q \leq x_{N+1}$ for the final case in which $p_1 \wedge p_2 \leq y \wedge z$. 
 
-\wjd{fill in proof}
+If $p_1 \wedge p_2 \leq y \wedge z$, then 
+$p_1 \wedge p_2 \leq y$ and $p_1 \wedge p_2 \leq z$. Therefore, both of the following disjunctions hold:
+\begin{itemize}
+  \item $p_1 \leq y$ or $p_2 \leq y$, and 
+  \item $p_1 \leq z$ or $p_2 \leq z$. 
+\end{itemize}
+If $p_1 \leq y$ and $p_1 \leq z$, then $p_1 \leq x \vee (y\wedge z) = x_1$, so $q_1 \leq x_{N+1}$, so $q = q_1\wedge q_2 \leq x_{N+1}$, as desired.
+Similarly, if $p_2 \leq y$ and $p_2 \leq z$, the desired conclusion holds.
+Finally, consider the case in which $p_1 \leq y$ and $p_2 \leq z$. In this case $q_1 \leq y_N$ and $q_2 \leq z_N$.  Therefore, $q = q_1 \wedge q_2 \leq y_N \wedge z_N \leq x_N \vee (y_N\wedge z_N) = x_{N+1}$, as desired.
+
+
+\end{proof}
 
 \bigskip
 
@@ -835,6 +891,7 @@ $v \leqslant u_j$ for some $j$.
 \end{theorem}
 
 \begin{theorem}[\protect{\cite[Thm.~1.11]{MR1319815}}]
+  \label{thm:wordprob}
 If $s = s(x_1, \dots, x_n)$ and $t = t(x_1, \dots, x_n)$ are terms and $x_1, \dots, x_n \in X$, then the truth of 
 \begin{equation}
   \label{eq:ast}
