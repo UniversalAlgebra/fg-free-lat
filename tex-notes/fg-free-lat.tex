@@ -116,6 +116,31 @@ MRREVIEWER = {James B. Nation},
 	Title = {Universal {A}lgebra {C}alculator},
 	Year = {2011}
 }
+@incollection {MR0472614,
+    AUTHOR = {J{\'o}nsson, B. and Nation, J. B.},
+     TITLE = {A report on sublattices of a free lattice},
+ BOOKTITLE = {Contributions to universal algebra ({C}olloq., {J}\'ozsef
+              {A}ttila {U}niv., {S}zeged, 1975)},
+     PAGES = {223--257. Colloq. Math. Soc. J\'anos Bolyai, Vol. 17},
+ PUBLISHER = {North-Holland, Amsterdam},
+      YEAR = {1977},
+   MRCLASS = {06A20},
+  MRNUMBER = {0472614},
+MRREVIEWER = {Ralph Freese},
+}
+@article {MR0313141,
+    AUTHOR = {McKenzie, Ralph},
+     TITLE = {Equational bases and nonmodular lattice varieties},
+   JOURNAL = {Trans. Amer. Math. Soc.},
+  FJOURNAL = {Transactions of the American Mathematical Society},
+    VOLUME = {174},
+      YEAR = {1972},
+     PAGES = {1--43},
+      ISSN = {0002-9947},
+   MRCLASS = {06A20 (08A15)},
+  MRNUMBER = {0313141},
+MRREVIEWER = {G. Gratzer},
+}
 \end{filecontents*}
 %:biblio
 %\documentclass[12pt]{amsart}
@@ -128,10 +153,10 @@ MRREVIEWER = {James B. Nation},
 \def\OPTtopmargin{1in}     % Margin at the top of the page
 \def\OPTbottommargin{1in}  % Margin at the bottom of the page
 %% \def\OPTinnermargin{0.5in}    % Margin on the inner side of the page
-\def\OPTinnermargin{1.25in}    % Margin on the inner side of the page
+\def\OPTinnermargin{1.5in}    % Margin on the inner side of the page
 \def\OPTbindingoffset{0in} % Extra offset on the inner side
 %% \def\OPToutermargin{0.75in}   % Margin on the outer side of the page
-\def\OPToutermargin{1.25in}   % Margin on the outer side of the page
+\def\OPToutermargin{1.5in}   % Margin on the outer side of the page
 \usepackage[papersize={\OPTpagesize},
              twoside,
              includehead,
@@ -144,6 +169,7 @@ MRREVIEWER = {James B. Nation},
 \usepackage[normalem]{ulem} % for \sout (strikeout)   wjd: could remove this in final draft
 \usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
 \usepackage{algorithm2e}
+\usepackage{stmaryrd}
 
 \newcommand{\mysetminus}{\ensuremath{-}}
 %% uncomment the next line if we want to revert to the "set" minus notation
@@ -181,8 +207,8 @@ MRREVIEWER = {James B. Nation},
 
 \renewcommand{\th}[2]{#1\mathrel{\theta}#2}
 \newcommand{\infixrel}[3]{#2\mathrel{#1}#3}
-
-
+\newcommand\llb{\ensuremath{\llbracket}}
+\newcommand\rrb{\ensuremath{\rrbracket}}
 
 %%////////////////////////////////////////////////////////////////////////////////
 %% Theorem styles
@@ -209,41 +235,6 @@ MRREVIEWER = {James B. Nation},
 \newtheorem*{remark}{Remark}
 \newtheorem*{remarks}{Remarks}
 \newtheorem*{obs}{Observation}
-% 
-% 
-% 
-% \newtheorem{theorem}{Theorem}
-% \newtheorem{lemma}[theorem]{Lemma}
-% \newtheorem{corollary}[theorem]{Corollary}
-% \newtheorem{prop}[theorem]{Proposition}
-% \newtheorem{conjecture}{Conjecture}
-% \theoremstyle{definition}
-% \newtheorem{definition}{Definition}
-% \newtheorem{example}{Example}
-% \newtheorem{fact}{Fact}
-% \newtheorem{claim}{Claim}
-% \newtheorem{remark}{Remark}
-% \newtheorem*{remarks}{Remarks}
-% \newtheorem*{rem}{Remark}
-% \newtheorem{prob}{Problem}
-
-% \title[A test for a difference term]{A polynomial time test for a
-% difference term in an idempotent variety}
-% \author[DeMeo]{William DeMeo}
-% \address[William DeMeo]{
-% Department of Mathematics\\
-% University of Hawaii\\
-% Honolulu, Hawaii\\
-% 96822 USA}
-% \email[William DeMeo]{demeo@math.hawaii.edu}
-% \author[Freese]{Ralph Freese}
-% \address[Ralph Freese]{
-% Department of Mathematics\\
-% University of Hawaii\\
-% Honolulu, Hawaii\\
-% 96822 USA}
-% \email[Ralph Freese]{ralph@math.hawaii.edu}
-
 
 \title[Kernels of Lattice Epimorphisms]{Kernels of epimorphisms of finitely generated free lattices}
 \author[W.~DeMeo]{William DeMeo}
@@ -272,32 +263,120 @@ MRREVIEWER = {James B. Nation},
 
 \subsection{Bounded Homomorphisms}
 \label{sec:introduction}
+The notation, definitions, ideas presented below are based on those 
+we learned from the book by Freese, Jezek, Nation~\cite{MR1319815}, 
+although the authors of that book credit to Ralph McKenzie's work on nonmodular 
+lattice varieties~\cite{MR0313141}, and Bjarni J\'onsson's work on 
+sublattices of free lattices~\cite{MR0472614}.
 
-The notation and definitions we use follow those of Freese, Jezek, 
-Nation~\cite{MR1319815}, although they have their origins in the earlier work 
-of Ralph McKenzie (reference needed).  
-
-We define a pair of closure operators, 
-denoted by superscripts $^\wedge$ and $^\vee$, on  subsets of an arbitrary 
-lattice $\mathbf L = \langle L, \vee, \wedge\rangle$ as follows: For each 
-$A\subseteq L$, let
+If $x, y$ are elements of a lattice $L$, and if $x \leq y$, then we write
+$\llbracket x, y \rrbracket$ to denote the sublattice of elements between $x$ and $y$.
+That is, 
 \[
-A^\wedge = \{\bigwedge B : B \text{ is a finite subset of } A\}.
+\llb x, y \rrb := \{z \in L \mid x \leq z \leq y \}.
 \]
-We adopt the following convention: if $\mathbf L$ has a greatest element 
-$1_{\mathbf L}$, then $\bigwedge \emptyset = 1_{\mathbf L}$, and we include 
+
+Let $K$ and $L$ be lattices and suppose $L$ has bottom and top elements, $0_L$ and $1_L$, resp.  
+If $h \colon K \to L$ is a lattice homomorphism, then for each
+$a \in L$ we consider the sets $h^{-1}\llb a, 1 \rrb = \{x \in K \mid h(x) \geq a\}$ and
+$h^{-1}\llb 0, a \rrb = \{x \in K \mid h(x) \leq a \}$. 
+When $h^{-1}\llb a, 1 \rrb$ is nonempty,
+it is a filter of $K$; dually a nonempty $h^{-1}\llb 0, a \rrb$ is an ideal. 
+If $K$ is infinite, then 
+$h^{-1}\llb a, 1 \rrb$ need not have a least element, nor 
+$h^{-1}\llb 0, a \rrb$ a greatest element. However, 
+considering when such extrema exist leads to the notion of
+bounded homomorphism, which in turn helps us understand the structure of free lattices.
+
+
+A lattice homomorphism $h \colon K \to L$ is \textbf{lower bounded} if for every 
+$a \in L$, the set $h^{-1} \llb a, 1 \rrb$ is either empty or has a least element. 
+The least element of a nonempty $h^{-1}\llb a, 1\rrb$ is denoted by $\beta_h(a)$, or  
+by $\beta(a)$ when $h$ is clear from context.
+Thus, if $h$ is a lower bounded homomorphism, then $\beta_h \colon L \rightharpoonup K$ 
+is a partial mapping whose domain is an ideal of $L$. 
+
+Dually, $h$ is an \textbf{upper bounded} homomorphism if, whenever the set
+$h^{-1}\llb 0, a \rrb$ is nonempty, it has a greatest element, denoted by 
+$\alpha_h(a)$, or $\alpha (a)$.
+For an upper bounded homomorphism, the domain of $\alpha_h \colon L \rightharpoonup K$ 
+is clearly a filter of $L$.  
+A \textbf{bounded} homomorphism is one that is both upper and lower bounded.
+
+These definitions simplify when $h$ is an epimorphism.
+In that case $h$ is lower bounded if and only if each preimage 
+$h^{-1}\{ a \}$ has a least element.
+Likewise, if $L$ is finite, then $h \colon K \to L$ is lower bounded if and
+only if $h^{-1}\{a\}$ has a least element whenever it is nonempty. 
+On the other hand, every homomorphism $h$ from a finite lattice $K$ is bounded.
+
+Note that $\beta$  is monotonic and a left adjoint for $h$, i.e., $a \leq h(x)$ iff
+$\beta (a) ≤ x$. It then follows from a standard argument that $\beta$  is a join
+preserving map on its domain: if $h^{-1}\llb a, 1 \rrb \neq \emptyset$ and
+$h^{-1}\llb b, 1 \rrb \neq \emptyset$, then
+$\beta (a \sqcup b) = \beta (a) \sqcup \beta (b)$.
+Similarly, $\alpha$  is a right adjoint for $h$, so that $h(y) \leq a$ iff
+$y \leq \alpha (a)$, and for $a, b \in \dom \alpha$,
+$\alpha (a \wedge b) = \alpha (a) \wedge \alpha (b)$.
+In particular, if $h$ is an epimorphism, then $\alpha$  and $\beta$  are respectively
+meet and join homomorphisms of $L$ into $K$.
+For future reference, we note that $\alpha$  and $\beta$  behave correctly with
+respect to composition.
+
+\begin{theorem}[\protect{\cite[Theorem 2.1]{MR1319815}}]
+  Let $f \colon  K \to L$ and $g \colon L \to M$ be lattice
+  homomorphisms. If $f$ and $g$ are lower bounded, then $gf \colon K \to M$ is lower
+  bounded, and $\beta_{gf} = \beta_f \beta_g$. Similarly, if $f$ and $g$
+  are upper bounded, then $\alpha_{gf} = \alpha_f \alpha_g$.
+\end{theorem}
+\begin{proof}  For $x \in K$ and $a \in M$, we have
+  \[ a \leq gf (x) \quad \text{ iff } \quad \beta_g(a) \leq f (x)
+  \quad \text{ iff } \quad \beta_f \beta_g (a) \leq x.
+  \]
+  The upper bounded case is dual.
+\end{proof}
+
+We need a way to determine whether a lattice homomorphism
+$h\colon K \to L$
+is upper or lower bounded. The most natural setting for this is
+when the lattice $K$ is finitely generated, so from now on 
+we assume $K$ is generated by a finite set $X$.
+There are no special assumptions about $L$, nor do we assume that
+$h$ is upper or lower bounded. We want to analyze the sets
+$h^{-1}\llb a, 1 \rrb$
+for $a \in L$, with the possibility of lower boundedness in mind.
+The corresponding results for
+$h^{-1}\llb 0, a\rrb$
+are of course obtained by duality.
+
+Note that because $K$ is finitely generated, it has a greatest element
+$1_K = \bigvee X$, and that
+$h^{-1}\llb a, 1 \rrb$
+is nonempty if and only if $a \leq h(1_K)$.
+Such elements are naturally the ones in which we are most interested.
+
+Define a pair of closure operators, 
+denoted by superscripts $^\wedge$ and $^\vee$, on  subsets of an arbitrary 
+lattice %$\mathbf L = \langle L, \vee, \wedge\rangle$ as follows: for each 
+$L$ as follows: for each subset $A\subseteq L$,
+\[
+A^\wedge := \{\bigwedge B \mid B \text{ is a finite subset of } A\}.
+\]
+We adopt the following convention: if 
+$L$ has a greatest element 
+$1_{L}$, then $\bigwedge \emptyset = 1_{L}$, and we include 
 this in $A^\wedge$ for every $A \subseteq L$. (For lattices without a greatest 
 element, $\bigwedge \emptyset$ is undefined.)  
 The set $A^\vee$ is defined dually.
 
-If $\mathbf K = \langle K, \vee, \wedge\rangle$ is a lattice generated by a 
+If $\langle K, \vee, \wedge\rangle$ is a lattice generated by a 
 finite set $X$, then $K$ is the union of a chain of subsets 
 $H_0\subseteq H_1 \subseteq \cdots$ defined inductively by setting 
 $H_0 := X^\wedge$ and $H_{k+1} := (H_k)^{\vee \wedge}$, for all $k\geqslant 0$. 
 By induction, each $H_n = X^{\wedge(\vee\wedge)^n}$ is a finite meet-closed 
-subset of $K$, and $\bigcup H_n = K$, since $X$  generates $\mathbf X$.
+subset of $K$, and $\bigcup H_n = K$, since $X$  generates $K$.
 
-Let $h \colon \mathbf K \to \mathbf L$ be a lattice epimorphism and define, 
+Let $h \colon K \to L$ be a lattice epimorphism and define, 
 for each $y \in L$ and $k< \omega$, 
 \[
 \beta_k(y) = \bigwedge \{w \in H_k : h(w) \geqslant a\}.
@@ -517,7 +596,7 @@ Define $y_{n+1}$ and $z_{n+1}$ similarly.
   If $\{s_n\}$ is any one of the four sequences just defined, then for $n>0$, we have $s_{n+1} > s_n$ and $h(s_{n+1}) = h(s_n)$.
 \end{claim}
 \wjd{Fill in proof of Claim 2.3}
-
+\end{proof}
 
 \section{Examples}
 
@@ -807,146 +886,13 @@ This proves Subclaim~\ref{claim:3.4}, and completes the proof of Prop~\ref{prop:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
-\section{Miscellaneous Notes}
-\noindent Let $K$ be a finite subset of $\ker h$.  Since $K$ is finite, we can find an $N < \omega$ such that for all $\binom{p}{q} \in K$, the following implications are satisfied:
-\begin{align}
-p &\leqslant x \quad \Longrightarrow \quad q \leqslant x_N\nonumber\\
-p &\leqslant y \quad \Longrightarrow \quad q \leqslant y_N\label{eq:imp1}\\
-p &\leqslant z \quad \Longrightarrow \quad q \leqslant z_N\nonumber
-\end{align}
-\begin{align}
-p &\leqslant x \vee (y \wedge z) \quad \Longrightarrow \quad q \leqslant x_{N+1}\nonumber\\
-p &\leqslant y \vee (x \wedge z) \quad \Longrightarrow \quad q \leqslant y_{N+1}\label{eq:imp2}\\
-p &\leqslant z \vee (x \wedge y) \quad \Longrightarrow \quad q \leqslant z_{N+1}\nonumber
-\end{align}
-
-\medskip
-
-\noindent {\bf Claim 4.3} If $N$ is chosen as just described, and if $\binom{p}{q} \in \langle K \rangle$ then the implications~\ref{eq:imp1} and~\ref{eq:imp2} hold.
-
-\begin{proof}
-  As usual, we proceed by induction on term complexity.
-If $\binom{p}{q} \in K$, then by choice of $N$, there is nothing to prove.
-
-\medskip
-\noindent {\it Case 1.} Suppose $\binom{p}{q} = \binom{p_1}{q_1} \vee \binom{p_2}{q_2}$, where $\binom{p_1}{q_1}$ and $\binom{p_2}{q_2}$ satisfy~(\ref{eq:imp1}) and~(\ref{eq:imp2}). We show that $\binom{p}{q}$ satisfies these two implications as well.
-Recall, in the notation above, $x_1:=x \vee (y \wedge z)$.
 
 
-Assume $p\leqslant x_1$. We show $q \leq x_{N+1}$.
-Since $p = p_1 \vee p_2 \leq x_1$, we have 
-$p_1 \leqslant x_1$ and 
-$p_2 \leqslant x_1$, so by the induction hypothesis,  
-$q_1 \leqslant x_{N+1}$ and 
-$q_2 \leqslant x_{N+1}$.  Therefore, $q = q_1 \vee q_2 \leq x_{N+1}$, as desired.
-
-Now assume $p\leqslant x$. We show $q\leqslant x_N$. 
-Since $p = p_1 \vee p_2 \leq x$, we have 
-$p_1 \leqslant x$ and 
-$p_2 \leqslant x$, so by the induction hypothesis,  
-$q_1 \leqslant x_{N}$ and 
-$q_2 \leqslant x_{N}$.  Therefore, $q = q_1 \vee q_2 \leq x_{N}$, as desired.
-
-
-\medskip
-\noindent {\it Case 2.} Suppose $\binom{p}{q} = \binom{p_1}{q_1} \wedge \binom{p_2}{q_2}$, where $\binom{p_1}{q_1}$ and $\binom{p_2}{q_2}$ satisfy~(\ref{eq:imp1}) and~(\ref{eq:imp2}). 
-
-Assume $p\leqslant x_1 = x \vee (y \wedge z)$. 
-We must show $q\leqslant x_{N+1}$. 
-Since $p_1 \wedge p_2 \leqslant x_1$, then according to Theorem~\ref{thm:wordprob}, at least one of the following inequalities must hold:
-\begin{enumerate}
-  \item $p_1 \leqslant x_1$;
-  \item $p_2 \leqslant x_1$;
-  \item $p_1 \wedge p_2 \leqslant x$;
-  \item $p_1 \wedge p_2 \leqslant y \wedge z$.
-\end{enumerate}
-By the induction hypothesis, (1) implies $q_1 \leq x_{N+1}$  and (2) implies $q_2 \leq x_{N+1}$.  In either case, $q = q_1 \wedge q_2 \leq x_{N+1}$, as desired.  In case (3), Theorem~\ref{thm:wordprob} implies that either $p_1 \leq x$ or $p_2 \leq x$, since $x$ is a generator. Therefore, $q_1 \leq x_N$ or $q_2 \leq x_N$ and we conclude that 
-$q \leq x_N \leq x_{N+1}$, as desired.  It remains to prove $q \leq x_{N+1}$ for the final case in which $p_1 \wedge p_2 \leq y \wedge z$. 
-
-If $p_1 \wedge p_2 \leq y \wedge z$, then 
-$p_1 \wedge p_2 \leq y$ and $p_1 \wedge p_2 \leq z$. Therefore, both of the following disjunctions hold:
-\begin{itemize}
-  \item $p_1 \leq y$ or $p_2 \leq y$, and 
-  \item $p_1 \leq z$ or $p_2 \leq z$. 
-\end{itemize}
-If $p_1 \leq y$ and $p_1 \leq z$, then $p_1 \leq x \vee (y\wedge z) = x_1$, so $q_1 \leq x_{N+1}$, so $q = q_1\wedge q_2 \leq x_{N+1}$, as desired.
-Similarly, if $p_2 \leq y$ and $p_2 \leq z$, the desired conclusion holds.
-Finally, consider the case in which $p_1 \leq y$ and $p_2 \leq z$. In this case $q_1 \leq y_N$ and $q_2 \leq z_N$.  Therefore, $q = q_1 \wedge q_2 \leq y_N \wedge z_N \leq x_N \vee (y_N\wedge z_N) = x_{N+1}$, as desired.
-
-
-\end{proof}
-
-\bigskip
-
-
-\bigskip
-\hrule
-\bigskip
 
   \appendix
-\section{Proof of Conjecture under special assumptions}
-\begin{prop}
-Suppose $\mathbf L = \langle L, \wedge, \vee\rangle$ is a finite lattice and 
-$h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ a lattice epimorphism.
-Suppose also that whenever $h$ is unbounded then there is a class of 
-$\ker h$ containing both an infinite chain and a generator of $\mathbf F$. 
-Then $h$ is bounded whenever its kernel is a finitely generated sublattice 
-of $\mathbf F \times \mathbf F$.
-\end{prop}
-\begin{Proof}\noindent Suppose $h$ is not lower bounded. Then by Fact~\ref{fact:1} 
-there is an element $y_0\in L$ such that 
-$\beta_0(y_0) > \beta_1(y_0) > \cdots$ is an infinite descending chain. 
-
-Let $K$ be a finite subset of $\ker h$, say, $K = \{(p_1, q_1), \dots, (p_{m}, q_{m})\} \subseteq \ker h$.
-We prove $\langle K \rangle \neq \ker h$. (Since $K$ is an arbitrary finite subset of $\ker h$, this will prove $\ker h$ is not finitely generated.)
-
-Let $x_0\in X$ be a generator of $\mathbf F$ that belongs to the class $h^{-1}\{y_0\}$ (so, $h(x_0) = y_0$).
-
-\medskip
-
-\noindent {\it Claim 1.1.} There exists $N<\omega$ such that for all $(p_i, q_i)$ in $K$, if $p_i \geqslant x_0$, then $q_i \geqslant \beta_N (y_0)$.
-
-\noindent {\it Proof.}
-Fix $i$ and $(p_i, q_i) \in K$ (so, $h(p_i) = h(q_i)$). Define $N_i$ as follows:
-\begin{itemize}
-\item[{\it Case 0.}] If $p_i \ngeqslant x_0$, let $N_i = 0$.  
-\item[{\it Case 1.}] If $p_i\geqslant x_0$, then $x_0 = x_0\wedge p_i$, so $y_0 = h(x_0) = h(x_0) \wedge h(p_i) \leqslant h(p_i)$, so $y_0\leqslant h(q_i)$. Also, $h(x_0 \wedge q_i) = h(x_0) \wedge h(q_i) = y_0$, so $x_0\wedge q_i \in h^{-1}\{y_0\}$. Therefore (since $\{\beta_i(y_0)\}$ is an infinite descending chain in $h^{-1}\{y_0\}$) there exists $n_i>0$ such that $x_0 \wedge q_i \geqslant\beta_{n}(y_0)$. Let $N_i = n_i$ in this case (so $q_i \geqslant \beta_{N_i}(y_0)$).
-
-\noindent Since $K$ is finite, we can find such $N_i$ for each $(p_i,q_i) \in K$. Let $N = \max\{N_i : 1 \leqslant i \leqslant m\}$.
-Then for all $1\leqslant i \leqslant m$ the following implication holds:
-\begin{equation}
-\label{eq:star3}    
-p_i \geqslant x_0 \quad \Longrightarrow \quad q_i \geqslant \beta_N(y_0).
-\end{equation}
-\end{itemize}
-
-\medskip
-
-\noindent {\it Claim 1.2.} There exists $N < \omega$ such that, for all $(p, q) \in \langle K \rangle$,
-\begin{equation}
-  \label{eq:claim2}
-p \geqslant x_0 \quad \Longrightarrow \quad q \geqslant \beta_N(y_0).
-\end{equation}
-
-\noindent {\it Proof.}  Choose $N$ as described in the proof of Claim 1.1 above so that 
-for all $(p_i,q_i) \in K$ the implication~(\ref{eq:star3}) holds. Fix $(p, q) \in \langle K \rangle$. We prove~(\ref{eq:claim2}) by induction on the complexity of $(p, q)$.  If $(p, q) \in K$, then there's nothing to prove.
-\begin{itemize}
-\item[{\it Case 1.}] Assume $(p, q) = (p_1, q_1) \wedge (p_2, q_2)$, where $p_i$, $q_i$ ($i = 1, 2$) satisfy~(\ref{eq:claim2}).  Assume $p\geqslant x_0$. %% (We show $q \geqslant \beta_N(y_0)$.)
-  Then $p = p_1 \wedge p_2 \geqslant x_0$, so $p_1 \geqslant x_0$ and $p_2 \geqslant x_0$, so (by the induction hypothesis) $q_1\geqslant \beta_N(y_0)$ and $q_2\geqslant \beta_N(y_0).$ Therefore, $q = q_1 \wedge q_2 \geqslant \beta_N(y_0),$ as desired.
-
-\item[{\it Case 2.}] Assume $(p, q) = (p_1, q_1) \vee (p_2, q_2)$, where $p_i$, $q_i$ ($i = 1, 2$) satisfy~(\ref{eq:claim2}). Assume $p\geqslant x_0$. Then $p = p_1 \vee p_2 \geqslant x$.  Since $x_0$ is a generator, it is join prime in $\mathbf{F}(X)$, so either $p_1 \geqslant x_0$ or $p_2 \geqslant x_0$.  Assume (wlog) $p_1 \geqslant x_0$. Then, (by induction hypothesis) $q_1\geqslant \beta_N(y_0).$
-Therefore, $q = q_1 \vee q_2 \geqslant q_1 \geqslant \beta_N(y_0),$ as desired.
-\end{itemize}
-
-\medskip
-
-\noindent {\it Claim 1.3.}  $K$ does not generate $\ker h$.
-
-\noindent {\it Proof.} Let $N$ be chosen as in the proof of Claim 1.2 above.  Since $\beta_0(y_0) > \beta_1(y_0) > \cdots$ is an infinite descending chain, $\beta_{N}(y_0) > \beta_{N+1}(y_0)$. The pair $(p, q) = (x_0, \beta_{N+1}(y_0))$ does not belong to $\langle K\rangle$, however it does belong to the kernel of $h$.  This proves that the finite subset $K$ does not generate $\ker h$.  Since $K$ was an arbitrary finite subset of $\ker h$, we have proved that $\ker h$ is not finitely generated.
-
-\end{proof}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 
 \section{Background}
 Here are some useful definitions and results from the Free Lattices book by Freese, Jezek, and Nation~\cite{MR1319815}.
@@ -1049,10 +995,194 @@ both up and down continuous is called \emph{continuous}.
   Free lattices are continuous.
 \end{theorem}
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Proof of Conjecture under special assumptions}
+\begin{prop}
+Suppose $\mathbf L = \langle L, \wedge, \vee\rangle$ is a finite lattice and 
+$h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ a lattice epimorphism.
+Suppose also that whenever $h$ is unbounded then there is a class of 
+$\ker h$ containing both an infinite chain and a generator of $\mathbf F$. 
+Then $h$ is bounded whenever its kernel is a finitely generated sublattice 
+of $\mathbf F \times \mathbf F$.
+\end{prop}
+\begin{proof}\noindent Suppose $h$ is not lower bounded. Then by Fact~\ref{fact:1} 
+there is an element $y_0\in L$ such that 
+$\beta_0(y_0) > \beta_1(y_0) > \cdots$ is an infinite descending chain. 
+
+Let $K$ be a finite subset of $\ker h$, say, $K = \{(p_1, q_1), \dots, (p_{m}, q_{m})\} \subseteq \ker h$.
+We prove $\langle K \rangle \neq \ker h$. (Since $K$ is an arbitrary finite subset of $\ker h$, this will prove $\ker h$ is not finitely generated.)
+
+Let $x_0\in X$ be a generator of $\mathbf F$ that belongs to the class $h^{-1}\{y_0\}$ (so, $h(x_0) = y_0$).
+
+\medskip
+
+\noindent {\it Claim 1.1.} There exists $N<\omega$ such that for all $(p_i, q_i)$ in $K$, if $p_i \geqslant x_0$, then $q_i \geqslant \beta_N (y_0)$.
+
+\noindent {\it Proof.}
+Fix $i$ and $(p_i, q_i) \in K$ (so, $h(p_i) = h(q_i)$). Define $N_i$ as follows:
+\begin{itemize}
+\item[{\it Case 0.}] If $p_i \ngeqslant x_0$, let $N_i = 0$.  
+\item[{\it Case 1.}] If $p_i\geqslant x_0$, then $x_0 = x_0\wedge p_i$, so $y_0 = h(x_0) = h(x_0) \wedge h(p_i) \leqslant h(p_i)$, so $y_0\leqslant h(q_i)$. Also, $h(x_0 \wedge q_i) = h(x_0) \wedge h(q_i) = y_0$, so $x_0\wedge q_i \in h^{-1}\{y_0\}$. Therefore (since $\{\beta_i(y_0)\}$ is an infinite descending chain in $h^{-1}\{y_0\}$) there exists $n_i>0$ such that $x_0 \wedge q_i \geqslant\beta_{n}(y_0)$. Let $N_i = n_i$ in this case (so $q_i \geqslant \beta_{N_i}(y_0)$).
+
+\noindent Since $K$ is finite, we can find such $N_i$ for each $(p_i,q_i) \in K$. Let $N = \max\{N_i : 1 \leqslant i \leqslant m\}$.
+Then for all $1\leqslant i \leqslant m$ the following implication holds:
+\begin{equation}
+\label{eq:star3}    
+p_i \geqslant x_0 \quad \Longrightarrow \quad q_i \geqslant \beta_N(y_0).
+\end{equation}
+\end{itemize}
+
+\medskip
+
+\noindent {\it Claim 1.2.} There exists $N < \omega$ such that, for all $(p, q) \in \langle K \rangle$,
+\begin{equation}
+  \label{eq:claim2}
+p \geqslant x_0 \quad \Longrightarrow \quad q \geqslant \beta_N(y_0).
+\end{equation}
+
+\noindent {\it Proof.}  Choose $N$ as described in the proof of Claim 1.1 above so that 
+for all $(p_i,q_i) \in K$ the implication~(\ref{eq:star3}) holds. Fix $(p, q) \in \langle K \rangle$. We prove~(\ref{eq:claim2}) by induction on the complexity of $(p, q)$.  If $(p, q) \in K$, then there's nothing to prove.
+\begin{itemize}
+\item[{\it Case 1.}] Assume $(p, q) = (p_1, q_1) \wedge (p_2, q_2)$, where $p_i$, $q_i$ ($i = 1, 2$) satisfy~(\ref{eq:claim2}).  Assume $p\geqslant x_0$. %% (We show $q \geqslant \beta_N(y_0)$.)
+  Then $p = p_1 \wedge p_2 \geqslant x_0$, so $p_1 \geqslant x_0$ and $p_2 \geqslant x_0$, so (by the induction hypothesis) $q_1\geqslant \beta_N(y_0)$ and $q_2\geqslant \beta_N(y_0).$ Therefore, $q = q_1 \wedge q_2 \geqslant \beta_N(y_0),$ as desired.
+
+\item[{\it Case 2.}] Assume $(p, q) = (p_1, q_1) \vee (p_2, q_2)$, where $p_i$, $q_i$ ($i = 1, 2$) satisfy~(\ref{eq:claim2}). Assume $p\geqslant x_0$. Then $p = p_1 \vee p_2 \geqslant x$.  Since $x_0$ is a generator, it is join prime in $\mathbf{F}(X)$, so either $p_1 \geqslant x_0$ or $p_2 \geqslant x_0$.  Assume (wlog) $p_1 \geqslant x_0$. Then, (by induction hypothesis) $q_1\geqslant \beta_N(y_0).$
+Therefore, $q = q_1 \vee q_2 \geqslant q_1 \geqslant \beta_N(y_0),$ as desired.
+\end{itemize}
+
+\medskip
+
+\noindent {\it Claim 1.3.}  $K$ does not generate $\ker h$.
+
+\noindent {\it Proof.} Let $N$ be chosen as in the proof of Claim 1.2 above.  Since $\beta_0(y_0) > \beta_1(y_0) > \cdots$ is an infinite descending chain, $\beta_{N}(y_0) > \beta_{N+1}(y_0)$. The pair $(p, q) = (x_0, \beta_{N+1}(y_0))$ does not belong to $\langle K\rangle$, however it does belong to the kernel of $h$.  This proves that the finite subset $K$ does not generate $\ker h$.  Since $K$ was an arbitrary finite subset of $\ker h$, we have proved that $\ker h$ is not finitely generated.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Miscellaneous Notes}
+\noindent Let $K$ be a finite subset of $\ker h$.  Since $K$ is finite, we can find an $N < \omega$ such that for all $\binom{p}{q} \in K$, the following implications are satisfied:
+\begin{align}
+p &\leqslant x \quad \Longrightarrow \quad q \leqslant x_N\nonumber\\
+p &\leqslant y \quad \Longrightarrow \quad q \leqslant y_N\label{eq:imp1}\\
+p &\leqslant z \quad \Longrightarrow \quad q \leqslant z_N\nonumber
+\end{align}
+\begin{align}
+p &\leqslant x \vee (y \wedge z) \quad \Longrightarrow \quad q \leqslant x_{N+1}\nonumber\\
+p &\leqslant y \vee (x \wedge z) \quad \Longrightarrow \quad q \leqslant y_{N+1}\label{eq:imp2}\\
+p &\leqslant z \vee (x \wedge y) \quad \Longrightarrow \quad q \leqslant z_{N+1}\nonumber
+\end{align}
+
+\medskip
+
+\noindent {\bf Claim 4.3} If $N$ is chosen as just described, and if $\binom{p}{q} \in \langle K \rangle$ then the implications~\ref{eq:imp1} and~\ref{eq:imp2} hold.
+
+\begin{proof}
+  As usual, we proceed by induction on term complexity.
+If $\binom{p}{q} \in K$, then by choice of $N$, there is nothing to prove.
+
+\medskip
+\noindent {\it Case 1.} Suppose $\binom{p}{q} = \binom{p_1}{q_1} \vee \binom{p_2}{q_2}$, where $\binom{p_1}{q_1}$ and $\binom{p_2}{q_2}$ satisfy~(\ref{eq:imp1}) and~(\ref{eq:imp2}). We show that $\binom{p}{q}$ satisfies these two implications as well.
+Recall, in the notation above, $x_1:=x \vee (y \wedge z)$.
+
+
+Assume $p\leqslant x_1$. We show $q \leq x_{N+1}$.
+Since $p = p_1 \vee p_2 \leq x_1$, we have 
+$p_1 \leqslant x_1$ and 
+$p_2 \leqslant x_1$, so by the induction hypothesis,  
+$q_1 \leqslant x_{N+1}$ and 
+$q_2 \leqslant x_{N+1}$.  Therefore, $q = q_1 \vee q_2 \leq x_{N+1}$, as desired.
+
+Now assume $p\leqslant x$. We show $q\leqslant x_N$. 
+Since $p = p_1 \vee p_2 \leq x$, we have 
+$p_1 \leqslant x$ and 
+$p_2 \leqslant x$, so by the induction hypothesis,  
+$q_1 \leqslant x_{N}$ and 
+$q_2 \leqslant x_{N}$.  Therefore, $q = q_1 \vee q_2 \leq x_{N}$, as desired.
+
+
+\medskip
+\noindent {\it Case 2.} Suppose $\binom{p}{q} = \binom{p_1}{q_1} \wedge \binom{p_2}{q_2}$, where $\binom{p_1}{q_1}$ and $\binom{p_2}{q_2}$ satisfy~(\ref{eq:imp1}) and~(\ref{eq:imp2}). 
+
+Assume $p\leqslant x_1 = x \vee (y \wedge z)$. 
+We must show $q\leqslant x_{N+1}$. 
+Since $p_1 \wedge p_2 \leqslant x_1$, then according to Theorem~\ref{thm:wordprob}, at least one of the following inequalities must hold:
+\begin{enumerate}
+  \item $p_1 \leqslant x_1$;
+  \item $p_2 \leqslant x_1$;
+  \item $p_1 \wedge p_2 \leqslant x$;
+  \item $p_1 \wedge p_2 \leqslant y \wedge z$.
+\end{enumerate}
+By the induction hypothesis, (1) implies $q_1 \leq x_{N+1}$  and (2) implies $q_2 \leq x_{N+1}$.  In either case, $q = q_1 \wedge q_2 \leq x_{N+1}$, as desired.  In case (3), Theorem~\ref{thm:wordprob} implies that either $p_1 \leq x$ or $p_2 \leq x$, since $x$ is a generator. Therefore, $q_1 \leq x_N$ or $q_2 \leq x_N$ and we conclude that 
+$q \leq x_N \leq x_{N+1}$, as desired.  It remains to prove $q \leq x_{N+1}$ for the final case in which $p_1 \wedge p_2 \leq y \wedge z$. 
+
+If $p_1 \wedge p_2 \leq y \wedge z$, then 
+$p_1 \wedge p_2 \leq y$ and $p_1 \wedge p_2 \leq z$. Therefore, both of the following disjunctions hold:
+\begin{itemize}
+  \item $p_1 \leq y$ or $p_2 \leq y$, and 
+  \item $p_1 \leq z$ or $p_2 \leq z$. 
+\end{itemize}
+If $p_1 \leq y$ and $p_1 \leq z$, then $p_1 \leq x \vee (y\wedge z) = x_1$, so $q_1 \leq x_{N+1}$, so $q = q_1\wedge q_2 \leq x_{N+1}$, as desired.
+Similarly, if $p_2 \leq y$ and $p_2 \leq z$, the desired conclusion holds.
+Finally, consider the case in which $p_1 \leq y$ and $p_2 \leq z$. In this case $q_1 \leq y_N$ and $q_2 \leq z_N$.  Therefore, $q = q_1 \wedge q_2 \leq y_N \wedge z_N \leq x_N \vee (y_N\wedge z_N) = x_{N+1}$, as desired.
+\end{proof}
+
+
+
+
+
 \bibliographystyle{alphaurl}
 \bibliography{inputs/refs}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%  END OF DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%  END OF DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \subsection{Bounded Homomorphisms}
