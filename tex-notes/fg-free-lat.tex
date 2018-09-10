@@ -660,6 +660,45 @@ such that $0 = h(x_0) \neq h(x_1) = h(x_2) = \cdots$; thus, for $n\geq 1$, all $
 (unbounded) class of $\ker h$, and this class contains $x_1 = x \vee (y \wedge z)$.
 Is this meet prime?  No, since $y \nleq x \vee (y \wedge z)$ and $z \nleq x \vee (y \wedge z)$, yet 
 $y \wedge z \leq x \vee (y \wedge z)$.
+
+Define $x_0 = x \vee (y \wedge z)$ and $y_0 = 0\vee (1 \wedge 2)$.  
+In particular, $h(x_0) = y_0$. 
+Suppose $p_1 \wedge p_2 \leq x_0$.  Does this imply that either 
+$p_1 \leq x_0$ or $p_2 \leq x_0$?  No, because we could have $p_1 = y$ and $p_2 = z$.
+
+Suppose $K \subseteq \mathbf F \times \mathbf F$ is a finite set. 
+We will prove $\<K\> \neq \ker h$.
+First, we show there exists $N < \omega$ such that 
+for all $(p, q)\in \mathbf F \times \mathbf F$ with $h(p) = y_0 = h(q)$, 
+the following implication holds:
+\begin{equation}\label{eq:dcc}
+\text{ if $(p, q) \in \<K\>$ and $p \leq x_0$, then $q \leq \alpha_N(y_0)$.} 
+%, \; \text{ for all $(p, q) \in \<K\>\cap h^{-1}(y_0)^2$.}
+\end{equation}
+Since $\alpha_n(y_0)$ is an infinite ascending chain, 
+%and since $K$ is a finite set, %say, $K = \{(p_1, q_1), \dots, (p_m, q_m)\}$,
+we can certainly find $N < \omega$ such that~(\ref{eq:dcc}) holds for all 
+of the (finitely many) pairs in $K$.
+
+Now suppose $(p, q) = (p_1, q_1) \wedge (p_2, q_2)$ and $h(p) = y_0 = h(q)$. 
+Then $p_1$, $p_2$, $q_1$, $q_2$ must all belong to $h^{-1}\{y_0\}$ as well. 
+Indeed, $y_0 = h(p) = h(p_1 \wedge p_2)= h(p_1) \wedge h(p_2)$, and
+$y_0 = 0\vee (1 \wedge 2)$ is meet irreducible, so 
+$h(p_1) = y_0 = h(p_2)$. Similarly for $q_1$ and $q_2$.
+
+Assume $(p, q) \in \<K\>$ and $p = p_1\wedge p_2 \leq x_0$.  
+We must show $q_1 \wedge q_2 \leq \alpha_N(y_0)$.
+Assume the induction hypothesis that $(p_i, q_i)$ satisfies~(\ref{eq:dcc}) for both $i = 1, 2$.
+
+How do we know that either $p_1\leq x_0$ or $p_2\leq x_0$? We don't...  
+
+...maybe we should try to exploit a $D$-cycle here, involving
+\[p_1 \wedge (p_1 \to x_0) \leq x_0\]
+We know that the maximum element (which is denoted here by $p_1 \to x_0$), 
+among those that meet with $p_1$ below $x_0$, exists by the existence of a 
+$D$-cycle. 
+
+
 % \begin{claim}
 % In $\mathbf F(x,y,z)$ the element $x \vee (y \wedge z)$ is meet prime.
 % \end{claim}
