@@ -521,44 +521,62 @@ This completes the proof of Claim~\ref{claim:000}.\end{proof}
 Notice that the example above involves an infinite ascending chain $\{x_n\} \subseteq \mathbf F$
 such that $0 = h(x_0) \neq h(x_1) = h(x_2) = \cdots$; thus, for $n\geq 1$, all $x_n$ belong to the same 
 (unbounded) class of $\ker h$, and this class contains $x_1 = x \vee (y \wedge z)$.
-Is this meet prime?  No, since $y \nleq x \vee (y \wedge z)$ and $z \nleq x \vee (y \wedge z)$, yet 
-$y \wedge z \leq x \vee (y \wedge z)$.
+However, $x_1$ is not meet prime, since $y \nleq x \vee (y \wedge z)$ and $z \nleq x \vee (y \wedge z)$, yet 
+$y \wedge z \leq x \vee (y \wedge z)$, so we cannot use our previous proof technique.
 
-Define $x_0 = x \vee (y \wedge z)$ and $y_0 = 0\vee (1 \wedge 2)$.  
-In particular, $h(x_0) = y_0$. 
-Suppose $p_1 \wedge p_2 \leq x_0$.  Does this imply that either 
-$p_1 \leq x_0$ or $p_2 \leq x_0$?  No, because we could have $p_1 = y$ and $p_2 = z$.
+As above, let $x_1 = x \vee (y \wedge z)$ and define $b = 0\vee (1 \wedge 2)$.  
+In particular, $h(x_1) = b$. 
+To use the same inductive step that we used in our previous proofs, we would need to know 
+that $p_1 \wedge p_2 \leq x_1$ implies either $p_1 \leq x_1$ or $p_2 \leq x_1$.  But this 
+is not the case here since we could have, for example, $p_1 = y$ and $p_2 = z$. In fact, 
+by Lemma~\ref{lem:prime}, the only meet prime elements of $\mathbf F(X)$ have the 
+form $\bigvee S$ for $S\subseteq X$.  
 
 Suppose $K \subseteq \mathbf F \times \mathbf F$ is a finite set. 
-We will prove $\<K\> \neq \ker h$.
-First, we show there exists $N < \omega$ such that 
-for all $(p, q)\in \mathbf F \times \mathbf F$ with $h(p) = y_0 = h(q)$, 
+We wish to prove $\<K\> \neq \ker h$.
+First, let's try to show there exists $N < \omega$ such that 
+for all $(p, q)\in \mathbf F \times \mathbf F$ with $h(p) = b = h(q)$, 
 the following implication holds:
 \begin{equation}\label{eq:dcc}
-\text{ if $(p, q) \in \<K\>$ and $p \leq x_0$, then $q \leq \alpha_N(y_0)$.} 
+\text{ if $(p, q) \in \<K\>$ and $p \leq x_1$, then $q \leq \alpha_N(b)$.} 
 %, \; \text{ for all $(p, q) \in \<K\>\cap h^{-1}(y_0)^2$.}
 \end{equation}
-Since $\alpha_n(y_0)$ is an infinite ascending chain, 
+Since $\alpha_n(b)$ is an infinite ascending chain, 
 %and since $K$ is a finite set, %say, $K = \{(p_1, q_1), \dots, (p_m, q_m)\}$,
 we can certainly find $N < \omega$ such that~(\ref{eq:dcc}) holds for all 
 of the (finitely many) pairs in $K$.
 
-Now suppose $(p, q) = (p_1, q_1) \wedge (p_2, q_2)$ and $h(p) = y_0 = h(q)$. 
-Then $p_1$, $p_2$, $q_1$, $q_2$ must all belong to $h^{-1}\{y_0\}$ as well. 
-Indeed, $y_0 = h(p) = h(p_1 \wedge p_2)= h(p_1) \wedge h(p_2)$, and
-$y_0 = 0\vee (1 \wedge 2)$ is meet irreducible, so 
-$h(p_1) = y_0 = h(p_2)$. Similarly for $q_1$ and $q_2$.
+Now suppose $(p, q) = (p_1, q_1) \wedge (p_2, q_2)$ and $h(p) = b = h(q)$. 
+Then $p_1$, $p_2$, $q_1$, $q_2$ must all belong to $h^{-1}\{b\}$ as well. 
+Indeed, $b = h(p) = h(p_1 \wedge p_2)= h(p_1) \wedge h(p_2)$, and
+$b = 0\vee (1 \wedge 2)$ is meet irreducible, so 
+$h(p_1) = b = h(p_2)$. Similarly for $q_1$ and $q_2$.
 
-Assume $(p, q) \in \<K\>$ and $p = p_1\wedge p_2 \leq x_0$.  
-We must show $q_1 \wedge q_2 \leq \alpha_N(y_0)$.
+Assume $(p, q) \in \<K\>$ and $p = p_1\wedge p_2 \leq x_1$.  
+We must show $q_1 \wedge q_2 \leq \alpha_N(b)$.
 Assume the induction hypothesis that $(p_i, q_i)$ satisfies~(\ref{eq:dcc}) for both $i = 1, 2$.
 
-How do we know that either $p_1\leq x_0$ or $p_2\leq x_0$? We don't...  
+If we knew that either $p_1\leq x_1$ or $p_2\leq x_1$, the we would have that either 
+$q_1 \leq \alpha_N(b)$ or 
+$q_2 \leq \alpha_N(b)$ and, in either case, we could conclude that 
+$q_1 \wedge q_2 \leq \alpha_N(b)$. Unfortunately, we do not know that 
+either $p_1\leq x_1$ or $p_2\leq x_1$, since $x_1$ is not meet prime.
 
-...maybe we should try to exploit a $D^d$-cycle here, involving
-\[p_1 \wedge (p_1 \to x_0) \leq x_0\]
-We know that the maximum element (which is denoted here by $p_1 \to x_0$), 
-among those that meet with $p_1$ below $x_0$, exists by the existence of a 
+To say that $x_1$ is meet prime means that \emph{for all} $p$ and $q$ with $p \wedge q \leq x_1$,
+we have either $p \leq x_1$ or $q \leq x_1$.  But this is actually more that we need.
+For our purposes, we only require that the condition
+\begin{equation}
+p \wedge q \leq x_1 \quad \Longrightarrow \quad p \leq x_1 \text{ or } q \leq x_1,
+\end{equation}
+is satisfied for some special elements $p$ and $q$, namely, those that form pairs
+$(p, q)$ belonging to $\<K \>$.
+
+\vfill
+
+Maybe we should try to exploit a $D^d$-cycle here, involving
+\[p_1 \wedge (p_1 \to x_1) \leq x_1\]
+We know that the maximum element (denoted here by $p_1 \to x_1$), 
+among those that meet with $p_1$ below $x_1$, exists by the existence of a 
 $D^d$-cycle. 
 
 
@@ -719,7 +737,7 @@ Let $\mathcal{V}$ be a nontrivial variety of lattices and let $\mathbf{F}_{\math
 \end{equation}
 \end{lemma}
 
-\begin{lemma}[\protect{\cite[Lem.~1.4]{MR1319815}}]
+\begin{lemma}[\protect{\cite[Lem.~1.4]{MR1319815}}]\label{lem:prime}
 Let $\mathbf L$ be a lattice generated by a set $X$ and let $a \in L$.
 \begin{enumerate}
 \item 
