@@ -558,18 +558,18 @@ Assume the induction hypothesis that $(p_i, q_i)$ satisfies~(\ref{eq:dcc}) for b
 
 If we knew that either $p_1\leq x_1$ or $p_2\leq x_1$, the we would have that either 
 $q_1 \leq \alpha_N(b)$ or 
-$q_2 \leq \alpha_N(b)$ and, in either case, we could conclude that 
-$q_1 \wedge q_2 \leq \alpha_N(b)$. Unfortunately, we do not know that 
-either $p_1\leq x_1$ or $p_2\leq x_1$, since $x_1$ is not meet prime.
+$q_2 \leq \alpha_N(b)$, by the induction hypothesis; in either case, we could 
+conclude that $q_1 \wedge q_2 \leq \alpha_N(b)$, as desired. Unfortunately, we do 
+not know that either $p_1\leq x_1$ or $p_2\leq x_1$, since $x_1$ is not meet prime.
 
-To say that $x_1$ is meet prime means that \emph{for all} $p$ and $q$ with $p \wedge q \leq x_1$,
-we have either $p \leq x_1$ or $q \leq x_1$.  But this is actually more that we need.
+To say that $x_1$ is meet prime means that \emph{for all} $p_1$ and $p_2$ with 
+$p_1 \wedge p_2 \leq x_1$, we have either $p_1 \leq x_1$ or $p_2 \leq x_1$.  
+But this is actually more that we need.
 For our purposes, we only require that the condition
 \begin{equation}
-p \wedge q \leq x_1 \quad \Longrightarrow \quad p \leq x_1 \text{ or } q \leq x_1,
+p_1 \wedge p_2 \leq x_1 \quad \Longrightarrow \quad p_1 \leq x_1 \text{ or } p_2 \leq x_1,
 \end{equation}
-is satisfied for some special elements $p$ and $q$, namely, those that form pairs
-$(p, q)$ belonging to $\<K \>$.
+is satisfied for some special elements $p_1$ and $p_2$, namely...?
 
 \vfill
 
