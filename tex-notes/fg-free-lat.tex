@@ -716,34 +716,40 @@ Let $h\colon \mathbf{F} \twoheadrightarrow \mathbf{M_3}$ be the epimorphism that
 Let $K := \operatorname{ker} h$, and for $u \in \{x, y, z\}$ let $C_u := u/K := \{v \in F : h(v) = h(u)\}$.
 Define sequences of elements in these classes by the following mutual recursions:
 \begin{itemize}
-\item for $i \in \mathbb N$,  
-  \[m_{0, i} = (m_{x,i} \wedge m_{y,i}) \vee (m_{x,i} \wedge m_{z,i})\vee (m_{y,i} \wedge m_{z,i});\]
-
-\item for $u \in \{x, y, z\}$,   
-  \begin{align*}
-    m_{u,0} &= u,\\  
-    m_{u, i+1} &= m_{u, i}\vee m_{0,i}.
-  \end{align*}
+\item for $i \in \mathbb N$,  let $m_i = (x_i \wedge y_i) \vee (x_i \wedge z_i)\vee (y_i \wedge z_i)$, where
+\item $x_0 = x$, $y_0 = y$, $z_0 = z$, and for $i \in \mathbb N-\{0\}$,
+    \[x_{i+1} = x_i\vee m_i, \quad y_{i+1} = y_i\vee m_i,\quad z_{i+1} = z_i\vee m_i.\]
 \end{itemize}
-
-\noindent Notice that
+\[x_{i+1} = x_i\vee m_i = x_{i-1} \vee m_{i-1} \vee m_i = \cdots = x \vee m_0 \vee \cdots \vee m_i = x \vee m_i.\]
+\noindent Notice that 
+$x_{i+1} = x_i\vee (y_i \wedge z_i)$ (similarly for $y_i$ and $z_i$), so we have
 \begin{align*}
-m_{x, 0} &= x, \quad m_{y, 0} = y,  \quad m_{z, 0} = z \\
-m_{0, 0} &= (x\wedge y) \vee (x\wedge z)\vee (y\wedge z)\\
-m_{x, 1} &= x \vee (y \wedge z), \quad m_{y, 1} = y \vee (x \wedge z),  \quad m_{z, 1} = z \vee (x \wedge y)\\  
-m_{0, 1} &= 
- (m_{x,1} \wedge m_{y,1}) \vee (m_{x,1} \wedge m_{z,1})\vee (m_{y,1} \wedge m_{z,1})\\
-% m_{0, 1} &= 
-% \bigl\{\bigl[x \vee (y \wedge z)\bigr] \wedge \bigl[y \vee (x \wedge z)\bigr]\bigr\} 
-% \vee 
-% \bigl\{\bigl[x \vee (y \wedge z)\bigr] \wedge \bigl[z \vee (x \wedgeyz)\bigr]\bigr\} 
-% \vee 
-% \bigl\{\bigl[y \vee (x \wedge z)\bigr] \wedge \bigl[z \vee (x \wedgeyz)\bigr]\bigr\} \\
-% m_{x, 2} &= (x \vee (y \wedge z)) \vee (y \vee (x \wedge z)) \vee (z \vee (x \wedge y)\\  
-m_{x, 2} &= x \vee (y \wedge z) \vee \bigl\{\bigl[y \vee (x \wedge z)\bigr] \wedge \bigl[z \vee (x \wedge y)\bigr]\bigr\}\\  
+m_0 &= (x\wedge y) \vee (x\wedge z)\vee (y\wedge z),\\
+x_1 &= x \vee (y \wedge z), \quad y_1 = y \vee (x \wedge z),  \quad z_1 = z \vee (x \wedge y),\\  
+m_1 &= 
+ (x_1 \wedge y_1) \vee (x_1 \wedge z_1)\vee (y_1 \wedge z_1),\\
+x_2 &= x \vee (y \wedge z) \vee \bigl\{\bigl[y \vee (x \wedge z)\bigr] \wedge \bigl[z \vee (x \wedge y)\bigr]\bigr\},\\  
 & \vdots\\
-m_{x, i+1} &= m_{x,i} \vee (m_{y,i} \wedge m_{z,i})
+x_{i+1} &= x_i \vee (y_i \wedge z_i), \quad y_{i+1} = y_i\vee (x_i \wedge z_i), \quad z_{i+1} = z_i\vee (x_i \wedge y_i).
 \end{align*}
+Notice also that 
+$y \wedge z \leq y \leq y \vee (x \wedge z)$ and 
+$y \wedge z \leq z \leq z \vee (x \wedge y)$.  Therefore,   
+\[
+x_2 = x \vee \bigl\{\bigl[y \vee (x \wedge z)\bigr] \wedge \bigl[z \vee (x \wedge y)\bigr]\bigr\}. 
+\]
+In fact,
+\[
+x_{i+1} = x_i \vee (y_i \wedge z_i) = x \vee (y_i \wedge z_i).
+\]
+\begin{align*}
+x_{i+1} &= x_i \vee (y_i \wedge z_i) \\
+&= \bigl[x_{i-1} \vee (y_{i-1} \wedge z_{i-1})\bigr]   \vee (y_i \wedge z_i) \\
+&= x_{i-1} \vee (y_i \wedge z_i)
+\end{align*}
+since  $y_{i-1} \wedge z_{i-1} \leq y_i \wedge z_i$.
+
+
 Let $X$ be a finite subset of $K$.  We will prove there exists $(p,q) \in K \setminus \langle X \rangle$.  
 Fix $u\in \{0, x, y, z\}$. Since $X$ is finite, Lemma~\ref{lem:2} implies that there exists 
 $M \in \mathbb{N}$ such that for every $(p, q) \in X$ with $p, q \in C_u$, we have $p, q \leqslant m_{u, M}$.
