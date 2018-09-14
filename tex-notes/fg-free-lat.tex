@@ -462,63 +462,57 @@ Let $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ be the epimorphism induce
 
 
 \begin{proof}
-Define the sequences $\{m_n\}$, $\{x_n\}$, $\{y_n\}$, $\{z_n\}$ ($n< \omega$) of elements of $\mathbf F$ as follows: 
-let  $x_0 = x$, $y_0 = y$, $z_0 = z$, and for $n\geqslant 0$, 
-\begin{align*}
-  m_n &= (x_n \wedge y_n) \vee (x_n \wedge z_n) \vee (y_n \wedge z_n);\\
-  % m_0 &= (m_{x0}\wedge m_{y0}) \vee (m_{x0} \wedge m_{z0}) \vee (m_{y0} \wedge m_{z0})= (x\wedge y) \vee (x \wedge z) \vee (y \wedge z);\\
-  % m_{x1} &= x\vee m_0 = x \vee (y \wedge z), \; \text{ Define $m_{y1}$ and $m_{z1}$ similarly;}\\
-  x_{n+1} &= x_n\vee m_n = x_n \vee (y_n \wedge z_n).
-\end{align*}
-Define $y_{n+1}$ and $z_{n+1}$ similarly.
+For each $s \in \{x, y, z, m\}$, define the sequence $\{s_i : i < \omega\}$
+of elements of $\mathbf F$ as follows: 
+$x_0 = x$, $y_0 = y$, $z_0 = z$, and for $i\geqslant 0$, 
+\begin{gather*}
+  x_{i+1} = x\vee (y_i \wedge z_i), \quad  y_{i+1} = y\vee (x_i \wedge z_i), \quad  z_{i+1} = z\vee (x_i \wedge y_i),\\
+  m_i = (x_i \wedge y_i) \vee (x_i \wedge z_i) \vee (y_i \wedge z_i).
+\end{gather*}
 
 \begin{claim}\label{claim:000}
-  If $\{s_n\}$ is any one of the four sequences just defined, then for $n\geq 1$, 
-  we have $s_{n+1} > s_n$ and $h(s_{n+1}) = h(s_n)$.
+  If $\{s_i : i< \omega\}$ is any one of the four sequences just defined, then for $i\geq 1$, 
+  we have $s_{i+1} > s_i$ and $h(s_{i+1}) = h(s_i)$.
 \end{claim}
 \begin{proof}
   % It suffices to prove the claim for the sequences $\{m_n\}$ and $\{x_n\}$.
 We have, 
-$h(x_{2}) = h(x_1 \vee (y_1 \wedge z_1)) = h(x_1) \vee (h(y_1) \wedge h(z_1))$,
-and $h(x_1) = h(x_0 \vee (y_0 \wedge z_0)) =   h(x_0) \vee (h(y_0) \wedge h(z_0)) = 0 \vee (1 \wedge 2)$.
-Similarly, $h(y_1) = 1 \vee (0 \wedge 2)$ and $h(z_1) = 2 \vee (0 \wedge 1)$.
+$h(x_{2}) = h(x \vee (y_1 \wedge z_1)) = h(x) \vee \bigl[h(y_1) \wedge h(z_1)\bigr]$,
+and $h(y_1) = h(y \vee (x \wedge z)) =   h(y) \vee \bigl[h(x) \wedge h(z)\bigr] 
+= 1 \vee (0 \wedge 2)$. Similarly, $h(z_1) = 2 \vee (0 \wedge 1)$.
 Therefore, 
   \begin{equation}\label{eq:h2h1} 
     h(x_{2}) = 
-0 \vee (1 \wedge 2) \vee \bigl\{[1 \vee (0 \wedge 2)] \wedge [2 \vee (0 \wedge 1)]\bigr\}.
+0 \vee \bigl\{[1 \vee (0 \wedge 2)] \wedge [2 \vee (0 \wedge 1)]\bigr\}.
 \end{equation}
 Clearly $0 \vee (1 \wedge 2) \geq [1 \vee (0 \wedge 2)] \wedge [2 \vee (0 \wedge 1)]$
 (see Figure~\ref{fig:1}). Therefore, 
   $h(x_{2}) = h(x_1)$.  Similarly,   $h(y_{2}) = h(y_1)$ and   $h(z_{2}) = h(z_1)$.
-  Fix $n$ and assume $h(x_{n}) = h(x_{1})$, $h(y_{n}) = h(y_{1})$, and $h(z_{n}) = h(z_{1})$. 
+  Fix $n$ and assume $h(x_{n}) = h(x_1)$, $h(y_{n}) = h(y_{1})$, and $h(z_{n}) = h(z_{1})$. 
   Then,
-  \[h(x_{n+1}) = h(x_n \vee (y_n \wedge z_n))
-    =h(x_n) \vee (h(y_n) \wedge h(z_n))= h(x_{1}) \vee (h(y_{1}) \wedge h(z_{1})),\]
+  \[h(x_{n+1}) = h(x \vee (y_n \wedge z_n))
+    =h(x) \vee (h(y_n) \wedge h(z_n))= 0 \vee (h(y_{1}) \wedge h(z_{1})),\]
 which, as we observed in the first line of the proof, is equal to $h(x_2)$, which in turn is 
 $h(x_1)$, as desired.  By the same argument, $h(y_{n+1})=h(y_{1})$ and $h(z_{n+1})=h(z_{1})$.
 This proves that for all $n \geq 1$, we have $h(s_{n})=h(s_{1})$, when 
 $\{s_n\}$ is $\{x_n\}$ or $\{y_n\}$ or $\{z_n\}$.
 
-% \newcommand\hx{\ensuremath{\bigl[0 \vee (1 \wedge 2)\bigr]}}
-% \newcommand\hy{\ensuremath{\bigl[1 \vee (0 \wedge 2)\bigr]}}
-% \newcommand\hz{\ensuremath{\bigl[2 \vee (0 \wedge 1)\bigr]}}
 Finally, consider $\{m_n\}$. For all $n\geq 1$, we have
 \begin{align*}
 h(m_n) &= \bigl[h(x_n) \wedge h(y_n)\bigr] \vee \bigl[h(x_n) \wedge h(z_n)\bigr]\vee \bigl[h(y_n) \wedge h(z_n)\bigr] \\
 &= \bigl[h(x_1) \wedge h(y_1)\bigr] \vee \bigl[h(x_1) \wedge h(z_1)\bigr]\vee \bigl[h(y_1) \wedge h(z_1)\bigr].
-%&= \bigl\{\hx \wedge \hy\bigr\} \vee \bigl\{\hx \wedge \hz\bigr\}\vee \bigl\{\hy \wedge \hz\bigr\}
 \end{align*}
 (In fact, it is not hard to see that each of the joinands in the last expression is equal
 to the orange element in Figure~\ref{fig:1}.)  Therefore, $h(m_n) = h(m_1)$ for all $n\geq 1$.
-% \[
-% h(x_1) \wedge h(y_1) = h(x_1) \wedge h(z_1) = h(y_1) \wedge h(z_1). %= (0\wedge 1) \vee (0\wedge 2) \vee (1\wedge 2).
-% \]
-% h(m_n) = (x_n \wedge y_n) \vee (x_n \wedge z_n) \vee (y_n \wedge z_n);\\
-This completes the proof of Claim~\ref{claim:000}.\end{proof}
+
+\wjd{TODO complete proof of the claim}
+It remains to show that $s_{i+1} > s_i$ for all $i<\omega$.
+\end{proof}
+% This completes the proof of Claim~\ref{claim:000}.
 \wjd{TODO complete proof of Prop 2.2}
 \end{proof}
 
-Notice that the example above involves an infinite ascending chain $\{x_n\} \subseteq \mathbf F$
+Notice that the example above involves an infinite ascending chain $\{x_n\}a \subseteq \mathbf F$
 such that $0 = h(x_0) \neq h(x_1) = h(x_2) = \cdots$; thus, for $n\geq 1$, all $x_n$ belong to the same 
 (unbounded) class of $\ker h$, and this class contains $x_1 = x \vee (y \wedge z)$.
 However, $x_1$ is not meet prime, since $y \nleq x \vee (y \wedge z)$ and $z \nleq x \vee (y \wedge z)$, yet 
@@ -714,135 +708,129 @@ Let $h\colon \mathbf{F} \twoheadrightarrow \mathbf{M_3}$ be the epimorphism that
 \end{proposition}
 \begin{proof}
 Let $K := \operatorname{ker} h$, and for $u \in \{x, y, z\}$ let $C_u := u/K := \{v \in F : h(v) = h(u)\}$.
-Define sequences of elements in these classes by the following mutual recursions:
-\begin{itemize}
-\item for $i \in \mathbb N$,  let $m_i = (x_i \wedge y_i) \vee (x_i \wedge z_i)\vee (y_i \wedge z_i)$, where
-\item $x_0 = x$, $y_0 = y$, $z_0 = z$, and for $i \in \mathbb N-\{0\}$,
-    \[x_{i+1} = x_i\vee m_i, \quad y_{i+1} = y_i\vee m_i,\quad z_{i+1} = z_i\vee m_i.\]
-\end{itemize}
-\[x_{i+1} = x_i\vee m_i = x_{i-1} \vee m_{i-1} \vee m_i = \cdots = x \vee m_0 \vee \cdots \vee m_i = x \vee m_i.\]
-\noindent Notice that 
-$x_{i+1} = x_i\vee (y_i \wedge z_i)$ (similarly for $y_i$ and $z_i$), so we have
+Define sequences of elements in these classes as follows:
+let 
+\[x_0 := x, \quad y_0 := y, \quad z_0 := z, \quad \text{ and for $i< \omega$, }\]
+\[
+x_{i+1} := x\vee (y_i \wedge z_i), \quad y_{i+1} := y\vee (x_i \wedge z_i), \quad z_{i+1} := z\vee (x_i \wedge y_i),
+\]
+\[
+m_i := (x_i \wedge y_i) \vee (x_i \wedge z_i)\vee (y_i \wedge z_i).
+\]
+Summarizing these observations,
 \begin{align*}
 m_0 &= (x\wedge y) \vee (x\wedge z)\vee (y\wedge z),\\
 x_1 &= x \vee (y \wedge z), \quad y_1 = y \vee (x \wedge z),  \quad z_1 = z \vee (x \wedge y),\\  
 m_1 &= 
  (x_1 \wedge y_1) \vee (x_1 \wedge z_1)\vee (y_1 \wedge z_1),\\
-x_2 &= x \vee (y \wedge z) \vee \bigl\{\bigl[y \vee (x \wedge z)\bigr] \wedge \bigl[z \vee (x \wedge y)\bigr]\bigr\},\\  
-& \vdots\\
-x_{i+1} &= x_i \vee (y_i \wedge z_i), \quad y_{i+1} = y_i\vee (x_i \wedge z_i), \quad z_{i+1} = z_i\vee (x_i \wedge y_i).
+x_2 &= x \vee \bigl\{\bigl[y \vee (x \wedge z)\bigr] \wedge \bigl[z \vee (x \wedge y)\bigr]\bigr\},\\  
+y_2 &= y \vee \bigl\{\bigl[x \vee (y \wedge z)\bigr] \wedge \bigl[z \vee (x \wedge y)\bigr]\bigr\},\\  
+z_3 &= z \vee (x_2 \wedge y_2)\\ 
+& \vdots
 \end{align*}
-Notice also that 
-$y \wedge z \leq y \leq y \vee (x \wedge z)$ and 
-$y \wedge z \leq z \leq z \vee (x \wedge y)$.  Therefore,   
-\[
-x_2 = x \vee \bigl\{\bigl[y \vee (x \wedge z)\bigr] \wedge \bigl[z \vee (x \wedge y)\bigr]\bigr\}. 
-\]
-In fact,
-\[
-x_{i+1} = x_i \vee (y_i \wedge z_i) = x \vee (y_i \wedge z_i).
-\]
-\begin{align*}
-x_{i+1} &= x_i \vee (y_i \wedge z_i) \\
-&= \bigl[x_{i-1} \vee (y_{i-1} \wedge z_{i-1})\bigr]   \vee (y_i \wedge z_i) \\
-&= x_{i-1} \vee (y_i \wedge z_i)
-\end{align*}
-since  $y_{i-1} \wedge z_{i-1} \leq y_i \wedge z_i$.
-
 
 Let $X$ be a finite subset of $K$.  We will prove there exists $(p,q) \in K \setminus \langle X \rangle$.  
-Fix $u\in \{0, x, y, z\}$. Since $X$ is finite, Lemma~\ref{lem:2} implies that there exists 
-$M \in \mathbb{N}$ such that for every $(p, q) \in X$ with $p, q \in C_u$, we have $p, q \leqslant m_{u, M}$.
+Fix $u\in \{x, y, z, m\}$ and let $\{u_i\}$ be the corresponding sequence defined above. 
+Since $X$ is finite, Lemma~\ref{lem:2} implies that there exists 
+$M \in \mathbb{N}$ such that for every $(p, q) \in X$ with $p, q \in C_u$, we have 
+$p, q \leqslant u_M$.
 
 \begin{subclaim}\label{claim:2.1}
    For $(p,q) \in \langle X \rangle$ and $u \in \{x, y, z\}$, the following implication holds:
 \begin{equation}
   \label{eq:star}
-q \leqslant u \quad \Longrightarrow \quad p\leqslant m_{u, M}.
+q \leqslant u \quad \Longrightarrow \quad p\leqslant u_M.
 \end{equation}
 \end{subclaim}
 We prove the subclaim by induction on the complexity of terms.
 Fix $(p,q) \in \langle X \rangle$. Then $p, q \in C_u$ for some $u\in \{x, y, z\}$.
 \begin{itemize}
-\item {\bf Case 0.} Suppose $(p, q) \in X$. Then by definition of $M$ we have $p, q \leqslant m_{u, M}$.
+\item {\bf Case 0.} Suppose $(p, q) \in X$. Then by definition of $M$ we have $p, q \leqslant u_M$.
 
 \item {\bf Case 1.} Suppose $(p, q) = (p_1, q_1) \wedge (p_2, q_2)$, where 
   $(p_i, q_i)$ satisfies~(\ref{eq:star}) for $i = 1, 2$.    
-  If $q= q_1 \wedge q_2 \leqslant u$, then, since generators in the free lattice are meet-prime (see Theorem~\ref{thm:wordprob} below), we have $q_1\leqslant u$ or $q_2\leqslant u$. Assume $q_1\leqslant u$.  Then, by the induction hypothesis, $p_1\leqslant m_{u, M}$.  Therefore, $p = p_1\wedge p_2 \leqslant m_{u, M}$, as desired.
+  If $q= q_1 \wedge q_2 \leqslant u$, then, since generators in the free lattice are meet-prime (see Theorem~\ref{thm:wordprob} below), we have $q_1\leqslant u$ or $q_2\leqslant u$. Assume $q_1\leqslant u$.  Then, by the induction hypothesis, $p_1\leqslant u_M$.  Therefore, $p = p_1\wedge p_2 \leqslant u_M$, as desired.
 
 \item {\bf Case 2.} Suppose $(p, q) = (p_1, q_1) \vee (p_2, q_2)$, where 
   $(p_i, q_i)$ satisfies~(\ref{eq:star}) for $i = 1, 2$.    
   If $q= q_1 \vee q_2 \leqslant u$, then 
   $q_i \leqslant u$ for $i = 1, 2$.
-  It now follows from the induction hypothesis that $p_i\leqslant m_{u, M}$ for $i = 1, 2$, so 
-  $p = p_1 \vee p_2 \leqslant m_{u, M}$, as desired.
+  It now follows from the induction hypothesis that $p_i\leqslant u_M$ for $i = 1, 2$, so 
+  $p = p_1 \vee p_2 \leqslant u_M$, as desired.
 \end{itemize}
 This completes the proof of Subclaim~\ref{claim:2.1}. It now follows from Lemma~\ref{lem:1} that 
-$(m_{x, M+1}, x)\in K \setminus \langle X \rangle$, so proposition is proved.
+$(x, x_{M+1})\in K \setminus \langle X \rangle$, so proposition is proved.
 \end{proof}
 
 \begin{lemma}%##### Lemma 1
   \label{lem:1}
-For each $u \in \{0, x, y, z\}$, the sequence $\{m_{u,n} : n \in \mathbb N\}$ is a strictly ascending chain; that is, $m_{u,0} < m_{u,1} < m_{u,2} < \cdots$.  
+For each $u \in \{x, y, z, m\}$, the sequence $\{u_i\}$ is a strictly ascending chain; that is, $u_0 < u_1 < u_2 < \cdots$.  
 \end{lemma}
-\begin{proof}  We split the proof up into cases: either $u \in \{x, y, z\}$, or $u = 0$.
+\begin{proof}  We split the proof up into cases: either $u \in \{x, y, z\}$, or $u = m$.
 \begin{itemize}
   \item  \textbf{Case 1.} $u \in \{x, y, z\}$.\\
-  For simplicity, assume $u = x$ for the remainder of the proof of this case.  (Of course, the same argument goes through when $u$ is $y$ or $z$.) Fix $n \in \mathbb N$.  We prove $m_{x,n} < m_{x,n+1}$.
+  For simplicity, assume $u = x$ for the remainder of the proof of this case.  
+  (Of course, the same argument applies to the case when $u$ is $y$ or $z$.) 
+  Fix $n <\omega$.  We prove $x_n < x_{n+1}$.
 
   % \noindent {\it Subclaim.} For all $n\in \mathbb N$,
-  \begin{subclaim}\label{claim:3.2.1}For all $n\in \mathbb N$,
+  \begin{subclaim}\label{claim:3.2.1}For all $n< \omega$,
     \begin{enumerate}
       \item 
-      $m_{x,n}\in C_x$, 
-      \item $m_{x,n}\ngeq y$, and $m_{x,n}\ngeq z$.
+      $x_n\in C_x$, 
+      \item $x_n\ngeq y$, and $x_n\ngeq z$.
     \end{enumerate}
   \end{subclaim}
-  {\it Proof of Subclaim~\ref{claim:3.2.1}.}    The first item is obvious; for the second, if $m_{x,n}\geqslant y$, then $m_{x,n}\wedge y = y$, and 
-    then $0 = h(m_{x,n}\wedge y) = h(y) = b$.  A similar contradiction is reached 
-    if we assume $m_{x,n}\geqslant z$, so the subclaim is proved.
+  {\it Proof of Subclaim~\ref{claim:3.2.1}.}    The first item is obvious; 
+  for the second, if $x_n\geqslant y$, then $x_n\wedge y = y$, and 
+    then $0 = h(x_n\wedge y) = h(y) = b$.  A similar contradiction is reached 
+    if we assume $x_n\geqslant z$, so the subclaim is proved.
   
-    Recall, $m_{x, n+1} = m_{x,n} \vee (m_{y,n} \wedge m_{z,n})$, so $m_{x,n+1} > m_{x,n}$
-    holds as long as $m_{x,n} \ngeqslant m_{y,n} \wedge m_{z,n}$.
+    Recall, $x_{n+1} = x_n \vee (y_n \wedge z_n)$, so $x_{n+1} > x_n$
+    holds as long as $x_n \ngeqslant y_n \wedge z_n$.
     So, by way of contradiction, suppose 
     \begin{equation}\label{eq:doubledaggar}
-      m_{x,n} \geqslant m_{y,n} \wedge m_{z,n}.
+      x_n \geqslant y_n \wedge z_n.
     \end{equation}
 
-    Now, $m_{y,n} = y \vee (x \wedge z) \vee \cdots$, so clearly $m_{y,n} \geqslant y$.  
-    Similarly, $m_{z,n} \geqslant z$.  This, together with~(\ref{eq:doubledaggar}), 
-    implies $m_{x,n} \geqslant m_{y,n} \wedge m_{z,n} \geqslant y \wedge z$.  
+    Now, $y_n = y \vee (x \wedge z) \vee \cdots$, so clearly $y_n \geqslant y$.  
+    Similarly, $z_n \geqslant z$.  This, together with~(\ref{eq:doubledaggar}), 
+    implies $x_n \geqslant y_n \wedge z_n \geqslant y \wedge z$.  
     But then Theorem~\ref{thm:wordprob} below implies that either 
-    $m_{x,n} \geqslant y$ or $m_{x,n} \geqslant z$, which contradicts Subclaim~\ref{claim:3.2.1}.
+    $x_n \geqslant y$ or $x_n \geqslant z$, which contradicts Subclaim~\ref{claim:3.2.1}.
 
-\item \textbf{Case 2.} $u = 0$.\\
-  We first prove that $m_{0, 0} = (x\wedge y) \vee (x\wedge z)\vee (y\wedge z)$ is strictly below $m_{0, 1} = 
-  (m_{x,1}\wedge m_{y,1}) \vee (m_{x,1}\wedge m_{z,1}) \vee (m_{y,1}\wedge m_{z,1})$.
-
-  By symmetry, it suffices to show $x\wedge y < m_{x,1}\wedge m_{y,1}$;
-  that is, $x\wedge y < (x \vee (y\wedge z))\wedge (y \vee (x\wedge z))$.
+\item \textbf{Case 2.} $u = m$.\\
+  We first prove that $m_0 = (x\wedge y) \vee (x\wedge z)\vee (y\wedge z)$ is strictly below 
+  $m_1 = (x_1\wedge y_1) \vee (x_1\wedge z_1) \vee (y_1\wedge z_1)$.
+  By symmetry, it suffices to show $x\wedge y < x_1\wedge y_1$;
+  that is, $x\wedge y < \bigl[x \vee (y\wedge z)\bigr]\wedge \bigl[y \vee (x\wedge z)\bigr]$.
 
   Clearly 
-  $x\wedge y \leqslant (x \vee (y\wedge z))\wedge (y \vee (x\wedge z))$. Suppose $x\wedge y = (x \vee (y\wedge z))\wedge (y \vee (x\wedge z))$. Then $(x \vee (y\wedge z))\wedge (y \vee (x\wedge z))\leqslant x$.
+  $x\wedge y \leqslant \bigl[x \vee (y\wedge z)\bigr]\wedge \bigl[y \vee (x\wedge z)\bigr]$. 
+  Suppose 
+  $x\wedge y = \bigl[x \vee (y\wedge z)\bigr]\wedge \bigl[y \vee (x\wedge z)\bigr]$. 
+  Then $\bigl[x \vee (y\wedge z)\bigr]\wedge \bigl[y \vee (x\wedge z)\bigr]\leqslant x$.
   By Theorem~\ref{thm:wordprob}, the latter holds iff
   $x \vee (y\wedge z)\leqslant x$ or
   $y \vee (x\wedge z)\leqslant x$
-  The first of these inequalities is clearly false, so it must be the case that $y \vee (x\wedge z)\leqslant x$.  But then $y \leqslant x$, which is obviously false.  We conclude that
-  $x\wedge y <(x \vee (y\wedge z))\wedge (y \vee (x\wedge z))$.
-  This proves $m_{0,0} < m_{0,1}$.
+  The first of these inequalities is clearly false, so it must be the case that 
+  $y \vee (x\wedge z)\leqslant x$.  But then $y \leqslant x$, which is obviously false.  
+  We conclude that
+  $x\wedge y < \bigl[x \vee (y\wedge z)\bigr]\wedge \bigl[y \vee (x\wedge z)\bigr]$.
+  This proves $m_0 < m_1$.
 
-  Now fix $n\in \mathbb{N}$ and assume $m_{0,n} < m_{0,n+1}$.
-  We show $m_{0,n+1} < m_{0,n+2}$.
+  Now fix $n < \omega$ and assume $m_n < m_{n+1}$.
+  We show $m_{n+1} < m_{n+2}$.
 \wjd{Complete the proof of this case.}
 
 \medskip
   $\downarrow$ \textit{begin scratch work} $\downarrow$
 
-  $m_{0, n} := (m_{x,n} \wedge m_{y,n}) \vee (m_{x,n} \wedge m_{z,n})\vee (m_{y,n} \wedge m_{z,n})$,
+  $m_{n} := (x_n \wedge y_n) \vee (x_n \wedge z_n)\vee (y_n \wedge z_n)$,
 
-  $m_{0, n+1} := (m_{x,n+1} \wedge m_{y,n+1}) \vee (m_{x,n+1} \wedge m_{z,n+1})\vee (m_{y,n+1} \wedge m_{z,n+1})$,
+  $m_{n+1} := (x_{n+1} \wedge y_{n+1}) \vee (x_{n+1} \wedge z_{n+1})\vee (y_{n+1} \wedge z_{n+1})$,
 
-  By the first Case above, $m_{u,n} < m_{u,n+1}$.
+  By the first Case above, $u_n < u_{n+1}$.
   
   $\uparrow$ \textit{end scratch work} $\uparrow$
 \end{itemize}
@@ -861,16 +849,23 @@ For all $u \in \{x, y, z\}$ and $p \in C_u \cup C_0$ there exists $n \in \mathbb
 
   \item {\bf Case 1.} $p = p_1 \vee p_2$.  \\
   If $p \in C_x\cup C_0$, then $p_i \in C_x \cup C_0$ for $i = 1, 2$, and 
-  the induction hypothesis yields $i$ and $j$ for which $p_1 \leqslant m_{x, i}$ and $p_2 \leqslant m_{x, j}$. Letting $n = \max\{i, j\}$, we have 
-  $p_1, p_2 \leqslant m_{x, n}$, from which 
-  $p = p_1 \vee p_2 \leqslant m_{x, n}$, as desired.
+  the induction hypothesis yields $i$ and $j$ for which $p_1 \leqslant x_i$ 
+  and $p_2 \leqslant x_j$. Letting $n = \max\{i, j\}$, we have 
+  $p_1, p_2 \leqslant x_n$, from which $p = p_1 \vee p_2 \leqslant x_n$, as desired.
 
   \item {\bf Case 2.} $p = p_1 \wedge p_2$.  \\
-  If $p \in C_x$, then we may assume $p_1 \in C_x$ and $p_2 \in C_x \cup C_0$. By the induction hypothesis, there exists $n\in \mathbb N$ such that $p_1 \leqslant m_{x, n}$, whence $p \leqslant p_1 \leqslant m_{x,n}$.
-If $p \in C_0$, then each $p_i$ belongs to $C_u \cup C_0$ for some $u\in \{x, y, z\}$.  If $p_1 \in C_x \cup C_0$, then $p_1 \leqslant m_{x, n}$, as above and we're done.  Similarly, if $p_2 \in C_x \cup C_0$.  So assume $p_1 \in C_y \cup C_0$ and $p_2 \in C_z \cup C_0$. Then the induction hypothesis implies that there exist $i$ and $j$ such that 
-  $p_1 \leqslant m_{y, i}$ and $p_2 \leqslant m_{z, j}$. If $n = \max\{i, j\}$, then
-  $p_1 \leqslant m_{y, n}$ and $p_2 \leqslant m_{z, n}$.  Then, by the above definition of the sequences, we have
-  $p_1 \wedge p_2 \leqslant m_{y, n} \wedge m_{z, n} \leqslant m_{0,n} \leqslant m_{x,n+1}$.
+  If $p \in C_x$, then we may assume $p_1 \in C_x$ and $p_2 \in C_x \cup C_0$. 
+  By the induction hypothesis, there exists $n\in \mathbb N$ such that 
+  $p_1 \leqslant x_n$, whence $p \leqslant p_1 \leqslant x_n$.
+  If $p \in C_0$, then each $p_i$ belongs to $C_u \cup C_0$ for some 
+  $u\in \{x, y, z\}$.  If $p_1 \in C_x \cup C_0$, then $p_1 \leqslant x_n$, as 
+  above and we're done.  Similarly, if $p_2 \in C_x \cup C_0$.  So assume 
+  $p_1 \in C_y \cup C_0$ and $p_2 \in C_z \cup C_0$. Then the induction 
+  hypothesis implies that there exist $i$ and $j$ such that 
+  $p_1 \leqslant y_i$ and $p_2 \leqslant z_j$. If $n = \max\{i, j\}$, then
+  $p_1 \leqslant y_n$ and $p_2 \leqslant z_n$.  Then, by the above definition 
+  of the sequences, we have $p_1 \wedge p_2 \leqslant y_n \wedge z_n \leqslant 
+  m_n \leqslant x_{n+1}$.
 \end{itemize}
 \end{proof}
 
@@ -882,24 +877,30 @@ The proof in each case is straightforward, but tedious;
 we omit proofs of the first two, and give a detailed proof of the third.
 %Ex 1.
 \begin{prop}\label{prop:1}
-  Let $X = \{x,y,z\}$, and let $\mathbf{L} = \mathbf{2}$ be the 2-element chain.    
-Then the kernel of an epimorphism $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ is a finitely generated sublattice of $\mathbf{F} \times \mathbf{F}$.
+Let $X = \{x,y,z\}$, and let $\mathbf{L} = \mathbf{2}$ be the 2-element chain.    
+Then the kernel of an epimorphism $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ 
+is a finitely generated sublattice of $\mathbf{F} \times \mathbf{F}$.
 \end{prop}
 
 \begin{prop}\label{prop:2} 
-  Let $X = \{x, y, z\}$ and let $\mathbf{L} = \mathbf{3}$ be the 3-element chain.    
-Then the kernel of an epimorphism $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ is finitely generated.
+Let $X = \{x, y, z\}$ and let $\mathbf{L} = \mathbf{3}$ be the 3-element chain.    
+Then the kernel of an epimorphism $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ 
+is finitely generated.
 \end{prop}
 
 \begin{prop}\label{prop:3} 
 Let $n > 2$, $X = \{x_0, x_1,\dots, x_{n-1}\}$, and $\mathbf{L} = \mathbf{2} \times \mathbf{2}$.  
-Let $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ be an epimorphism. Then $K = \operatorname{ker}h$ is finitely generated.  
+Let $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ be an epimorphism. 
+Then $K = \operatorname{ker}h$ is finitely generated.  
 \end{prop}
 \begin{proof} 
-  Let the universe of $\mathbf{L} = \mathbf{2} \times \mathbf{2}$ be $\{0, a, b, 1\}$, where $a\vee b = 1$ and $a\wedge b = 0$.  
-For each $y \in L$, denote by $X_y = X \cap h^{-1}\{y\}$ the set of generators mapped by $h$ to $y$. 
-Denote the least and greatest elements of $h^{-1}\{y\}$ (if they exist) by $\ell_y$ and $g_y$, respectively.  For example, 
-$\ell_a = \bigwedge h^{-1}\{a\} = \bigwedge \{x\in F: h(x) = a\},\;$ $\quad g_b = \bigvee \{x\in F : h(x) = b\},\quad$ etc. 
+Let the universe of $\mathbf{L} = \mathbf{2} \times \mathbf{2}$ be $\{0, a, b, 1\}$, 
+where $a\vee b = 1$ and $a\wedge b = 0$. For each $y \in L$, denote by 
+$X_y = X \cap h^{-1}\{y\}$ the set of generators mapped by $h$ to $y$. 
+Denote the least and greatest elements of $h^{-1}\{y\}$ (if they exist) by $\ell_y$ 
+and $g_y$, respectively.  For example, 
+$\ell_a = \bigwedge h^{-1}\{a\} = \bigwedge \{x\in F: h(x) = a\},\;$ 
+$\quad g_b = \bigvee \{x\in F : h(x) = b\},\quad$ etc. 
 In the present example, the least and greatest elements exist is each case, as we now show.
 
 % Claim 3.1.
@@ -1058,7 +1059,7 @@ If $X$ satisfies condition~(\ref{eq:star2}) above, then
 Let $\mathcal V$ be a nontrivial variety of lattices and let $\mathbf{F}_{\mathcal V}(X)$ be the relatively free lattice in $\mathcal V$ over $X$.  For each finite nonempty subset $S \subseteq X$, $\bigwedge S$ is join prime and $\bigvee S$ is meet prime. In particular, every $x\in X$ is both join and meet prime.  Moreover, if $x\leqslant y$ for $x, y \in X$, then $x = y$.
 \end{corollary}
 
-\begin{theorem}[Whitman's Condition, ver. 1]  
+\begin{theorem}[Whitman's Condition, ver.~1]  
 The free lattice $\mathbf{F}(X)$ satisfies the following condition:
 
 (W)  If $v = v_1 \wedge \cdots \wedge v_r \leqslant u_1 \vee \cdots \vee u_s = u$, 
@@ -1069,7 +1070,7 @@ then either $v_i \leqslant u$ for some $i$, or $v \leqslant u_j$ for some $j$.
 Every sublattice of a free lattice satisfies (W). Every element of a lattice satisfying (W) is either join or meet irreducible.
 \end{corollary}
 
-\begin{theorem}[Whitman's Condition, ver. 2]  
+\begin{theorem}[Whitman's Condition, ver.~2]  
 The free lattice $\mathbf{F}(X)$ satisfies the following condition:
 
 (W+)  If $v = v_1 \wedge \cdots \wedge v_r \wedge x_1 \wedge \cdots
@@ -1170,12 +1171,13 @@ That is,
 \llb x, y \rrb := \{z \in L \mid x \leq z \leq y \}.
 \]
 
-Let $K$ and $L$ be lattices and suppose $L$ has bottom and top elements, $0_L$ and $1_L$, resp.  
-If $h \colon K \to L$ is a lattice homomorphism, then for each
+Let $\mathbf K$ and $\mathbf L$ be lattices and suppose $\mathbf L$ has bottom and top elements, 
+$0_{\mathbf L}$ and $1_{\mathbf L}$, resp.  
+If $h \colon \mathbf K \to \mathbf L$ is a lattice homomorphism, then for each
 $a \in L$ we consider the sets $h^{-1}\llb a, 1 \rrb = \{x \in K \mid h(x) \geq a\}$ and
 $h^{-1}\llb 0, a \rrb = \{x \in K \mid h(x) \leq a \}$. 
 When $h^{-1}\llb a, 1 \rrb$ is nonempty,
-it is a filter of $K$; dually a nonempty $h^{-1}\llb 0, a \rrb$ is an ideal. 
+it is a filter of $\mathbf K$; dually a nonempty $h^{-1}\llb 0, a \rrb$ is an ideal. 
 If $K$ is infinite, then 
 $h^{-1}\llb a, 1 \rrb$ need not have a least element, nor 
 $h^{-1}\llb 0, a \rrb$ a greatest element. However, 
@@ -1183,26 +1185,28 @@ considering when such extrema exist leads to the notion of
 bounded homomorphism, which in turn helps us understand the structure of free lattices.
 
 
-A lattice homomorphism $h \colon K \to L$ is \textbf{lower bounded} if for every 
+A lattice homomorphism $h \colon \mathbf K \to \mathbf L$ is \textbf{lower bounded} if for every 
 $a \in L$, the set $h^{-1} \llb a, 1 \rrb$ is either empty or has a least element. 
 The least element of a nonempty $h^{-1}\llb a, 1\rrb$ is denoted by $\beta_h(a)$, or  
 by $\beta(a)$ when $h$ is clear from context.
-Thus, if $h$ is a lower bounded homomorphism, then $\beta_h \colon L \rightharpoonup K$ 
-is a partial mapping whose domain is an ideal of $L$. 
+Thus, if $h$ is a lower bounded homomorphism, then 
+$\beta_h \colon \mathbf L \rightharpoonup \mathbf K$ 
+is a partial mapping whose domain is an ideal of $\mathbf L$. 
 
 Dually, $h$ is an \textbf{upper bounded} homomorphism if, whenever the set
 $h^{-1}\llb 0, a \rrb$ is nonempty, it has a greatest element, denoted by 
 $\alpha_h(a)$, or $\alpha (a)$.
-For an upper bounded homomorphism, the domain of $\alpha_h \colon L \rightharpoonup K$ 
-is clearly a filter of $L$.  
+For an upper bounded homomorphism, the domain of 
+$\alpha_h \colon \mathbf L \rightharpoonup \mathbf K$ 
+is clearly a filter of $\mathbf L$.  
 A \textbf{bounded} homomorphism is one that is both upper and lower bounded.
 
 These definitions simplify when $h$ is an epimorphism.
 In that case $h$ is lower bounded if and only if each preimage 
 $h^{-1}\{ a \}$ has a least element.
-Likewise, if $L$ is finite, then $h \colon K \to L$ is lower bounded if and
-only if $h^{-1}\{a\}$ has a least element whenever it is nonempty. 
-On the other hand, every homomorphism $h$ from a finite lattice $K$ is bounded.
+Likewise, if $L$ is finite, then $h \colon \mathbf K \to \mathbf L$ is lower 
+bounded if and only if $h^{-1}\{a\}$ has a least element whenever it is nonempty. 
+On the other hand, every homomorphism $h$ from a finite lattice $\mathbf K$ is bounded.
 
 Note that $\beta$  is monotonic and a left adjoint for $h$, i.e., $a \leq h(x)$ iff
 $\beta (a) ≤ x$. It then follows from a standard argument that $\beta$  is a join
@@ -1213,11 +1217,11 @@ Similarly, $\alpha$  is a right adjoint for $h$, so that $h(y) \leq a$ iff
 $y \leq \alpha (a)$, and for $a, b \in \dom \alpha$,
 $\alpha (a \wedge b) = \alpha (a) \wedge \alpha (b)$.
 In particular, if $h$ is an epimorphism, then $\alpha$  and $\beta$  are respectively
-meet and join homomorphisms of $L$ into $K$.
+meet and join homomorphisms of $\mathbf L$ into $\mathbf K$.
 For future reference, we note that $\alpha$  and $\beta$  behave correctly with
 respect to composition.
 
-\begin{theorem}[\protect{\cite[Theorem 2.1]{MR1319815}}]
+\begin{theorem}[\protect{\cite[Thm.~2.1]{MR1319815}}]
   Let $f \colon  \mathbf K \to \mathbf L$ and $g \colon \mathbf L \to \mathbf M$ be
   homomorphisms. If $f, g$ are lower bounded, then $gf \colon  \mathbf K \to  \mathbf M$ is lower
   bounded and $\beta_{gf} = \beta_f \beta_g$. Similarly, if $f, g$
@@ -1272,7 +1276,7 @@ for each $y \in L$ and $k< \omega$, define
 \beta_k(y) = \bigwedge \{w \in H_k : h(w) \geqslant a\}.
 \]
 
-\begin{theorem}[\protect{\cite[Theorem 2.2]{MR1319815}}]\label{thm:2.2}
+\begin{theorem}[\protect{\cite[Thm.~2.2]{MR1319815}}]\label{thm:2.2}
    Let $\mathbf K$ be finitely generated, and let $h \colon \mathbf K \to \mathbf L$ be a lattice
   homomorphism. If $a \leq h(1_{\mathbf K})$, then
 \begin{enumerate}
@@ -1293,7 +1297,7 @@ A join cover $S$ of $a$ is \textit{nontrivial} if $a \nleq s$ for all
 $s \in S$. Let $\mathcal C (a)$ be the set of all nontrivial join 
 covers of $a$ in $\mathbf L$.
 
-\begin{theorem}[\protect{\cite[Theorem 2.3]{MR1319815}}]\label{thm:2.3}
+\begin{theorem}[\protect{\cite[Thm.~2.3]{MR1319815}}]\label{thm:2.3}
 Suppose $\mathbf K$ is generated by a finite set $X$,
 $h \colon \mathbf K \to \mathbf L$ is a homomorphism, $a \leq h(1_{\mathbf K})$, and $k\in \omega$. Then,
 \begin{align*}
@@ -1331,7 +1335,7 @@ to a minimal one. Clearly every finite lattice has the minimal join cover refine
 property, but so do free lattices.  The following reformulation of Theorem~\ref{thm:2.3} 
 simplifies the calculation of $\beta_k$ whenever the minimal join cover refinement property holds.
 
-\begin{theorem}[\protect{\cite[Theorem 2.4]{MR1319815}}]\label{thm:2.4}
+\begin{theorem}[\protect{\cite[Thm.~2.4]{MR1319815}}]\label{thm:2.4}
 Let $\mathbf K$ be generated by the finite set $X$, and let 
 $h \colon \mathbf K \to \mathbf L$ be a lattice homomorphism. 
 If $\mathbf L$ has the minimal join cover refinement property, then
@@ -1418,8 +1422,6 @@ $D^d(\mathbf L)$, and $\rho^d(a)$, respectively.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
