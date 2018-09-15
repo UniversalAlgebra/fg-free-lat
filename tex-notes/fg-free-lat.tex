@@ -476,19 +476,48 @@ $x_0 = x$, $y_0 = y$, $z_0 = z$, and for $i\geqslant 0$,
 \end{claim}
 \begin{proof}
   % It suffices to prove the claim for the sequences $\{m_n\}$ and $\{x_n\}$.
-We have, 
+First observe that $h(x_1) = 0 \vee (1 \wedge 2)$.  We begin by proving 
+$h(x_{2}) = h(x_1)$.
+By definition, we have 
 $h(x_{2}) = h(x \vee (y_1 \wedge z_1)) = h(x) \vee \bigl[h(y_1) \wedge h(z_1)\bigr]$,
 and $h(y_1) = h(y \vee (x \wedge z)) =   h(y) \vee \bigl[h(x) \wedge h(z)\bigr] 
 = 1 \vee (0 \wedge 2)$. Similarly, $h(z_1) = 2 \vee (0 \wedge 1)$.
 Therefore, 
-  \begin{equation}\label{eq:h2h1} 
-    h(x_{2}) = 
+\begin{equation}\label{eq:h2h1} 
+  h(x_{2}) = 
 0 \vee \bigl\{[1 \vee (0 \wedge 2)] \wedge [2 \vee (0 \wedge 1)]\bigr\}.
 \end{equation}
-Clearly $0 \vee (1 \wedge 2) \geq [1 \vee (0 \wedge 2)] \wedge [2 \vee (0 \wedge 1)]$
-(see Figure~\ref{fig:1}). Therefore, 
-  $h(x_{2}) = h(x_1)$.  Similarly,   $h(y_{2}) = h(y_1)$ and   $h(z_{2}) = h(z_1)$.
-  Fix $n$ and assume $h(x_{n}) = h(x_1)$, $h(y_{n}) = h(y_{1})$, and $h(z_{n}) = h(z_{1})$. 
+Recall, the modular law: 
+$x \leq b$ implies $x \vee (a \wedge b) = (x \vee a) \wedge b$.
+Applying this law with $a = 1$ and $x = 0 \wedge 2 \leq 2 \vee (0 \wedge 1) = b$, we have 
+\[
+  (0 \wedge 2) \vee \bigl\{ 1 \wedge [2 \vee (0 \wedge 1)]\bigr\} = [1 \vee (0 \wedge 2)] \wedge [2 \vee (0 \wedge 1)],
+\]  
+which is the right joinand in~\ref{eq:h2h1}.  Therefore,
+\[
+  h(x_{2}) = 
+  0 \vee 
+  (0 \wedge 2) \vee \bigl\{ 1 \wedge [2 \vee (0 \wedge 1)]\bigr\} = 
+  0 \vee 
+  \bigl\{ 1 \wedge [2 \vee (0 \wedge 1)]\bigr\}.
+\]
+Applying the modular law once more to $1 \wedge [2 \vee (0 \wedge 1)]$, 
+with $a = 2$ and $x = 0\wedge 1 \leq 1 = b$, we have
+\[
+  1 \wedge [2 \vee (0 \wedge 1)]  = (0 \wedge 1) \vee (1\wedge 2).
+\]
+% [0 \vee (1 \wedge 2)] \wedge [1 \vee (0 \wedge 2)]
+Therefore,
+\[
+  h(x_{2}) = 
+  0 \vee 
+  \bigl\{ 1 \wedge [2 \vee (0 \wedge 1)]\bigr\} = 
+  0 \vee (0 \wedge 1) \vee (1\wedge 2) = 0 \vee (1\wedge 2),
+ \] 
+as desired. 
+Of course, $h(y_{2}) = h(y_1)$ and $h(z_{2}) = h(z_1)$ can be checked similarly.
+
+Fix $n$ and assume $h(x_{n}) = h(x_1)$, $h(y_{n}) = h(y_{1})$, and $h(z_{n}) = h(z_{1})$. 
   Then,
   \[h(x_{n+1}) = h(x \vee (y_n \wedge z_n))
     =h(x) \vee (h(y_n) \wedge h(z_n))= 0 \vee (h(y_{1}) \wedge h(z_{1})),\]
