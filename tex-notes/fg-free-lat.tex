@@ -1656,46 +1656,6 @@ Similarly, if $p_2 \leq y$ and $p_2 \leq z$, the desired conclusion holds.
 Finally, consider the case in which $p_1 \leq y$ and $p_2 \leq z$. In this case $q_1 \leq y_N$ and $q_2 \leq z_N$.  Therefore, $q = q_1 \wedge q_2 \leq y_N \wedge z_N \leq x_N \vee (y_N\wedge z_N) = x_{N+1}$, as desired.
 \end{proof}
 
-\subsection{Miscellaneous notes about the sequence $\{m_n\}$ from Claim~\ref{claim:000}}
-Observe that 
-\[
-h(m_0) =  (h(x) \wedge h(y)) \vee (h(x) \wedge h(z)) \vee (h(y) \wedge h(z)) = (0 \wedge 1) \vee (0 \wedge 2) \vee (1 \wedge 2).
-\]
-By modularity, and $0 \wedge 1 \leq 0$, we have
-\[
-  (0 \wedge 1) \vee (0 \wedge 2)   = 
-  [(0 \wedge 1) \vee 2] \wedge 0, 
-\]
-so
-\[
-  h(m_0) =  \bigl\{[(0 \wedge 1) \vee 2] \wedge 0\bigr\}  \vee (1 \wedge 2).
-  \]
-Similarly, $1 \wedge 2 \leq (0 \wedge 1) \vee 2$, so modularity implies
-\[
-  h(m_0) =  [(0 \wedge 1) \vee 2] \wedge [0 \vee (1 \wedge 2)].
-\]
-  (The same modularity argument as above reduces this to
-\[  h(m_n)= \bigl[(h(x_1) \wedge h(y_1)) \vee h(z_1)\bigr]\wedge \bigl[h(x_1) \vee (h(y_1) \wedge h(z_1))\bigr]
-\]
-In fact, it is easy to see that for all $n \geq 1$, $ h(m_n) = h(m_1) = $ the orange element in Figure~\ref{fig:1}.)
-
-\[
-  h(x_1) = h(x \vee (y \wedge z)) =   h(x) \vee \bigl[h(y) \wedge h(z)\bigr] = 0 \vee (1 \wedge 2)   
-\]
-
-\[
-  h(y_1) = h(y \vee (x \wedge z)) =   h(y) \vee \bigl[h(x) \wedge h(z)\bigr] = 1 \vee (0 \wedge 2)   
-\]
-
-\[
-  h(z_1) = h(z \vee (x \wedge y)) =   h(z) \vee \bigl[h(x) \wedge h(y)\bigr] = 2 \vee (0 \wedge 1)   
-\]
-
-
-\[
-  h(x_1) \wedge h(y_1) = \bigl[ 0 \vee (1 \wedge 2)\bigr]   \wedge
-  \bigl[1 \vee (0 \wedge 2)   \bigr] = (0\wedge 1) \vee (0\wedge 2) \vee(1\wedge 2)
-\]
 
 
 
