@@ -1,5 +1,9 @@
 ## Kernels of epimorphisms of finitely generated free lattices
 
+Original research by William DeMeo, Peter Myer, and Nik Ruskuc.
+
+---
+
 The notes in the directory `tex-notes` give a proof of the following:
 
 **Theorem.**
@@ -24,5 +28,5 @@ of $\mathbf F \times \mathbf F$, then $h$ is bounded.
 We know how to prove the conjecture under the assumption that, 
 whenever $h$ is not upper (lower) bounded, then there is a class of 
 $\ker h$ containing an infinite ascending (descending) chain as well as a meet (join)
-prime element of $\mathbf F$.  However, there exist examples in which this 
-hypothesis fails to hold.
+prime element of $\mathbf F$.  However, there exist examples that fail to satisfy this 
+hypothesis.
