@@ -460,8 +460,10 @@ Let $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ be the epimorphism induce
   \label{fig:1}
 \end{figure}
 
+To prove this we will need the a technical lemma about the behavior of 
+certain sequences of elements of $\mathbf F$.
 
-\begin{proof}
+\begin{lemma}\label{claim:2.3}
 For each $s \in \{x, y, z, m\}$, define the sequence $\{s_i : i < \omega\}$
 of elements of $\mathbf F$ as follows: 
 $x_0 = x$, $y_0 = y$, $z_0 = z$, and for $i\geqslant 0$, 
@@ -469,14 +471,12 @@ $x_0 = x$, $y_0 = y$, $z_0 = z$, and for $i\geqslant 0$,
   x_{i+1} = x\vee (y_i \wedge z_i), \quad  y_{i+1} = y\vee (x_i \wedge z_i), \quad  z_{i+1} = z\vee (x_i \wedge y_i),\\
   m_i = (x_i \wedge y_i) \vee (x_i \wedge z_i) \vee (y_i \wedge z_i).
 \end{gather*}
-
-\begin{claim}\label{claim:000}
-  If $\{s_i : i< \omega\}$ is any one of the four sequences just defined, then for $i\geq 1$, 
-  we have $s_{i+1} > s_i$ and $h(s_{i+1}) = h(s_i)$.
-\end{claim}
+  If $\{s_i : i< \omega\}$ is any one of the four sequences just defined, then for every $i\geq 1$, 
+  we have $s_{i+1} > s_i$ and $h(s_{i}) = h(s_1)$.
+\end{lemma}
 \begin{proof}
-  % It suffices to prove the claim for the sequences $\{m_n\}$ and $\{x_n\}$.
-First observe that $h(x_1) = 0 \vee (1 \wedge 2)$.  We begin by proving 
+% It suffices to prove the claim for the sequences $\{m_n\}$ and $\{x_n\}$.
+First observe that $h(x_1) = h(x \vee (y \wedge z)) = 0 \vee (1 \wedge 2)$.  We begin by proving 
 $h(x_{2}) = h(x_1)$.
 By definition, we have 
 $h(x_{2}) = h(x \vee (y_1 \wedge z_1)) = h(x) \vee \bigl[h(y_1) \wedge h(z_1)\bigr]$,
@@ -517,29 +517,162 @@ Therefore,
 as desired. 
 Of course, $h(y_{2}) = h(y_1)$ and $h(z_{2}) = h(z_1)$ can be checked similarly.
 
-Fix $n$ and assume $h(x_{n}) = h(x_1)$, $h(y_{n}) = h(y_{1})$, and $h(z_{n}) = h(z_{1})$. 
+With the base cases established, we proceed with the induction. 
+Fix $n\geq 1$ and assume $h(x_{n}) = h(x_1)$, $h(y_{n}) = h(y_{1})$, and $h(z_{n}) = h(z_{1})$. 
   Then,
   \[h(x_{n+1}) = h(x \vee (y_n \wedge z_n))
-    =h(x) \vee (h(y_n) \wedge h(z_n))= 0 \vee (h(y_{1}) \wedge h(z_{1})),\]
-which, as we observed in the first line of the proof, is equal to $h(x_2)$, which in turn is 
+    =h(x) \vee (h(y_n) \wedge h(z_n))= h(x) \vee (h(y_{1}) \wedge h(z_{1})).\]
+As observed above, this is equal to $h(x_2)$, which in turn is 
 $h(x_1)$, as desired.  By the same argument, $h(y_{n+1})=h(y_{1})$ and $h(z_{n+1})=h(z_{1})$.
 This proves that for all $n \geq 1$, we have $h(s_{n})=h(s_{1})$, when 
 $\{s_n\}$ is $\{x_n\}$ or $\{y_n\}$ or $\{z_n\}$.
 
-Finally, consider $\{m_n\}$. For all $n\geq 1$, we have
+Finally, consider $\{m_n\}$. 
+For all $n\geq 1$, we have
 \begin{align*}
-h(m_n) &= \bigl[h(x_n) \wedge h(y_n)\bigr] \vee \bigl[h(x_n) \wedge h(z_n)\bigr]\vee \bigl[h(y_n) \wedge h(z_n)\bigr] \\
-&= \bigl[h(x_1) \wedge h(y_1)\bigr] \vee \bigl[h(x_1) \wedge h(z_1)\bigr]\vee \bigl[h(y_1) \wedge h(z_1)\bigr].
-\end{align*}
-(In fact, it is not hard to see that each of the joinands in the last expression is equal
-to the orange element in Figure~\ref{fig:1}.)  Therefore, $h(m_n) = h(m_1)$ for all $n\geq 1$.
+  h(m_n) &= \bigl[h(x_n) \wedge h(y_n)\bigr] \vee \bigl[h(x_n) \wedge h(z_n)\bigr]\vee \bigl[h(y_n) \wedge h(z_n)\bigr] \\
+  &= \bigl[h(x_1) \wedge h(y_1)\bigr] \vee \bigl[h(x_1) \wedge h(z_1)\bigr]\vee \bigl[h(y_1) \wedge h(z_1)\bigr]\\
+  &=h(m_1).
+  \end{align*}
+(In fact, in this case we can show that $h(m_1) = h(m_0)$, but this is unnecessary.)
 
-\wjd{TODO complete proof of the claim}
-It remains to show that $s_{i+1} > s_i$ for all $i<\omega$.
+
+It remains to show that $s_{i+1} > s_i$ for all $i<\omega$ (for each $s \in \{x, y, z, m\}$).  
+For this we will need the following.
+
+\begin{claim}\label{claim:gens-below} For all $i \geq 0$, $x\nleq y_i$ and $x \nleq z_i$.
+\end{claim}
+\begin{proof}
+When $i=0$, the claim is that $x\nleq y$ and $x \nleq z$, which is clear.  
+Fix $k\geq 0$ and suppose $x\nleq y_k$ and $x \nleq z_k$. We show 
+$x\nleq y_{k+1}$ and $x \nleq z_{k+1}$.
+Assume the contrary, say, $x\leq y_{k+1} = y \vee (x_k \wedge z_k)$.
+Since $x$ is a generator, it is join prime. Therefore, as $x\nleq y$, we must have
+$x \leq x_k \wedge z_k$. But this is impossible since 
+$x \nleq z_k$, by the induction hypothesis. Thus, Claim~\ref{claim:gens-below} is proved.
 \end{proof}
-% This completes the proof of Claim~\ref{claim:000}.
-\wjd{TODO complete proof of Prop 2.2}
+Observe that the claim just proved also yields the following: $\forall m, n$, $x_m \nleq y_n$. 
+
+We will now prove $\forall i \geq 0$ that all of the following strict inequalities hold:
+\begin{gather}
+x_i < x_{i+1}, \quad y_i < y_{i+1}, \quad z_i < z_{i+1}\nonumber \\
+x_i \wedge y_i < x_{i+1} \wedge  y_{i+1}, \quad 
+x_i \wedge z_i < x_{i+1} \wedge  z_{i+1}, \quad 
+y_i \wedge z_i < y_{i+1} \wedge  z_{i+1}.\label{strict-ineq2}
+\end{gather}
+Clearly $x_1 = x \vee (y \wedge z) > x = x_0$, by Theorem~\ref{thm:wordprob}. 
+Similarly, $y_1 > y_0$ and $z_1 > z_0$.  
+Also, 
+\[
+x_1 \wedge y_1 = \bigl[x \vee (y \wedge z)\bigr] \wedge \bigl[y \vee (x \wedge z)\bigr]
+ > x \wedge y.\]
+For, suppose on the contrary that 
+$\bigl[x \vee (y \wedge z)\bigr] \wedge \bigl[y \vee (x \wedge z)\bigr]
+\leq x \wedge y$. Then, in particular, 
+$\bigl[x \vee (y \wedge z)\bigr] \wedge \bigl[y \vee (x \wedge z)\bigr]
+\leq x$, but $x$ is meet prime, so 
+either $\bigl[x \vee (y \wedge z)\bigr] \leq x$ or 
+$\bigl[y \vee (x \wedge z)\bigr]\leq x$. Both of these possibilities are easily ruled out.
+The arguments establishing the remaining inequalities in~(\ref{strict-ineq2}) 
+in case $i=0$ are similar.
+
+Now, fix $n< \omega$ and suppose the strict
+inequalities in~(\ref{strict-ineq2}) hold when $i=n$.
+We show they also hold when $i = n+1$.  It suffices to prove just two of these, namely,
+$x_{n+1} > x_n$ and $x_{n+1} \wedge y_{n+1} > x_n \wedge y_n$. 
+
+Recall $x_{n+1} = x \vee (y_n \wedge z_n)$ and 
+$x_{n} = x \vee (y_{n-1} \wedge z_{n-1})$, and 
+the induction hypothesis implies that $y_n \wedge z_n > y_{n-1} \wedge z_{n-1}$.
+Therefore, 
+$x_{n+1} \geq x_{n}$, so we must show $x_{n+1} \neq x_{n}$.  
+Suppose on the contrary that 
+\begin{equation}\label{eq:w+app}
+x_{n+1} = x \vee (y_n \wedge z_n) = x \vee (y_{n-1} \wedge z_{n-1}) = x_n.
+\end{equation}
+Then $y_n \wedge z_n \leq x \vee (y_{n-1} \wedge z_{n-1})$.  
+Recall Whitman's Theorem~(\ref{thm:whitman2}) asserting that 
+$\mathbf{F}(X)$ satisfies condition (W+) repeated here for easy reference.
+\begin{quote}  
+  If $v = v_1 \wedge \cdots \wedge v_r \wedge x_1 \wedge \cdots
+  \wedge x_n \leqslant u_1 \vee \cdots \vee u_s \vee
+  y_1 \vee \cdots \vee y_m = u$, where $x_i, y_j\in X$, then either 
+  $x_i = y_j$ for some $i$ and $j$, or $v_i \leqslant u$ for some $i$, or
+  $v \leqslant u_j$ for some $j$. 
+\end{quote}  
+This condition and~(\ref{eq:w+app}) together imply that one of the following must hold:
+\begin{enumerate}
+\item $y_n \leq x \vee (y_{n-1} \wedge z_{n-1})$;
+\item $z_n \leq x \vee (y_{n-1} \wedge z_{n-1})$;
+%\item $y_n \wedge z_n \leq x$;  
+\item $y_n \wedge z_n \leq y_{n-1} \wedge z_{n-1}$.  
+\end{enumerate}
+The first two inequalities are simply $y_n \leq x_n$ and $z_n \leq x_n$,
+which are both ruled out by the remark immediately following the proof of Claim~\ref{claim:gens-below},
+%Since $x$ is meet prime, $y_n \wedge z_n \leq x$ is also easily dismissed.
+and $y_n \wedge z_n \leq y_{n-1} \wedge z_{n-1}$ is ruled out by the induction hypothesis.
+By reaching this contradiction we have established that $x_{n+1} > x_n$.  
+
+It remains to prove $x_{n+1} \wedge y_{n+1} > x_n \wedge y_n$ under the assumption 
+that all of the strict inequalities in~(\ref{strict-ineq2}) hold when $i=n$.
+Since we have already established that $x_{n+1} > x_n$ and (by an identical argument)
+that $y_{n+1} > y_n$, it's clear that $x_{n+1} \wedge y_{n+1}  \geq x_n \wedge y_n$,
+so we just have to rule out equality.  Suppose on the contrary that  
+% x_n \wedge y_n  < x_{n+1} \wedge y_{n+1} > 
+\begin{align*}
+x_n \wedge y_n &:= \bigl[x \vee (y_{n-1} \wedge z_{n-1})\bigr] \wedge 
+\bigl[y \vee (x_{n-1} \wedge z_{n-1})\bigr]\\
+&= \bigl[x \vee (y_n \wedge z_n) \bigr] \wedge \bigl[y \vee (x_n \wedge z_n)\bigr] =: x_{n+1} \wedge y_{n+1}.
+\end{align*}
+Then we have both $x_{n+1} \wedge y_{n+1} \leq x_{n}$ and $x_{n+1} \wedge y_{n+1} \leq y_{n}$.
+Equivalently,
+\begin{align}
+\bigl[x \vee (y_{n} \wedge z_{n})\bigr] \wedge 
+\bigl[y \vee (x_{n} \wedge z_{n})\bigr] &\leq x \vee (y_{n-1} \wedge z_{n-1})\nonumber\\
+\bigl[x \vee (y_{n} \wedge z_{n})\bigr] \wedge 
+\bigl[y \vee (x_{n} \wedge z_{n})\bigr] &\leq y \vee (x_{n-1} \wedge z_{n-1}).\label{ineqs}
+\end{align}
+% The first of these is equivalent to 
+% \[
+% \bigl[x \vee (y_{n} \wedge z_{n})\bigr] \wedge 
+% \bigl[y \vee (x_{n} \wedge z_{n})\bigr] \leq x \vee (y_{n-1} \wedge z_{n-1}). \]
+Again, by (W+), for the first of these inequalities to hold, we must have one of the following:
+\begin{enumerate}
+\item $x \vee (y_{n} \wedge z_{n})\leq x \vee (y_{n-1} \wedge z_{n-1})$;
+\item $y \vee (x_{n} \wedge z_{n}) \leq x \vee (y_{n-1} \wedge z_{n-1})$;
+\item $\bigl[x \vee (y_{n} \wedge z_{n})\bigr] \wedge 
+\bigl[y \vee (x_{n} \wedge z_{n})\bigr] \leq y_{n-1} \wedge z_{n-1}$.
+\end{enumerate}
+The first of these is equivalent to $x_{n+1} \leq x_{n}$, and the second to 
+$y_{n+1} \leq x_n$; we have already ruled out both of these cases.
+Thus the only remaining possibility is the third, which can be restated as 
+$x_{n+1} \wedge y_{n+1} \leq y_{n-1} \wedge z_{n-1}$. Let's assume this holds.
+
+In order for the second of the inequalities in~(\ref{ineqs}) to hold, 
+according to (W+), one of the following must also be true:
+\begin{enumerate}
+\item $x \vee (y_{n} \wedge z_{n})\leq y \vee (x_{n-1} \wedge z_{n-1})$;
+\item $y \vee (x_{n} \wedge z_{n}) \leq y \vee (x_{n-1} \wedge z_{n-1})$;
+\item $\bigl[x \vee (y_{n} \wedge z_{n})\bigr] \wedge 
+\bigl[y \vee (x_{n} \wedge z_{n})\bigr] \leq x_{n-1} \wedge z_{n-1}$.
+\end{enumerate}
+Again, the first two---$x_{n+1}\leq y_n$ and $y_{n+1} \leq y_{n}$---have already 
+been ruled out. So the only possibility is
+$x_{n+1} \wedge y_{n+1} \leq x_{n-1} \wedge z_{n-1}$. Let us assume we are in this case.
+
+Taken all together, if 
+$x_n \wedge y_n$ were equal to  $x_{n+1} \wedge y_{n+1}$,
+we have would have
+\[
+x_n \wedge y_n = x_{n+1} \wedge y_{n+1} \leq x_{n-1} \wedge y_{n-1} \wedge z_{n-1}.
+\]
+In particular $x_n \wedge y_n \leq x_{n-1} \wedge y_{n-1}$.  But this contradicts 
+the inductive hypothesis. Thus the proof of Lemma~\ref{claim:2.3} is complete.
 \end{proof}
+
+
+
+\wjd{TODO Prove Prop 2.2}
 
 Notice that the example above involves an infinite ascending chain $\{x_n\} \subseteq \mathbf F$
 such that $0 = h(x_0) \neq h(x_1) = h(x_2) = \cdots$; thus, for $n\geq 1$, all $x_n$ belong to the same 
@@ -1099,16 +1232,16 @@ then either $v_i \leqslant u$ for some $i$, or $v \leqslant u_j$ for some $j$.
 Every sublattice of a free lattice satisfies (W). Every element of a lattice satisfying (W) is either join or meet irreducible.
 \end{corollary}
 
-\begin{theorem}[Whitman's Condition, ver.~2]  
-The free lattice $\mathbf{F}(X)$ satisfies the following condition:
-
-(W+)  If $v = v_1 \wedge \cdots \wedge v_r \wedge x_1 \wedge \cdots
-\wedge x_n \leqslant u_1 \vee \cdots \vee u_s \vee
-y_1 \vee \cdots \vee y_m = u$, where $x_i, y_j\in X$, then either 
-$x_i = y_j$ for some $i$ and $j$, or $v_i \leqslant u$ for some $i$, or
-$v \leqslant u_j$ for some $j$. 
-\end{theorem}
-
+\begin{theorem}[Whitman's Condition, ver.~2]  \label{thm:whitman2}
+  The free lattice $\mathbf{F}(X)$ satisfies the following condition:
+  
+  (W+)  If $v = v_1 \wedge \cdots \wedge v_r \wedge x_1 \wedge \cdots
+  \wedge x_n \leqslant u_1 \vee \cdots \vee u_s \vee
+  y_1 \vee \cdots \vee y_m = u$, where $x_i, y_j\in X$, then either 
+  $x_i = y_j$ for some $i$ and $j$, or $v_i \leqslant u$ for some $i$, or
+  $v \leqslant u_j$ for some $j$. 
+  \end{theorem}
+  
 \begin{theorem}[\protect{\cite[Thm.~1.11]{MR1319815}}]
   \label{thm:wordprob}
 If $s = s(x_1, \dots, x_n)$ and $t = t(x_1, \dots, x_n)$ are terms and $x_1, \dots, x_n \in X$, then the truth of 
@@ -1523,7 +1656,46 @@ Similarly, if $p_2 \leq y$ and $p_2 \leq z$, the desired conclusion holds.
 Finally, consider the case in which $p_1 \leq y$ and $p_2 \leq z$. In this case $q_1 \leq y_N$ and $q_2 \leq z_N$.  Therefore, $q = q_1 \wedge q_2 \leq y_N \wedge z_N \leq x_N \vee (y_N\wedge z_N) = x_{N+1}$, as desired.
 \end{proof}
 
+\subsection{Miscellaneous notes about the sequence $\{m_n\}$ from Claim~\ref{claim:000}}
+Observe that 
+\[
+h(m_0) =  (h(x) \wedge h(y)) \vee (h(x) \wedge h(z)) \vee (h(y) \wedge h(z)) = (0 \wedge 1) \vee (0 \wedge 2) \vee (1 \wedge 2).
+\]
+By modularity, and $0 \wedge 1 \leq 0$, we have
+\[
+  (0 \wedge 1) \vee (0 \wedge 2)   = 
+  [(0 \wedge 1) \vee 2] \wedge 0, 
+\]
+so
+\[
+  h(m_0) =  \bigl\{[(0 \wedge 1) \vee 2] \wedge 0\bigr\}  \vee (1 \wedge 2).
+  \]
+Similarly, $1 \wedge 2 \leq (0 \wedge 1) \vee 2$, so modularity implies
+\[
+  h(m_0) =  [(0 \wedge 1) \vee 2] \wedge [0 \vee (1 \wedge 2)].
+\]
+  (The same modularity argument as above reduces this to
+\[  h(m_n)= \bigl[(h(x_1) \wedge h(y_1)) \vee h(z_1)\bigr]\wedge \bigl[h(x_1) \vee (h(y_1) \wedge h(z_1))\bigr]
+\]
+In fact, it is easy to see that for all $n \geq 1$, $ h(m_n) = h(m_1) = $ the orange element in Figure~\ref{fig:1}.)
 
+\[
+  h(x_1) = h(x \vee (y \wedge z)) =   h(x) \vee \bigl[h(y) \wedge h(z)\bigr] = 0 \vee (1 \wedge 2)   
+\]
+
+\[
+  h(y_1) = h(y \vee (x \wedge z)) =   h(y) \vee \bigl[h(x) \wedge h(z)\bigr] = 1 \vee (0 \wedge 2)   
+\]
+
+\[
+  h(z_1) = h(z \vee (x \wedge y)) =   h(z) \vee \bigl[h(x) \wedge h(y)\bigr] = 2 \vee (0 \wedge 1)   
+\]
+
+
+\[
+  h(x_1) \wedge h(y_1) = \bigl[ 0 \vee (1 \wedge 2)\bigr]   \wedge
+  \bigl[1 \vee (0 \wedge 2)   \bigr] = (0\wedge 1) \vee (0\wedge 2) \vee(1\wedge 2)
+\]
 
 
 
