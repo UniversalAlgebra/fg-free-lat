@@ -386,6 +386,7 @@ J.B.~Nation brought the next result to our attention.
 It gives an example in which the unbounded
 classes of $\ker h$ do not contain generators of $\mathbf F$.
 \begin{proposition}
+  \label{prop:2.2}
 Let $\mathbf{F} = \mathbf{F}(x,y,z)$, and let $\mathbf{L} = \mathbf{F}_{\mathbf{M}_3}(0,1,2)$ (see Figure~\ref{fig:1}).  
 Let $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ be the epimorphism induced by $x\mapsto 0$, $y\mapsto 1$, $z\mapsto 2$. Then $\operatorname{ker}h$ is not finitely generated.  
 \end{proposition}
@@ -741,9 +742,79 @@ Clearly the same argument can be used to rule out Case (5).
 This completes the proof of Lemma~\ref{claim:2.3}.
 \end{proof}
 
+\noindent \textbf{Proof of Proposition~\ref{prop:2.2}.}
+Notice that the example above involves an infinite ascending chain $\{m_n\} \subseteq \mathbf F$
+such that $h(m_1) = h(m_2) = \cdots$; thus, for $n\geq 1$, all $m_n$ belong to the same 
+(unbounded) class of $\ker h$, and this class contains 
+$m_0 = (x \wedge y) \vee (x \wedge z) \vee (y\wedge z)$.
+%$m_0 = (x_i \wedge y_i) \vee (x_i \wedge z_i) \vee (y_i \wedge z_i).
+% As above, let 
+% $m_0 = (x_i \wedge y_i) \vee (x_i \wedge z_i) \vee (y_i \wedge z_i).
+Define $b = (0\wedge 1) \vee (0 \wedge 2)\vee (1 \wedge 2)$.  
+Then $h(m_1) = b$. 
 
+Suppose $K \subseteq \mathbf F \times \mathbf F$ is a finite set. 
+We wish to prove $\<K\> \neq \ker h$.
+First, let's try to show there exists $N < \omega$ such that 
+for all $(p, q)\in \mathbf F \times \mathbf F$ with $h(p) = b = h(q)$, 
+the following implication holds:
+\begin{equation}\label{eq:dcc}
+\text{ if $(p, q) \in \<K\>$ and $p \leq m_0$, then $q \leq \alpha_N(b)$.} 
+%, \; \text{ for all $(p, q) \in \<K\>\cap h^{-1}(y_0)^2$.}
+\end{equation}
+Since $\alpha_n(b)$ is an infinite ascending chain, 
+%and since $K$ is a finite set, %say, $K = \{(p_1, q_1), \dots, (p_m, q_m)\}$,
+we can certainly find $N < \omega$ such that~(\ref{eq:dcc}) holds for all 
+of the (finitely many) pairs in $K$.
 
-\wjd{TODO Prove Prop 2.2}
+Now suppose $(p, q) = (p_1, q_1) \wedge (p_2, q_2)$ and $h(p) = b = h(q)$. 
+Then $p_1$, $p_2$, $q_1$, $q_2$ must all belong to $h^{-1}\{b\}$ as well. 
+Indeed, $b = h(p) = h(p_1 \wedge p_2)= h(p_1) \wedge h(p_2)$, and
+$b = (0\wedge 1) \vee (0 \wedge 2)\vee (1 \wedge 2)$ is meet irreducible, so 
+$h(p_1) = b = h(p_2)$. Similarly for $q_1$ and $q_2$.
+
+Assume $(p, q) \in \<K\>$ and $p = p_1\wedge p_2 \leq m_0$.  
+We must show $q_1 \wedge q_2 \leq \alpha_N(b)$.
+Assume the induction hypothesis that $(p_i, q_i)$ satisfies~(\ref{eq:dcc}) for both $i = 1, 2$.
+The assumption that $p = p_1\wedge p_2 \leq m_0$ is expanded as follows:  
+\[
+p_1 \wedge p_2 \leq (x \wedge y) \vee (x \wedge z) \vee (y\wedge z).
+\]
+Whitman's Theorem implies that one of the following must hold:
+\begin{enumerate}
+\item $p_1 \wedge p_2 \leq x \wedge y$.
+\item $p_1 \wedge p_2 \leq x \wedge z$.
+\item $p_1 \wedge p_2 \leq y\wedge z$.
+\item $p_1 \leq (x \wedge y) \vee (x \wedge z) \vee (y\wedge z)$.
+\item $p_2 \leq (x \wedge y) \vee (x \wedge z) \vee (y\wedge z)$.
+\end{enumerate}
+In Cases (4) and (5) we have either $p_1\leq m_0$ or $p_2\leq m_0$, so 
+$q_1 \leq \alpha_N(b)$ or 
+$q_2 \leq \alpha_N(b)$, by the induction hypothesis; in either case, we 
+conclude that $q_1 \wedge q_2 \leq \alpha_N(b)$, as desired. 
+So we try to rule out the remaining cases.  
+
+In Case (1), we have $p_1 \wedge p_2 \leq x \wedge y$, so in particular 
+$p_1 \wedge p_2 \leq x$. As $x$ is meet prime, we have $p_1 \leq x$ or $p_2 \leq x$.
+Also, 
+$p_1 \wedge p_2 \leq y$, so $p_1 \leq y$ or $p_2 \leq y$ 
+
+\medskip
+
+In Case (2), we have $p_1 \wedge p_2 \leq x \wedge z$.
+
+\medskip
+
+In Case (3), we have $p_1 \wedge p_2 \leq y\wedge z$.
+
+\bigskip
+
+\wjd{Complete the proof of Prop 2.2}
+
+\bigskip
+
+\noindent {\bf More scratch work.}
+\medskip
 
 Notice that the example above involves an infinite ascending chain $\{x_n\} \subseteq \mathbf F$
 such that $0 = h(x_0) \neq h(x_1) = h(x_2) = \cdots$; thus, for $n\geq 1$, all $x_n$ belong to the same 
@@ -783,6 +854,24 @@ Assume $(p, q) \in \<K\>$ and $p = p_1\wedge p_2 \leq x_1$.
 We must show $q_1 \wedge q_2 \leq \alpha_N(b)$.
 Assume the induction hypothesis that $(p_i, q_i)$ satisfies~(\ref{eq:dcc}) for both $i = 1, 2$.
 
+Our working assumption is that $p_1\wedge p_2 \leq x \vee (y \wedge z)$. This and (W+) imply
+that one of the following must hold:
+\begin{enumerate}
+\item   $p_1\leq x \vee (y \wedge z)$.  
+\item   $p_2 \leq x \vee (y \wedge z)$.  
+\item   $p_1\wedge p_2 \leq y \wedge z$.  
+\end{enumerate}
+In cases (1) and (2), the induction hypothesis gives us the desired result.
+% In case (3), since $x$ is meet prime, we have either $p_1 \leq x$ or $p_2\leq x$,
+% and so either $p_1 \leq x_1$ or $p_2\leq x_1$; again, the induction hypothesis 
+% yields the desired result in this case.
+In case (3), we have $p_1\wedge p_2 \leq y$ and $p_1\wedge p_2 \leq z$. 
+
+\bigskip
+
+\wjd{Complete the proof of Prop 2.2}
+
+\begin{comment}
 If we knew that either $p_1\leq x_1$ or $p_2\leq x_1$, the we would have that either 
 $q_1 \leq \alpha_N(b)$ or 
 $q_2 \leq \alpha_N(b)$, by the induction hypothesis; in either case, we could 
@@ -799,13 +888,12 @@ p_1 \wedge p_2 \leq x_1 \quad \Longrightarrow \quad p_1 \leq x_1 \text{ or } p_2
 is satisfied for some special elements $p_1$ and $p_2$, namely...?
 
 \vfill
-
 Maybe we should try to exploit a $D^d$-cycle here, involving
 \[p_1 \wedge (p_1 \to x_1) \leq x_1\]
 We know that the maximum element (denoted here by $p_1 \to x_1$), 
 among those that meet with $p_1$ below $x_1$, exists by the existence of a 
 $D^d$-cycle. 
-
+\end{comment}
 
 % \begin{claim}
 % In $\mathbf F(x,y,z)$ the element $x \vee (y \wedge z)$ is meet prime.
