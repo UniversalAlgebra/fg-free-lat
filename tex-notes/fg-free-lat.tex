@@ -2,7 +2,6 @@
 %% AUTHOR: William DeMeo, Peter Mayr, Nik Ruskuc
 %% DATE: 14 May 2018
 %% COPYRIGHT: (C) 2018 DeMeo, Mayr, Ruskuk
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                         BIBLIOGRAPHY FILE            %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -675,64 +674,133 @@ Appendix Section~\ref{app:m-seq-proof}.
 \end{proof}
 
 \noindent \textbf{Proof of Proposition~\ref{prop:2.2}.}
-% Notice that the example above involves an infinite ascending chain $\{x_n\} \subseteq \mathbf F$
-% such that $0 = h(x_0) \neq h(x_1) = h(x_2) = \cdots$; thus, for $n\geq 1$, all $x_n$ belong to the same 
-% (unbounded) class of $\ker h$, and this class contains $x_1 = x \vee (y \wedge z)$.
-% However, $x_1$ is not meet prime, since $y \nleq x \vee (y \wedge z)$ and $z \nleq x \vee (y \wedge z)$, yet 
-% $y \wedge z \leq x \vee (y \wedge z)$, so we cannot use our previous proof technique.
-As above, let $x_1 = x \vee (y \wedge z)$
-and define $a = 0\vee (1 \wedge 2)$,  
-so that $h(x_1) = a$. 
-Suppose $K \subseteq \mathbf F \times \mathbf F$ is a finite set. 
+As above, define 
+\begin{gather*}
+x_1 = x \vee (y \wedge z), \qquad a = 0\vee (1 \wedge 2),\\
+y_1 = y \vee (x \wedge z), \qquad b = 1\vee (0 \wedge 2),\\
+z_1 = z \vee (x \wedge y), \qquad c = 2\vee (0 \wedge 1),\\
+m_1 = (x_1 \wedge y_1) \vee (x_1 \wedge z_1) \vee (y_1 \wedge z_1),\\
+d = (a \wedge b) \vee (a \wedge c) \vee (b \wedge c).
+\end{gather*}
+so that $h(x_1) = a$,  $h(y_1) = b$, $h(z_1) = c$, and $h(m_1) = d$.
+
+Actually, by modularity, since $a\wedge b \leq a$, we have 
+\[
+(a \wedge b) \vee (a \wedge c) = a \wedge ((a\wedge b) \vee c).
+\]
+In fact, we claim that $a\wedge b \leq c$, so the last equation becomes 
+\[
+(a \wedge b) \vee (a \wedge c) = a \wedge c.
+\]
+Therefore, $d = (a \wedge c) \vee (b \wedge c)$. Similarly, since 
+$c \geq b \wedge c$, modularity implies 
+\[ 
+d = (a \vee (b \wedge c)) \wedge c.
+\]
+If we also have $b \wedge c \leq a$, then this reduces further to $d = a  \wedge c$.
+
+We now prove that, indeed, $a\wedge b \leq c$, and form this follows both $b \wedge c\leq a$ and $a \wedge c\leq b$, by symmetry. Recall that 
+$a \wedge b = \bigl[0\vee (1 \wedge 2)\bigr] \wedge \bigl[1\vee (0 \wedge 2)\bigr]$.
+Since $1 \wedge 2 \leq 1\vee (0 \wedge 2)$, modularity implies
+$a \wedge b = \bigl\{0\wedge \bigl[1\vee (0 \wedge 2)\bigr]\bigr\} \vee (1 \wedge 2)$,
+and since $0 \geq 0 \wedge 2$, modularity also implies
+\[
+a \wedge b = (0\wedge 1)\vee (0 \wedge 2) \vee (1 \wedge 2).
+\]
+Each joinand in the last expression is below $c$,
+hence $a\wedge b \leq c$, as claimed.
+From what we just proved, not only do we have $d = a \wedge c$, but also $d = a\wedge b = a\wedge c = b \wedge c$.
+
+Now, suppose $K \subseteq \mathbf F \times \mathbf F$ is a finite set. 
 We wish to prove $\<K\> \neq \ker h$.
 First, we show there exists $N < \omega$ such that 
-for all $(p, q) \in \<K\>$ in the same kernel class as $x_1$
-(that is, $h(p) = a = h(q)$) %$(p, q)\in \mathbf F \times \mathbf F$ %with $h(p) = b = h(q)$, 
-the following implication holds:
-\begin{equation}
-\text{ if $p \leq x_1$, then $q \leq \alpha_N(a)$;} \label{eq:acc1}
-\end{equation}
-% \text{ if $p \leq y_1$, then $q \leq \alpha_N(b)$;} \label{eq:acc2}\\ \text{ if $p \leq z_1$, then $q \leq \alpha_N(c)$.}\label{eq:acc3} \end{gather}
-Since $\alpha_n(a)$
-% , $\alpha_n(b)$, and $\alpha_n(c)$ are infinite ascending chains, 
-is an infinite ascending chain, 
-we can certainly find $N < \omega$ such that~(\ref{eq:acc1}) holds for all 
-of the (finitely many) pairs in $K$.
+for all $(p, q) \in \<K\>$ 
+the following implications hold:
+\begin{align}
+p \leq x_1 &\implies q \leq x_N; \label{eq:acc01}\\
+p \leq y_1 &\implies q \leq y_N; \label{eq:acc02}\\ 
+p \leq z_1 &\implies q \leq z_N; \label{eq:acc03}\\
+p \leq m_1 &\implies q \leq m_N. \label{eq:acc04}
+\end{align}
+As we proved above, for each $w \in \{x, y, z, m\}$, the sequence $\{w_n\}$
+is an infinite ascending chain, so we can certainly find, for each of the four implications above, 
+a number $N_w < \omega$ such that the given implication holds for $N = N_w$ and
+for all of the (finitely many) pairs in $K$.  Therefore, 
+all four implications will hold for $(p, q) \in K$ if we take $N = \max \{N_a, N_b, N_c, N_d\}$. In fact, we will now see that the same $N$ works for all $(p, q) \in \<K\>$.
 
-Now suppose $(p, q) = (p_1, q_1) \wedge (p_2, q_2) \in \<K\>$ and $h(p) = a = h(q)$. 
-Then $p_1$, $p_2$, $q_1$, $q_2$ must all belong to $h^{-1}\{a\}$ as well. 
-Indeed, $a = h(p) = h(p_1 \wedge p_2)= h(p_1) \wedge h(p_2)$, and
-$a = 0\vee (1 \wedge 2)$ is meet irreducible, so 
-$h(p_1) = a = h(p_2)$. Similarly for $q_1$ and $q_2$.
+\begin{claim}\label{claim:wedge} If $(p, q) = (p_1, q_1) \wedge (p_2, q_2) \in \<K\>$ and $p = p_1\wedge p_2 \leq m_1$, then $q = q_1 \wedge q_2 \leq m_N$.
+\end{claim}
+\begin{proof}
+  Assume the following induction hypothesis: the implications~(\ref{eq:acc01})--(\ref{eq:acc04}) hold for
+  $(p, q) = (p_1, q_1)$ and for $(p, q) = (p_2, q_2)$.
 
-Assume $p = p_1\wedge p_2 \leq x_1$.  
-We must show $q = q_1 \wedge q_2 \leq \alpha_N(a)$.
-Assume the induction hypothesis that $(p_1, q_1)$
-and $(p_2, q_2)$ both satisfy~(\ref{eq:acc1}). 
-Then, since $p_1\wedge p_2 \leq x \vee (y \wedge z)$, condition (W+) implies
-that one of the following must hold:
-\begin{enumerate}
-\item   $p_1\leq x \vee (y \wedge z)$;  
-\item   $p_2 \leq x \vee (y \wedge z)$;  
-\item   $p_1\wedge p_2 \leq y \wedge z$.  
-\end{enumerate}
-Case~(3) is impossible. Indeed, $p_1\wedge p_2 \leq y$ in that case, and  
-$y$ is meet prime, so either $p_1\leq y$ or $p_2\leq y$.
-But if $p_1 \leq y$, then $h(p_1) \leq h(y) = 1$, and we have already established that,
-under present assumptions, $h(p_1) = 0 \vee (1 \wedge 2)$, which is not below $1$.
-Of course, a similar contradiction is reached if $p_2 \leq y$.
+  Since $p_1\wedge p_2 \leq m_1 = (x_1 \wedge y_1) \vee (x_1 \wedge z_1) \vee (y_1 \wedge z_1)$, condition (W+) implies
+  that one of the following holds:
+  \begin{enumerate}
+    \item   $p_1\leq m_1$;  
+    \item   $p_2 \leq m_1$;  
+    \item   $p_1\wedge p_2 \leq x_1 \wedge y_1$;  
+    \item   $p_1\wedge p_2 \leq x_1 \wedge z_1$;  
+    \item   $p_1\wedge p_2 \leq y_1 \wedge z_1$.  
+  \end{enumerate}
+  Cases~(1) and~(2) are easily handled. Indeed, if there is an $i$ in 
+  $\{1, 2\}$ for which $p_i \leq m_1$ holds, then $q_i \leq m_N$ also holds by the induction hypothesis; therefore, 
+  $q = q_1 \wedge q_2 \leq q_i \leq m_N$, which is the desired result.
 
-In Case~(1), the induction hypothesis yields $q_1 \leq \alpha_N(a)$.
-Similarly, in Case~(2) we have $q_2 \leq \alpha_N(a)$ by the induction hypothesis.
-In either case, we have $q = q_1 \wedge q_2 \leq \alpha_N(a)$, which is the desired result.
+  To complete the proof of Claim~\ref{claim:wedge}, it suffices to handle Case~(3) since Cases~(4) and~(5) submit to the same argument, by symmetry.
+  In Case~(3), $p_1\wedge p_2 \leq x_1 \wedge y_1$. In particular, 
+  $p_1\wedge p_2 \leq x_1$ and $p_1\wedge p_2 \leq y_1$. 
+  Considering the first of these, $p_1\wedge p_2 \leq x_1 = x \vee (y \wedge z)$, and Whitman's condition, 
+  one of the following holds:
+  \begin{enumerate}[(a)]
+    \item   $p_1\leq x_1$;
+    \item   $p_2 \leq x_1$;
+    \item   $p_1\wedge p_2 \leq y \wedge z$.
+  \end{enumerate}
+  Considering the second, $p_1\wedge p_2 \leq y_1 = y \vee (x \wedge z)$, one of the following holds:
+  \begin{enumerate}[(i)]
+    \item   $p_1\leq y_1$;
+    \item   $p_2 \leq y_1$;
+    \item   $p_1\wedge p_2 \leq x \wedge z$.  
+  \end{enumerate}
+  Suppose~(a) and~(i) hold; that is, $p_1\leq x_1$ and $p_1 \leq y_1$.
+  Then, by the induction hypothesis, $q_1 \leq x_N$ and 
+  $q_1 \leq y_N$, so $q = q_1\wedge q_2 \leq x_N \wedge y_N\leq m_N$, which is the desired conclusion.
+  Of course, the same argument handles the case in which both (b) and (ii) hold. 
 
-From what we have shown, it is easy to conclude that 
-$\<K\> \neq \ker h$. Indeed, the pair $(p, q) = (x_1, \alpha_{N+1}(a))$ 
-is in $\ker h$, as $h(x_1) = a = h(\alpha_{N+1}(a))$, but does not satisfy 
-condition~\ref{eq:acc1}---a condition that, as we just proved, all pairs in $\<K\>$ must satisfy.
-\qed
+  Next, suppose we are in case (a) $\wedge$ (ii), so that both $p_1\leq x_1$ and $p_2\leq y_1$ hold.  Then by the induction hypothesis, $q_1 \leq x_N$ and 
+  $q_2 \leq y_N$, so $q = q_1\wedge q_2 \leq x_N \wedge y_N \leq m_N$, as desired.
 
+  It remains to consider the case (a) $\wedge$ (iii) and the case (c) $\wedge$ (iii). (The other cases are handled analogously by symmetry.)
+  Suppose (a) $\wedge$ (iii). Then $p_1 \leq x_1$ so $q_1 \leq x_N$, so $q\leq
+  x_N$. Also, (iii) and (W+) imply either $p_1 \leq x\wedge z$ or 
+  $p_2 \leq x\wedge z$.  Without loss of generality, assume 
+  $p_1 \leq x\wedge z$.  Then $p_1 \leq y \vee (x \wedge z) = y_1$, so 
+  $q_1 \leq y_N$.  Therefore, $q = q_1 \wedge q_2 \leq x_N \wedge y_N \leq m_N$,
+  as desired.
 
+  If (c) $\wedge$ (iii), then  by (c)
+  and (W+) either $p_1\leq y \wedge z$ or $p_2 \leq y \wedge z$.
+  Assuming $p_1\leq y \wedge z \leq x_1$, we have $q_1\leq x_N$.
+  By (iii) and (W+) either $p_1\leq x\wedge z$ or $p_2 \leq x\wedge z$, so either $q_1\leq y\vee (x\wedge z) = y_1$, or 
+  $q_2\leq y\vee (x\wedge z) = y_1$. Either way, we have $q = q_1\wedge q_2 \leq y_N$.  Combining these observations yields $q\leq x_N \wedge y_N \leq m_N$, as desired.
+  
+  This completes the proof of Claim~\ref{claim:wedge}.
+\end{proof}
+
+\begin{claim}\label{claim:vee}
+  If $(p, q) = (p_1, q_1) \vee (p_2, q_2) \in \<K\>$ and
+  $p = p_1\vee p_2 \leq m_1$, then $q = q_1 \vee q_2 \leq m_N$.
+\end{claim}
+\begin{proof}
+  Assume (the induction hypothesis) that the implications~(\ref{eq:acc01})--(\ref{eq:acc04}) hold for both $(p, q) = (p_1, q_1)$ and for $(p, q) = (p_2, q_2)$.
+  Since $p_1\vee p_2 \leq m_1$, we have $p_1 \leq m_1$ and $p_2\leq m_1$.
+  Therefore, the induction hypothesis implies that $q_1 \leq m_N$ and 
+  $q_2 \leq m_N$ hold, so $q = q_1 \vee q_2 \leq m_N$, as desired.
+\end{proof}
+
+  It follows from Claims~\ref{claim:wedge} and~\ref{claim:vee} that 
+  $\<K\> \neq \ker h$. Indeed, since $\{m_n\}$ is a strictly increasing sequence, $m_N < m_{N+1}$, so the pair $(p, q) = (m_1, m_{N+1})$ belongs to $\ker h$, as $h(m_1) = d = h(m_{N+1})$, but does not satisfy condition~(\ref{eq:acc04}). On the other hand, we just proved that all pairs in $\<K\>$ satisfy~(\ref{eq:acc01})--(\ref{eq:acc04}) when $K$ is a finite set.   The proof of Proposition~\ref{prop:2.2} is now complete.\qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
@@ -1467,7 +1535,7 @@ subset of $K$, and $\bigcup H_n = K$, since $X$  generates $K$.
 Let $h \colon \mathbf K \to \mathbf L$ be an epimorphism and, 
 for each $y \in L$ and $k< \omega$, define
 \[
-\beta_k(y) = \bigwedge \{w \in H_k : h(w) \geqslant a\}.
+\beta_k(y) = \bigwedge \{w \in H_k : h(w) \geqslant y\}.
 \]
 
 \begin{theorem}[\protect{\cite[Thm.~2.2]{MR1319815}}]\label{thm:2.2}
