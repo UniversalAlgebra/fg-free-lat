@@ -488,25 +488,6 @@ p_1 \vee p_2  = \bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \w
 % \]
 
 \bigskip
-
-\noindent {\bf To Show:} $p_1$ and $p_2$ belong to $H_0 = X^{\wedge}$.
-
-\bigskip
-
-\noindent {\bf Proof:} Suppose $p_1 \in H_1\setminus H_0$. Then 
-\[
-p_1 = \bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_1 \wedge x_5)\vee x_2\bigr] \in H_1.
-\]
-If $p_2\leq p_1$, then $p_1 = p_1\vee p_2 \in H_1$---not a contradiction. We can rule this out.
-
-\bigskip
-The induction should go like this: Suppose the result holds for all $(p, q)$ such that $p$ has complexity at most $k$.
-Let $(p, q) = (p_1\vee p_2, q_1 \vee q_2)$, where $p_1$ and $p_2$ have complexity at most $k$.
-
-\bigskip
-
-\bigskip
-
 By induction, each $H_n = X^{\wedge(\vee\wedge)^n}$ is a finite meet-closed 
 subset of $\alg{F}(X)$, and $\bigcup H_n = \alg{F}(X)$, since $X$  generates $\alg{F}(X)$.
 Let $h \colon  \alg{F} \to \alg{L}$ be an epimorphism and, 
@@ -535,6 +516,100 @@ H_1 &= H_0^{\vee \wedge} = \{\bigwedge A \mid A \text{ a finite subset of } H_0^
 then there exist generators $x_1, \dots, x_n$ such that 
 $p_1 \vee p_2 = x_1 \wedge \cdots \wedge x_n$.
 \end{proof}
+
+\bigskip
+
+\noindent {\bf To Show:} $p_1$ and $p_2$ belong to $H_0 = X^{\wedge}$.
+
+\bigskip
+
+\noindent {\bf Proof:} Suppose $p_1 \in H_1\setminus H_0$. Then 
+\[
+p_1 = \bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_1 \wedge x_5)\vee x_2\bigr] \in H_1.
+\]
+If $p_2\leq p_1$, then $p_1 = p_1\vee p_2 \in H_1$---not a contradiction. We can rule this out.
+
+\bigskip
+\noindent {\bf New approach.} 
+Define the \emph{length} of a term $t \in \alg F(X)$ as follows:
+\begin{itemize}
+\item $t$ has \emph{length} $\ell$ if $t \in H_\ell \setminus H_{\ell-1}$
+\item $t$ has \emph{length at most} $\ell$ if $t \in H_\ell$.
+\end{itemize} 
+Observe that if $t$ has length at most $\ell$ and if $h(t) = a$, then $t\geq \beta_\ell h (t)$.
+
+\begin{lemma}
+Let $h$ be an epimorphism from $\alg F(X)$ onto a finite lattice $\alg L$.
+Let $K$ be a finite subset of the kernel of $h$.
+Then there exists $n>0$ such that for all $(p,q) \in \<K\>$, if $p$ has length 
+$\ell$, then $q \geq \beta_{\ell+n}h(q)$.
+\end{lemma}
+% \begin{equation}\label{eq:pqimp}
+% p\geq \beta_\ell(a) \; \implies \; q \geq \beta_{\ell+n}(a).
+% \end{equation}
+\begin{remark}
+If $K \subseteq \ker h$, then $(p,q) \in \<K\>$ implies $h(p) = h(q)$. 
+\end{remark}
+  
+\begin{proof}
+As usual, let $\alg F := \alg F(X)$. Let $K$ be a finite subset of $\ker h$ and
+define the following, where $S$ is an arbitrary subset of $\alg F^2$:
+ \begin{itemize}
+\item   
+  $S_1 = \{s_1 \in \alg F \mid \exists s_2, \; (s_1,s_2) \in S \}$,
+% \item  $\<K\>_2 = \{t_2 \in \alg F \mid \exists t_1, \; (t_1,t_2) \in \<K\> \}$,
+% \item $\restr{S}{H_i} = S_1 \cap H_i$, for each $i \geq 0$,
+\item   $m = \min \{\ell \mid K_1 \cap H_\ell \neq \emptyset\}$,
+\item $M = \min \{\ell \mid K_1 \subseteq H_\ell\}$.
+\end{itemize}
+Clearly $m\leq M$, so for all $a\in L$, we have $\beta_m(a) \geq \beta_M(a)$. 
+Also, $p\geq \beta_M h(p)$ for all pairs $(p, q)\in K$, since $K_1 \subseteq H_M$.
+Moreover, $\exists p \in K_1 \cap H_m$ and, by minimality of $m$, the length of 
+this $p$ is exactly $m$ and $p \geq \beta_{m} h(p)$.
+Finally, since $K$ is a finite set, we can find $n>0$ such that 
+$q \geq \beta_{m+n} h(p)$ for all $(p, q) \in K$.
+
+Now consider $\<K\>_1 \cap H_m$.  Since $m$ is the minimum length among the first coordinates
+of pairs in the generating set $K$, 
+it is clear that if $(t,s) \in \<K\>$, then the length of $t$ must be at least $m$.
+Furthermore, if the length of $t$ is exactly $m$, then $t$ must be 
+the first coordinate of a pair in the generating set.
+In that case, we could have $(t,s) = (t, q_1) \wedge (t, q_2)$
+or $(t,s) = (t, q_1) \vee (t, q_2)$, where $(t, q_i) \in K$.
+Notice that $(t, q_i) \in K$ implies $q_i \geq \beta_{m+n}h(t)$.
+
+\bigskip
+
+\bigskip
+
+Suppose $(p, q) = (p_1\vee p_2, q_1 \vee q_2)$, 
+where $p$ has length $\ell$ and each $p_i$ has length at most $\ell-1$.
+Then, by the induction hypothesis, $q_i \geq \beta_{\ell-1 + n}h(p_i)$.
+We show $q\geq \beta_{\ell+n}(a)$.
+We have 
+\[
+q = q_1 \vee q_2 \geq \beta_{\ell-1+n}h(p_1) \vee \beta_{\ell-1+n}h(p_2) \geq 
+\beta_{\ell+n}h(p_1\vee p_2) =
+\beta_{\ell+n}h(p).
+\]
+
+Suppose $(p, q) = (p_1\wedge p_2, q_1 \wedge q_2)$, where $p$ has length $\ell$ 
+and each $p_i$ has length at most $\ell$.
+Then, by the induction hypothesis, $q_i \geq \beta_{\ell+ n}h(p_i)$.
+We show $q\geq \beta_{\ell+n}(a)$.
+We have 
+\[
+q = q_1 \wedge q_2 \geq \beta_{\ell+n}h(p_1) \wedge \beta_{\ell+n}h(p_2) \geq 
+\beta_{\ell+n}h(p_1\wedge p_2) =
+\beta_{\ell+n}h(p).
+\]
+
+\end{proof}
+
+\bigskip
+
+\bigskip
+
 
 
 
