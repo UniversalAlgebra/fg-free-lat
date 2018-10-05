@@ -435,41 +435,45 @@ $h\colon \alg{F}(X) \twoheadrightarrow \mathbf L$ a lattice epimorphism.
 If the kernel of $h$ is a finitely generated sublattice 
 of $\alg{F}(X) \times \alg{F}(X)$, then $h$ is bounded.
 \end{theorem}
-We now present some standard notation and prove a couple of lemmas that will 
-aid in the proof of Theorem~\ref{thm:converse}.
-As above, let $\alg{F}:=\alg{F}(X)$. 
-Define a pair of closure operators, denoted by
+Before proving the theorem, we present some standard notation 
+and establish a lemma that will play a central role in the proof 
+of Theorem~\ref{thm:converse}.
+
+Let $\alg{F}:=\alg{F}(X)$. Define a pair of closure operators, denoted by
 $^\wedge$ and $^\vee$, on the powerset $\mathcal P (\alg{F})$ as follows: 
 if $A\in \mathcal P (\alg{F})$, then  
 \[
-A^\wedge := \{\bigwedge B \mid B \finsub A\}.
-\]
-and
-\[
-A^\vee := \{\bigvee B \mid B \finsub A\}.
+A^\wedge = \{\bigwedge B \mid B \finsub A\} \quad \text{ and }\quad
+A^\vee = \{\bigvee B \mid B \finsub A\}.
 \]
 Define also
-\begin{align*}
-  H_0 &:= X^\wedge = \{\bigwedge B \mid B \finsub X\}, \\
-  H_{k+1} &:= (H_k)^{\vee \wedge} = \{\bigwedge B \mid B \finsub H_k^{\vee}\}, \text{ for all $k\geq 0$,} \\
-& \text{ where } H_k^{\vee} := \{\bigvee A \mid A \finsub H_k\}.
-\end{align*}
+% \begin{align*}
+%   H_0 &:= X^\wedge = \{\bigwedge B \mid B \finsub X\}, \\
+%   H_{k+1} &:= (H_k)^{\vee \wedge} = \{\bigwedge B \mid B \finsub H_k^{\vee}\}, \text{ for all $k\geq 0$,} \\
+% & \text{ where } H_k^{\vee} := \{\bigvee A \mid A \finsub H_k\}.
+% \end{align*}
+$H_0 = X^\wedge = \{\bigwedge B \mid B \finsub X\}$, and for all $k\geq 0$, let
+\[ H_{k+1} = (H_k)^{\vee \wedge} = \{\bigwedge B \mid B \finsub H_k^{\vee}\}, \]
+where $H_k^{\vee} = \{\bigvee A \mid A \finsub H_k\}$.
 Evidentally, $\alg{F}$ is the union of the chain of subsets 
 $H_0\subseteq H_1 \subseteq \cdots$.
+Each $H_n = X^{\wedge(\vee\wedge)^n}$ is a finite meet-closed 
+subset of $\alg{F}$ and, since $X$  generates $\alg{F}$, 
+it should be apparent that $\bigcup H_n = \alg{F}$. 
+
 
 To gain some intuition about $H_k$ $(k\geq 0)$, let's consider the complexity 
-of the terms in $H_1$. 
+of the terms in $H_1 = (H_0)^{\vee \wedge}$. 
 \begin{align*}
-  H_0 &= X^\wedge = \{\bigwedge B \mid B \finsub X\}, \\
-  H_1 &= (H_0)^{\vee \wedge} = \{\bigwedge B \mid B \finsub (H_0)^{\vee}\}= \{\bigwedge B \mid B \finsub X^{\wedge \vee}\},\\
-      &= \left\{\bigwedge B \mid B \finsub \bigl\{\bigvee A \mid A \finsub X^\wedge \bigr\}\right\},\\
+  H_1 &= \{\bigwedge B \mid B \finsub (H_0)^{\vee}\}= \{\bigwedge B \mid B \finsub X^{\wedge \vee}\}\\
+      &= \left\{\bigwedge B \mid B \finsub \bigl\{\bigvee A \mid A \finsub X^\wedge \bigr\}\right\}\\
       &= \left\{\bigwedge B \mid B \finsub \bigl\{\bigvee A \mid A \finsub \{\bigwedge B \mid B \finsub X\} \bigr\}\right\}.
   % H_2 &= (H_1)^{\vee \wedge} = \{\bigwedge B \mid B \finsub (H_1)^{\vee}\},\\
   % &= \{\bigwedge B \mid B \finsub \{\bigvee A \mid A \finsub H_1\}\},\\
   % &= \left\{\bigwedge B \mid B \finsub \bigl\{\bigvee A \mid A \finsub \{\bigwedge B \mid B\finsub X^{\wedge \vee} \}\bigr\}\right\}.
 \end{align*}
-For example, if $x_i \in X$, then the following 
-four terms belong to $H_0$:
+For a concrete example, if $x_i \in X$, then the following four
+terms belong to $H_0$,
 \[
 t_1 = x_1 \wedge x_2 \wedge x_3, \quad t_2 = x_2 \wedge x_4, \quad t_3 = x_3 \wedge x_5, \quad t_4 = x_1,
 \]
@@ -477,25 +481,24 @@ and here's a term that belongs to $H_1 \setminus H_0$,
 \[
 (t_1 \vee t_2) \wedge (t_3 \vee t_4) = \bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_1 \wedge x_5)\vee x_2\bigr].
 \]
-Now, suppose there exist $p_1$ and $p_2$ in $\alg F$ such that 
-\[
-p_1 \vee p_2  = \bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_1 \wedge x_5)\vee x_2\bigr] \in H_1.
-\]
+% Now, suppose there exist $p_1$ and $p_2$ in $\alg F$ such that 
+% \[
+% p_1 \vee p_2  = \bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_1 \wedge x_5)\vee x_2\bigr] \in H_1.
+% \]
 % Then,  
 % \[
 % p_1 \vee p_2  \leq  (x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4) \quad \text{ and } \quad
 % p_1 \vee p_2  \leq  (x_1 \wedge x_5)\vee x_2.
 % \]
 
-\bigskip
-By induction, each $H_n = X^{\wedge(\vee\wedge)^n}$ is a finite meet-closed 
-subset of $\alg{F}(X)$, and $\bigcup H_n = \alg{F}(X)$, since $X$  generates $\alg{F}(X)$.
-Let $h \colon  \alg{F} \to \alg{L}$ be an epimorphism and, 
+
+Let $h \colon  \alg{F}(X) \to \alg{L}$ be an epimorphism and, 
 for each $y \in L$ and $k< \omega$, define
 \[
 \beta_k(y) = \bigwedge \{w \in H_k : h(w) \geqslant y\}.
 \]
 
+\begin{comment}
 \begin{lemma}
   Let $h \colon \mathbf \alg{F} \to \mathbf L$ be an epimorphism and
   $p_1, p_2\in \alg{F}$. If $p_1\vee p_2 \in H_k$, then $p_1$ and $p_2$ belong to 
@@ -516,27 +519,21 @@ H_1 &= H_0^{\vee \wedge} = \{\bigwedge A \mid A \text{ a finite subset of } H_0^
 then there exist generators $x_1, \dots, x_n$ such that 
 $p_1 \vee p_2 = x_1 \wedge \cdots \wedge x_n$.
 \end{proof}
-
-\bigskip
-
 \noindent {\bf To Show:} $p_1$ and $p_2$ belong to $H_0 = X^{\wedge}$.
-
-\bigskip
-
 \noindent {\bf Proof:} Suppose $p_1 \in H_1\setminus H_0$. Then 
 \[
 p_1 = \bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_1 \wedge x_5)\vee x_2\bigr] \in H_1.
 \]
 If $p_2\leq p_1$, then $p_1 = p_1\vee p_2 \in H_1$---not a contradiction. We can rule this out.
-
-\bigskip
 \noindent {\bf New approach.} 
+\end{comment}
+
 Define the \emph{length} of a term $t \in \alg F(X)$ as follows:
 \begin{itemize}
 \item $t$ has \emph{length} $\ell$ if $t \in H_\ell \setminus H_{\ell-1}$
 \item $t$ has \emph{length at most} $\ell$ if $t \in H_\ell$.
 \end{itemize} 
-Observe that if $t$ has length at most $\ell$ and if $h(t) = a$, then $t\geq \beta_\ell h (t)$.
+Observe that if $t$ has length at most $\ell$, then $t\geq \beta_\ell h (t)$.
 
 \begin{lemma}
 Let $h$ be an epimorphism from $\alg F(X)$ onto a finite lattice $\alg L$.
@@ -552,7 +549,7 @@ If $K \subseteq \ker h$, then $(p,q) \in \<K\>$ implies $h(p) = h(q)$.
 \end{remark}
   
 \begin{proof}
-As usual, let $\alg F := \alg F(X)$. Let $K$ be a finite subset of $\ker h$ and
+Let $\alg F := \alg F(X)$, let $K$ be a finite subset of $\ker h$, and
 define the following, where $S$ is an arbitrary subset of $\alg F^2$:
  \begin{itemize}
 \item   
@@ -562,54 +559,83 @@ define the following, where $S$ is an arbitrary subset of $\alg F^2$:
 \item   $m = \min \{\ell \mid K_1 \cap H_\ell \neq \emptyset\}$,
 \item $M = \min \{\ell \mid K_1 \subseteq H_\ell\}$.
 \end{itemize}
-Clearly $m\leq M$, so for all $a\in L$, we have $\beta_m(a) \geq \beta_M(a)$. 
+In other terms, $m$ and $M$ are the minimum and maximum lengths of 
+terms $p$ such that $(p,q) \in K$.
+Clearly $m\leq M$, so for all $a\in L$ we have $\beta_m(a) \geq \beta_M(a)$. 
 Also, $p\geq \beta_M h(p)$ for all pairs $(p, q)\in K$, since $K_1 \subseteq H_M$.
 Moreover, $\exists p \in K_1 \cap H_m$ and, by minimality of $m$, the length of 
 this $p$ is exactly $m$ and $p \geq \beta_{m} h(p)$.
 Finally, since $K$ is a finite set, we can find $n>0$ such that 
 $q \geq \beta_{m+n} h(p)$ for all $(p, q) \in K$.
 
-Now consider $\<K\>_1 \cap H_m$.  Since $m$ is the minimum length among the first coordinates
-of pairs in the generating set $K$, 
-it is clear that if $(t,s) \in \<K\>$, then the length of $t$ must be at least $m$.
-Furthermore, if the length of $t$ is exactly $m$, then $t$ must be 
-the first coordinate of a pair in the generating set.
-In that case, we could have $(t,s) = (t, q_1) \wedge (t, q_2)$
-or $(t,s) = (t, q_1) \vee (t, q_2)$, where $(t, q_i) \in K$.
-Notice that $(t, q_i) \in K$ implies $q_i \geq \beta_{m+n}h(t)$.
+Let $(p,q) \in \<K\>$ and let $\ell$ be the length of $p$, so 
+$p\geq \beta_{\ell}h(p)$.  We want to show $q \geq \beta_{\ell + n}h(p)$.
 
-\bigskip
-
-\bigskip
-
-Suppose $(p, q) = (p_1\vee p_2, q_1 \vee q_2)$, 
-where $p$ has length $\ell$ and each $p_i$ has length at most $\ell-1$.
-Then, by the induction hypothesis, $q_i \geq \beta_{\ell-1 + n}h(p_i)$.
-We show $q\geq \beta_{\ell+n}(a)$.
-We have 
+\noindent {\bf Case 1:} Suppose $(p, q) = (p_1, q_1) \vee (p_2, q_2)$,
+and assume the conclusion of the lemma holds for $(p_1, q_1)$ and $(p_2, q_2)$.
+Let $\ell_i$ be the length of $p_i$.  Then $p$ has length 
+$\ell = \max\{\ell_1, \ell_2\} + 1$. For each $i\in \{1,2\}$, we have
+$p_i\geq \beta_{\ell_i}h(p_i)$ and (by the induction hypothesis)
+$q_i\geq \beta_{\ell_i+n}h(p_i)$.  Observe also that 
+$\ell -1 \geq \ell_i$, so 
+$\beta_{\ell_i+n}h(p_i) \geq \beta_{\ell+n-1}h(p_i)$ for each $i\in \{1,2\}$.
+Therefore, 
 \[
-q = q_1 \vee q_2 \geq \beta_{\ell-1+n}h(p_1) \vee \beta_{\ell-1+n}h(p_2) \geq 
-\beta_{\ell+n}h(p_1\vee p_2) =
+q = q_1\vee q_2\geq \beta_{\ell_1+n}h(p_1) \vee \beta_{\ell_1+n}h(p_2)
+\geq \beta_{\ell+n-1}h(p_1) \vee \beta_{\ell+n-1}h(p_2).
+\]
+To complete the proof in this case, then, it suffices to show
+\begin{equation}
+\label{eq:goal}  
+\beta_{\ell+n-1}h(p_1) \vee \beta_{\ell+n-1}h(p_2) \geq 
+\beta_{\ell+n}h(p).
+\end{equation}
+
+Let $t_i = \beta_{\ell+n-1}h(p_i)$ and recall that this denotes
+least term of length at most 
+$\ell + n -1$ that is mapped by $h$ to $h(p_i)$.
+Now $t_1 \vee t_2$ is mapped by $h$ to $h(p)$. Indeed,
+$h(t_1\vee t_2) = h(t_1)\vee h(t_2) = h(p_1)\vee h(p_2) = h(p_1\vee p_2) = 
+h(p)$. Also, the length of $t_1 \vee t_2$ is at most $\ell +n$.
+Therefore, as $\beta_{\ell+n}h(p)$ denotes the least term of length at most
+$\ell +n$ that is mapped to $h(p)$,~(\ref{eq:goal}) holds.
+
+\noindent {\bf Case 2:} Suppose $(p, q) = (p_1, q_1) \wedge (p_2, q_2)$,
+and assume the conclusion of the lemma holds 
+for $(p_1, q_1)$ and $(p_2, q_2)$.
+Let $\ell_i$ be the length of $p_i$.  Then
+$p_i\geq \beta_{\ell_i}h(p_i)$ and (by the induction hypothesis)
+$q_i\geq \beta_{\ell_i+n}h(p_i)$. We must show
+$q\geq \beta_{\ell+n}h(p)$.
+
+For all $k$, $H_k$ is closed under meet, so 
+the length of $p$ is 
+$\ell = \max\{\ell_1, \ell_2\}$ (in contrast to Case 1).
+Still, 
+$\beta_{\ell_i+n}h(p_i) \geq \beta_{\ell+n}h(p_i)$, so
+\[
+q = q_1\wedge q_2\geq \beta_{\ell_1+n}h(p_1) \wedge \beta_{\ell_1+n}h(p_2)
+\geq \beta_{\ell+n}h(p_1) \wedge \beta_{\ell+n}h(p_2).
+\]
+To complete the proof it this case, it suffices to show
+\[
+\beta_{\ell+n}h(p_1) \wedge \beta_{\ell+n}h(p_2) \geq 
 \beta_{\ell+n}h(p).
 \]
-
-Suppose $(p, q) = (p_1\wedge p_2, q_1 \wedge q_2)$, where $p$ has length $\ell$ 
-and each $p_i$ has length at most $\ell$.
-Then, by the induction hypothesis, $q_i \geq \beta_{\ell+ n}h(p_i)$.
-We show $q\geq \beta_{\ell+n}(a)$.
-We have 
+Recall that $\beta_{\ell+n}h(p_i)$ denotes the least term $t_i$ 
+of length at most $\ell +n$ such that $h(t_i) = h(p_i)$. 
+Now, $t_1 \wedge t_2$ has length at most $\ell+n$, since $H_{\ell+n}$ is 
+closed under meet. Also, 
 \[
-q = q_1 \wedge q_2 \geq \beta_{\ell+n}h(p_1) \wedge \beta_{\ell+n}h(p_2) \geq 
-\beta_{\ell+n}h(p_1\wedge p_2) =
-\beta_{\ell+n}h(p).
-\]
-
-\end{proof}
-
-\bigskip
-
-\bigskip
-
+h(t_1\wedge t_2) = 
+h(t_1) \wedge h(t_2) = 
+h(p_1) \wedge h(p_2) = 
+h(p_1 \wedge p_2) = h(p),
+\] 
+so the image of $t_1\wedge t_2$ under $h$ is $h(p)$.
+Since $\beta_{\ell+n}h(p)$ is the least term of length at 
+most $\ell+n$ that is mapped to $h(p)$, we have 
+$t_1 \wedge t_2 \geq \beta_{\ell+n}h(p)$, as desired.
 
 
 
@@ -2004,6 +2030,66 @@ $D^d(\mathbf L)$, and $\rho^d(a)$, respectively.
 
 
 
+\begin{comment}
+If $(t,s) \in \<K\>$, then the length of $t$ is at least $m$, and if 
+the length of $t$ is exactly $m$, then $t$ can only be a meet of 
+first coordinates of generators; that is, $t = p_1 \wedge \cdots \wedge p_j$
+where $(p_1, q_1), \dots, (p_n, q_j) \in K$ for some $q_1, \dots, q_j$,
+and where all $p_i$ have length $m$. 
+In this case, we want to show $s\geq \beta_{m+n}h(t)$.
+
+Since all $p_i$ have length $m$, we have $p_i \geq \beta_{m}h(p_i)$ for all 
+$1\leq i\leq j$. Therefore,
+\[
+t = p_1 \wedge \cdots \wedge p_j \geq \beta_{m}h(p_1)\wedge \cdots \wedge \beta_{m}h(p_j).
+\]
+Also, since $(p_i, q_i) \in K$ for all $1\leq i\leq j$, we have 
+$q_i\geq \beta_{m+n}h(p_i)$ for all $1\leq i\leq j$.
+
+We have
+$h(t) = h(p_1 \wedge \cdots \wedge p_j) = h(p_1) \wedge \cdots \wedge h(p_j)$, 
+so $h(p_i) \geq h(t)$ for all $1\leq i\leq j$.
+
+Let $q = 
+q_1 \wedge \cdots \wedge q_j$. Then $(t,q) \in \<K\>$ and,
+by our choice of $n$, we have $q_i\geq \beta_{m+n}h(p_i)$ for all $1\leq i\leq j$.
+It is not necessarily the case that $q = s$, however, since $(t,q)$ and $(t,s)$ 
+both belong to $\<K\>$, we do have $h(q) = h(t) = h(s)$.
+Also, $q_i\geq \beta_{m+n}h(p_i)$ ($1\leq i\leq j$) implies
+\[
+q_1 \wedge \cdots \wedge q_j \geq \beta_{m+n}h(p_1) \wedge \cdots \wedge \beta_{m+n}h(p_j).
+\]
+$t = p_1 \wedge \cdots \wedge p_n$
+where $(p_1, q_1), \dots, (p_n, q_n) \in K$ for some $q_1, \dots, q_2$.
+% 
+% In that case, we could have $(t,s) = (t, q_1) \wedge (t, q_2)$
+% or $(t,s) = (t, q_1) \vee (t, q_2)$, where $(t, q_i) \in K$.
+% Notice that $(t, q_i) \in K$ implies $q_i \geq \beta_{m+n}h(t)$.
+
+Suppose $(p, q) = (p_1\vee p_2, q_1 \vee q_2)$, 
+where $p$ has length $\ell$ and each $p_i$ has length at most $\ell-1$.
+Then, by the induction hypothesis, $q_i \geq \beta_{\ell-1 + n}h(p_i)$.
+We show $q\geq \beta_{\ell+n}(a)$.
+We have 
+\[
+q = q_1 \vee q_2 \geq \beta_{\ell-1+n}h(p_1) \vee \beta_{\ell-1+n}h(p_2) \geq 
+\beta_{\ell+n}h(p_1\vee p_2) =
+\beta_{\ell+n}h(p).
+\]
+
+Suppose $(p, q) = (p_1\wedge p_2, q_1 \wedge q_2)$, where $p$ has length $\ell$ 
+and each $p_i$ has length at most $\ell$.
+Then, by the induction hypothesis, $q_i \geq \beta_{\ell+ n}h(p_i)$.
+We show $q\geq \beta_{\ell+n}(a)$.
+We have 
+\[
+q = q_1 \wedge q_2 \geq \beta_{\ell+n}h(p_1) \wedge \beta_{\ell+n}h(p_2) \geq 
+\beta_{\ell+n}h(p_1\wedge p_2) =
+\beta_{\ell+n}h(p).
+\]
+\end{proof}
+\end{comment}
+
 
 
 
@@ -2148,7 +2234,8 @@ $\bigwedge \emptyset = 1_{\mathbf L}$, and we include this in $A^\wedge$ for eve
 
 If $\mathbf K = \langle K, \vee, \wedge\rangle$ is a lattice generated by a finite set $X$, then we can write $K$ as a union of a chain of subsets $H_0\subseteq H_1 \subseteq \cdots$ defined inductively by setting $H_0 = X^\wedge$ and $H_{k+1} = (H_k)^{\vee \wedge}$, for all $k\geqslant 0$. By induction, each $H_n = X^{\wedge(\vee\wedge)^n}$ is a finite meet-closed subset of $K$, and $\bigcup H_n = K$, since $X$  generates $\mathbf X$.
 
-Let $h \colon \mathbf K \to \mathbf L$ be a lattice epimorphism and, for each $y \in L$ and $k< \omega$, define
+Let $h \colon \mathbf K \to \mathbf L$ be a lattice epimorphism and for 
+each $y \in L$ and $k< \omega$, define
 \[
 \beta_k(y) = \bigwedge \{w \in H_k : h(w) \geqslant a\}.
 \]
