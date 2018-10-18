@@ -428,214 +428,7 @@ Then $h$ is bounded if and only if the kernel of $h$ is a finitely generated
 sublattice of $\alg F (X) \times \alg F (X)$.
 \end{theorem}
 
-A key ingredient in our proof of Theorem~\ref{thm:main} is Lemma~\ref{lem:main},
-for which we require a practical definition of the length of a term.
-If $t \in \alg F(X)$, we define 
-the {\bf length} of $t$, denoted $\len{t}$, as follows:
-\begin{itemize}
-\item $t$ has \emph{length} $k$ iff $t \in H_{k} \setminus H_{k-1}$
-\item $t$ has \emph{length at most} $k$ if $t \in H_k$.
-\end{itemize} 
-Observe that if $t$ has length at most $\ell$, that is, $\len{t} \leq k$,
-then $t\geq \beta_k h (t)$.
-Also, it is possible to have $\len{p_1 \wedge p_2} < \min\{\len{p_1},\len{p_1}\}$.
-Consider the following example: let $x, x_1, \dots, x_n, y, y_1, \dots, y_m$ be distinct 
-generators of $\alg F(X)$, let $a = t(x_1, \dots, x_n)$ be a term of length $j$
-that does not involve $y$, and assume 
-$a\geq x$ (e.g., $a = x \vee (x_1 \wedge x_2)$ has length $1$).
-Let $b = s(y_1, \dots, y_m)$ be a term of length $k$ that does not involve $x$ 
-and assume $b \geq y$ (e.g., $b = y \vee (y_1 \wedge y_2)$ has length $1$).
-Then 
-$p_1 = a \wedge y$ has length at least $j$ and 
-$p_2 = b \wedge x$ has length at least $k$, while
-\[
-p_1 \wedge p_2 =
-a \wedge y \wedge b \wedge x = (a \wedge x) \wedge (b \wedge y) = x \wedge y,
-\]
-has length $0$.
-
-\bigskip
-
-Suppose $(p,q) \in \ker h$ and $a$ and $b$ are as above and suppose 
-\[
-\binom{p}{q} = \binom{a}{q_1} \wedge \binom{b}{q_2} = \binom{a \wedge b}{q_1 \wedge q_2}
-=\binom{x \wedge y}{q_1 \wedge q_2} = 
-\binom{x }{q_1} \wedge  \binom{y}{q_2}.
-\]
-\newpage
-
-
-Suppose 
-\[
-K = \{(x, x), (y, y), (z,z), (x, y\wedge z), (y, x\wedge z), (z, x\wedge y),
-(y\wedge z, x), (x\wedge z, y), (x\wedge y, z)\}.\]
-Then 
-\[
-\binom{x}{x} \vee \binom{y \wedge z}{x}  = \binom{x \vee (y \wedge z)}{x} 
-= \binom{x_1}{x_0} \in \<K\>.
-\]
-
-% Suppose $(y, y) \in K$ and $(y, x\wedge z) \in K$. Then 
-\[
-\binom{y}{y} \vee \binom{x \wedge z}{y}  = \binom{y \vee (x \wedge z)}{y}
-= \binom{y_1}{y_0} \in \<K\>.
-\]
-
-% Suppose $(z, z) \in K$ and . Then 
-\[
-\binom{z}{z} \vee \binom{x \wedge y}{z}  = \binom{z \vee (x \wedge y)}{z}
-= \binom{z_1}{z_0} \in \<K\>.
-\]
-
-Therefore,
-\[
-\binom{x}{x} \vee \left[\binom{y_1}{y} \wedge \binom{z_1}{z}\right] 
-= \binom{x\vee (y_1 \wedge z_1)}{x  \vee (y \wedge z)}
-= \binom{x_2}{x_1} \in \<K\>.
-\]
-
-\medskip
-
-\[
-\binom{y}{y} \vee \left[\binom{x_1}{x} \wedge \binom{z_1}{z}\right] 
-= \binom{y\vee (x_1 \wedge z_1)}{y  \vee (x \wedge z)}
-= \binom{y_2}{y_1} \in \<K\>.
-\]
-
-\medskip
-
-\[
-\binom{z}{z} \vee \left[\binom{x_1}{x} \wedge \binom{y_1}{y}\right] 
-= \binom{z\vee (x_1 \wedge y_1)}{z  \vee (x \wedge y)}
-= \binom{z_2}{z_1} \in \<K\>.
-\]
-
-\medskip
-
-\[
-\binom{x}{x} \vee \left[\binom{y_2}{y_1} \wedge \binom{z_2}{z_1}\right] 
-= \binom{x\vee (y_2 \wedge z_2)}{x  \vee (y_1 \wedge z_1)}
-= \binom{x_3}{x_2} \in \<K\>.
-\]
-
-If we had $(y_1, x), (z_1, x) \in \<K\>$, then 
-\[
-\binom{x}{x} \vee \left[\binom{y_1}{x} \wedge \binom{z_1}{x}\right] 
-= \binom{x\vee (y_1 \wedge z_1)}{x  \vee (x \wedge x)}
-= \binom{x_2}{x} \in \<K\>.
-\]
-
-If we had $(y_1, z), (x_1, z) \in \<K\>$, then 
-\[
-\binom{z}{z} \vee \left[\binom{y_1}{z} \wedge \binom{x_1}{z}\right] 
-= \binom{z\vee (x_1 \wedge y_1)}{z  \vee (z \wedge z)}
-= \binom{z_2}{z} \in \<K\>.
-\]
-
-\medskip
-\[
-\binom{y}{x\wedge z} \vee \left[\binom{x_2}{x} 
-\wedge \binom{z_2}{z}\right]  = 
-\binom{y\vee (x_2\wedge z_2)}{(x\wedge z) \vee (x \wedge z)}
-= \binom{y_3}{x\wedge z}
-\]
-
-
-\[
-\binom{y_1}{x} = \binom{y \vee (x \wedge z)}{x}
-\]
-\bigskip
-
-\[
-\binom{x}{x} \vee \binom{x}{y \wedge z}  = \binom{x}{x \vee (y \wedge z)} 
-= \binom{x}{x_1} \in \<K\>.
-\]
-
-
-\newpage
-
-Suppose $p \geq \beta_1(a)$ and $p \ngeq \beta_0(a)$ and $(p,q) \in \<K\>$ and 
-\[
-\binom{p}{q} = \binom{p_1}{q_1} \vee \binom{p_2}{q_2},
-\]
-where $(p_i, q_i) \in \<K\>$.
-So, 
-\[
-p_1 \vee p_2 \geq \beta_1(a) = \bigwedge \{w \in H_1 \mid h(w) \geq a\}.
-\]
-Let's consider a simple example and see how the induction would go through. Suppose,
-\[
-\beta_1(a) = \bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_3 \wedge x_5)\vee x_1\bigr]\leq p_1 \vee p_2.
-\]
-By (W), one of the following holds:
-\begin{enumerate}
-  \item $(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4) \leq p_1 \vee p_2$;
-  \item $(x_3 \wedge x_5)\vee x_1 \leq p_1 \vee p_2$;
-  \item $\bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_3 \wedge x_5)\vee x_1\bigr] \leq p_1$;
-  \item $\bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_3 \wedge x_5)\vee x_1\bigr]\leq p_2$.
-\end{enumerate}}
-The firt two are impossible. Indeed, Case (1) implies
-$x_2 \wedge x_4 \leq p_1 \vee p_2 = p$, but $x_2 \wedge x_4 \in H_0$, so we would have
-$\beta_0(a) \leq x_2 \wedge x_4 \leq p$, contradicting the hypothesis $\beta_0(a)\nleq p$.
-Similarly, in the second case we reach the contradiction 
-$\beta_0(a) \leq x_1 \leq p_1 \vee p_2 = p$.
-In case (3) or (4), we have $\beta_1(a) \leq p_1$ or $\beta_1(a) \leq p_2$, respectively.
-Therefore, by the induction hypotheses, $\beta_N(a)\leq q_1$ or $\beta_N(a)\leq q_2$.
-Either way, $q = q_1 \vee q_2 \geq \beta_N(a)$, as desired.
-
-Next suppose $p = p_1 \wedge p_2 \geq \beta_1(a)$.
-Then we have both $p_1 \geq \beta_1(a)$ and $p_2 \geq \beta_1(a)$, so the induction hypothesis yields
-$q_1 \geq \beta_N(a)$ and $q_2 \geq \beta_N(a)$, so $q = q_1 \wedge q_2 \geq \beta_N(a)$.
-
-Since the case $(p,q) = (p_1, q_1) \wedge (p_2, q_2)$ is easy no matter what form $\beta_k(a)$ takes,
-let's consider the $\vee$ case more generally.
-
-Suppose $p \geq \beta_k(a)$ and $p \ngeq \beta_{k-1}(a)$ and $(p,q) \in \<K\>$ and 
-\[
-\binom{p}{q} = \binom{p_1}{q_1} \vee \binom{p_2}{q_2},
-\]
-where $(p_i, q_i) \in \<K\>$ and assume (the induction hypothesis) that $p_i \geq \beta_j(a)$ 
-implies $q_i \geq \beta_{j+N}(a)$.
-We have 
-\[
-p = p_1 \vee p_2 \geq \beta_k(a) = \bigwedge \{w \in H_k \mid h(w) \geq a\}.
-\]
-and
-\[
-p = p_1 \vee p_2 \ngeq \beta_{k-1}(a) = \bigwedge \{w \in H_{k-1} \mid h(w) \geq a\}.
-\]
-% \begin{align*}
-% H_0 &= X^\wedge = \{\bigwedge B \mid B \finsub X\}\\
-% H_k &= (H_{k-1})^{\vee \wedge} = \{\bigwedge B \mid B \finsub H_{k-1}^{\vee}\}
-% \end{align*}
-Recall,
-\[
-H_k = (H_{k-1})^{\vee \wedge} = \{\bigwedge B \mid B \finsub H_{k-1}^{\vee}\},
-\]
-so $w \in H_k$ means $w = \bigwedge B$ for some finite set $B$ containing 
-joins of elements of $H_{k-1}$, and $p = p_1 \vee p_2$ is above a meet of the 
-elements of $B$.
-Therefore Whitman's condition implies that either $p_i \geq \beta_k(a)$ for 
-some $i \in \{1,2\}$,  or $p_1 \vee p_2 \geq w$ for some meetand $w$ of $\beta_k(a)$.  
-In the former case, $q_i \geq \beta_{k+N}(a)$,
-so $q = q_1 \vee q_2 \geq \beta_{k+N}(a)$, as desired.  In the latter case,
-$p = p_1 \vee p_2 \geq w$ for some $w \in H_{k-1}^{\vee}$.  But then $p$ is above each 
-of the joinands of $w$, so $p \geq u$ for some  $u \in H_{k-1}$, yielding 
-$p \geq u \geq \beta_{k-1}(a)$ contradicting our initial hypothesis.
-
-
-\[
-\beta_k(a) = \bigwedge \bigvee \bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_3 \wedge x_5)\vee x_1\bigr]\leq p_1 \vee p_2.
-\]
-By (W), one of the following holds:
-\begin{enumerate}
-  \item $(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4) \leq p_1 \vee p_2$;
-  \item $(x_3 \wedge x_5)\vee x_1 \leq p_1 \vee p_2$;
-  \item $\bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_3 \wedge x_5)\vee x_1\bigr] \leq p_1$;
-  \item $\bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_3 \wedge x_5)\vee x_1\bigr]\leq p_2$.
-\end{enumerate}}
- 
-\newpage
+A key ingredient in our proof of Theorem~\ref{thm:main} is Lemma~\ref{lem:main}.
 
 % \[
 % p_1 \wedge p_2 =
@@ -646,110 +439,66 @@ By (W), one of the following holds:
 \begin{lemma}\label{lem:main}
 Let $h$ be an epimorphism from $\alg F(X)$ onto a finite lattice $\alg L$.
 Let $K$ be a finite subset of the kernel of $h$.
-Then there exists $n>0$ such that for all $(p,q) \in \<K\>$, if $p$ has length 
-$\ell$, then $q \geq \beta_{\ell+n}h(q)$.
+Then there exists $N>0$ such that for all $(p,q) \in \<K\>$, if $p\geq \beta_k h(p)$ and 
+$p\ngeq \beta_{k-1}h(p)$, then $q \geq \beta_{k+N}h(q)$.
 \end{lemma}
 
 \begin{remark}
 If $K \subseteq \ker h$, then $(p,q) \in \<K\>$ implies $h(p) = h(q)$. 
+We will use the symbol $a$ to denote this common element; that is, $h(p) = a = h(q)$.
+The context will make clear which $p$ and $q$ we mean.
 \end{remark}
   
 \begin{proof}
-Let $\alg F := \alg F(X)$, let $K$ be a finite subset of $\ker h$, and
-define the following, where $S$ is an arbitrary subset of $\alg F^2$:
- \begin{itemize}
-\item $S_1 = \{s_1 \in \alg F \mid \exists s_2, \; (s_1,s_2) \in S \}$,
-\item $m = \min \{\ell \mid K_1 \cap H_\ell \neq \emptyset\}$,
-\item $M = \min \{\ell \mid K_1 \subseteq H_\ell\}$.
-\end{itemize}
-In other words, $m$ and $M$ are the minimum and maximum lengths of 
-terms $p$ such that $(p,q) \in K$.
-Clearly $m\leq M$, so for all $a\in L$ we have $\beta_m(a) \geq \beta_M(a)$. 
-Also, $p\geq \beta_M h(p)$ for all pairs $(p, q)\in K$, since $K_1 \subseteq H_M$.
-Moreover, $\exists p \in K_1 \cap H_m$ and, by minimality of $m$, the length of 
-this $p$ is exactly $m$ and $p \geq \beta_{m} h(p)$.
-Finally, since $K$ is a finite set, we can find $n>0$ such that 
-$q \geq \beta_{m+n} h(p)$ for all $(p, q) \in K$.
-
-Let $(p,q) \in \<K\>$ and let $\ell$ be the length of $p$, so 
-$p\geq \beta_{\ell}h(p)$.  We want to show $q \geq \beta_{\ell + n}h(p)$.
-
-      % \binom{
-      %       \alpha y \wedge (s\vee t)}{
-      %       \beta y \wedge (\beta {h(s)} \vee \beta {h(t)}) 
-      %       \end{array}
-      % \right)\nonumber\\
-
-$\len{p} = \ell$ and $p = p_1 \vee p_2$, where $\len(p_1), \len(p_2) > \ell$.
-
-\noindent {\bf Case 1.} Suppose $(p, q) = (p_1, q_1) \vee (p_2, q_2)$,
-and assume the conclusion of Lemma~\ref{lem:main} holds for 
-$(p_1, q_1)$ and $(p_2, q_2)$.
-Let $\ell_i$ be the length of $p_i$.  Then $p$ has length 
-at most $\max\{\ell_1, \ell_2\} + 1$. For each $i\in \{1,2\}$,
-we have $p_i\geq \beta_{\ell_i}h(p_i)$ and, by the induction hypothesis,
-$q_i\geq \beta_{\ell_i+n}h(p_i)$.  Observe also that 
-$\ell -1 \geq \ell_i$, so 
-$\beta_{\ell_i+n}h(p_i) \geq \beta_{\ell+n-1}h(p_i)$ for each $i\in \{1,2\}$.
-Therefore, 
-\[
-q = q_1\vee q_2\geq \beta_{\ell_1+n}h(p_1) \vee \beta_{\ell_1+n}h(p_2)
-\geq \beta_{\ell+n-1}h(p_1) \vee \beta_{\ell+n-1}h(p_2).
-\]
-To complete the proof in this case, then, it suffices to show,
+Since $K$ is finite, it should be obvious that we can find an $N>0$ such that 
+the desired conclusion holds for all $(p, q) \in K$; that is, there exists 
+$N>0$ satisfying the following: $\forall (p,q) \in K$,
 \begin{equation}
-\label{eq:goal}  
-\beta_{\ell+n-1}h(p_1) \vee \beta_{\ell+n-1}h(p_2) \geq 
-\beta_{\ell+n}h(p).
+  \label{eq:condition}
+  p\geq \beta_k (a) \quad \bigwedge  \quad 
+p\ngeq \beta_{k-1}(a) \quad \Longrightarrow \quad q \geq \beta_{k+N}(a).
 \end{equation}
 
-Let $t_i = \beta_{\ell+n-1}h(p_i)$; that is, $t_i$ denotes the
-least term of length at most 
-$\ell + n -1$ that is mapped by $h$ to $h(p_i)$.
-Now $t_1 \vee t_2$ is mapped by $h$ to $h(p)$. Indeed,
-$h(t_1\vee t_2) = h(t_1)\vee h(t_2) = h(p_1)\vee h(p_2) = h(p_1\vee p_2) = 
-h(p)$. Also, the length of $t_1 \vee t_2$ is at most $\ell +n$.
-Therefore, as $\beta_{\ell+n}h(p)$ denotes the least term of length at most
-$\ell +n$ that is mapped to $h(p)$,~(\ref{eq:goal}) holds.
-
-\medskip
-
-\noindent {\bf Case 2.} Suppose $(p, q) = (p_1, q_1) \wedge (p_2, q_2)$,
-and assume the conclusion of the Lemma~\ref{lem:main} holds 
-for $(p_1, q_1)$ and $(p_2, q_2)$.
-Let $\ell_i$ be the length of $p_i$.  Then
-$p_i\geq \beta_{\ell_i}h(p_i)$ and, by the induction hypothesis,
-$q_i\geq \beta_{\ell_i+n}h(p_i)$. Our goal once again is to prove
-$q\geq \beta_{\ell+n}h(p)$.
-
-For all $k$, $H_k$ is closed under meet, so 
-the length of $p$ is 
-$\ell = \max\{\ell_1, \ell_2\}$ (in contrast to Case 1).
-Still, 
-$\beta_{\ell_i+n}h(p_i) \geq \beta_{\ell+n}h(p_i)$, so
+\noindent Fix $(p,q) \in \<K\>$ and assume $p \geq \beta_k(a)$ and $p \ngeq \beta_{k-1}(a)$.\\
+\\
+{\bf Case 1.} Suppose
+$(p,q) = (p_1, q_1) \wedge (p_2, q_2)$,
+where for each $i$ the pair $(p_i, q_i) \in \<K\>$ satisfies the induction 
+hypothesis~(\ref{eq:condition}).
+Since $p_1  \vee p_2 = p \geq \beta_k(a)$, we have $p_1 \geq \beta_k(a)$ and
+$p_2 \geq \beta_k(a)$, so the induction hypothesis yields
+$q_1 \geq \beta_{k+N}(a)$ and $q_2 \geq \beta_{k+N}(a)$, so 
+$q = q_1 \wedge q_2 \geq \beta_{k+N}(a)$, as desired.\\
+\\
+{\bf Case 2.} Suppose 
+$(p,q) = (p_1, q_1) \vee (p_2, q_2)$,
+% $\binom{p}{q} = \binom{p_1}{q_1} \vee \binom{p_2}{q_2}$,
+where for each $i$ the pair $(p_i, q_i) \in \<K\>$ satisfies 
+the induction hypothesis~(\ref{eq:condition}).
+Then, 
 \[
-q = q_1\wedge q_2\geq \beta_{\ell_1+n}h(p_1) \wedge \beta_{\ell_1+n}h(p_2)
-\geq \beta_{\ell+n}h(p_1) \wedge \beta_{\ell+n}h(p_2).
+p = p_1 \vee p_2 \geq \beta_k(a) = \bigwedge \{w \in H_k \mid h(w) \geq a\},
 \]
-Therefore, to complete the proof it this case, it suffices to show
+and
 \[
-\beta_{\ell+n}h(p_1) \wedge \beta_{\ell+n}h(p_2) \geq 
-\beta_{\ell+n}h(p).
+p = p_1 \vee p_2 \ngeq \beta_{k-1}(a) = \bigwedge \{w \in H_{k-1} \mid h(w) \geq a\}.
 \]
-Recall that $\beta_{\ell+n}h(p_i)$ denotes the least term $t_i$ 
-of length at most $\ell +n$ such that $h(t_i) = h(p_i)$. 
-Now, $t_1 \wedge t_2$ has length at most $\ell+n$, since $H_{\ell+n}$ is 
-closed under meet. Also, 
+Recall,
 \[
-h(t_1\wedge t_2) = 
-h(t_1) \wedge h(t_2) = 
-h(p_1) \wedge h(p_2) = 
-h(p_1 \wedge p_2) = h(p),
-\] 
-so the image of $t_1\wedge t_2$ under $h$ is $h(p)$.
-Since $\beta_{\ell+n}h(p)$ is the least term of length at 
-most $\ell+n$ that is mapped to $h(p)$, we have 
-$t_1 \wedge t_2 \geq \beta_{\ell+n}h(p)$, as desired.
+H_k = (H_{k-1})^{\vee \wedge} = \{\bigwedge B \mid B \finsub H_{k-1}^{\vee}\},
+\]
+so $w \in H_k$ means $w = \bigwedge B$ for some finite set $B$ containing 
+joins of elements of $H_{k-1}$. This puts $p = p_1 \vee p_2$ above a meet of the 
+elements of $B$.
+Therefore Whitman's condition implies that either $p_i \geq \beta_k(a)$ for 
+some $i \in \{1,2\}$,  or $p_1 \vee p_2 \geq w$ for some meetand $w$ of $\beta_k(a)$.  
+In the former case, $q_i \geq \beta_{k+N}(a)$,
+so $q = q_1 \vee q_2 \geq \beta_{k+N}(a)$, as desired.  In the latter case,
+$p = p_1 \vee p_2 \geq w$ for some $w \in H_{k-1}^{\vee}$.  But then $p$ is above each 
+of the joinands of $w$, so $p \geq u$ for some  $u \in H_{k-1}$, yielding 
+$p \geq u \geq \beta_{k-1}(a)$ contradicting our initial hypothesis.
+\qed
+
 
 \section{Proof of the Main Theorem}
 With Lemma~\ref{lem:main} established, we are now in a position to prove 
@@ -757,10 +506,9 @@ Theorem~\ref{thm:main}.  We begin with the converse direction.
 In fact, we will prove the contrapositive of the converse.
 Specifically, if $h: \alg F \to \alg L$ is not lower bounded,
 then $\ker h$ is not a finitely generated sublattice of 
-$\alg F \times \alg F$.  After proving the converse, we will
-assume $h$ is (both upper- and lower-) bounded, and then
-prove that $\ker h$ is a finitely generated sublattice of 
-$\alg F \times \alg F$. 
+$\alg F \times \alg F$.  Finally,  we will assume $h$ is 
+(both upper- and lower-) bounded, and prove that $\ker h$ is a 
+finitely generated sublattice of $\alg F \times \alg F$ in this case. 
 
 \medskip
 
@@ -781,9 +529,10 @@ $\alg F \times \alg F$.
   $(\beta_0(a), \beta_k(a)) \in \ker h$. 
   On the other hand, since $K$ is a finite subset of $\ker h$, 
   Lemma~\ref{lem:main} asserts the existence of 
-  an $n\in \N$ such that, if $(p,q) \in \<K\>$, then
-  $p\geq \beta_\ell h(p)$ implies $p\geq \beta_{\ell +n} h(p)$.
-  Therefore, $(\beta_0(a), \beta_{n+1}(a)) \in \ker h \setminus \<K\>$. 
+  an $N\in \N$ such that, if $(p,q) \in \<K\>$, if 
+  $p\geq \beta_\ell(a)$, and if $p\ngeq \beta_{\ell-1}(a)$, then 
+  $p\geq \beta_{\ell +N} h(p)$.
+  Therefore, $(\beta_0(a), \beta_{N+1}(a)) \in \ker h \setminus \<K\>$. 
   Thus $\<K\>\neq \ker h$, as we set out to prove.
 
 
