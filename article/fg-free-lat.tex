@@ -456,8 +456,7 @@ the desired conclusion holds for all $(p, q) \in K$; that is, there exists
 $N>0$ satisfying the following: $\forall (p,q) \in K$,
 \begin{equation}
   \label{eq:condition}
-  p\geq \beta_k (a) \quad \bigwedge  \quad 
-p\ngeq \beta_{k-1}(a) \quad \Longrightarrow \quad q \geq \beta_{k+N}(a).
+  p\geq \beta_k (a) \quad \Longrightarrow \quad q \geq \beta_{k+N}(a).
 \end{equation}
 
 \noindent Fix $(p,q) \in \<K\>$ and assume $p \geq \beta_k(a)$.\\
@@ -478,7 +477,9 @@ where for each $i$ the pair $(p_i, q_i) \in \<K\>$ satisfies
 the induction hypothesis~(\ref{eq:condition}).
 Since $p \geq \beta_k(a)$, there exists a smallest $k'$ such that 
 $p \geq \beta_{k'}(a)$, and since $k'$ is the smallest,
-$p \geq \beta_{k'}(a) \geq \beta_k(a)$, and $p \ngeq \beta_{k'-1}(a)$.\\
+$p \geq \beta_{k'}(a) \geq \beta_k(a)$, and 
+\wjd{consider the case $k' = 0$}
+$p \ngeq \beta_{k'-1}(a)$.
 Thus, 
 \[
 p = p_1 \vee p_2 \geq \beta_{k'}(a) = \bigwedge \{w \in H_{k'} \mid h(w) \geq a\},
