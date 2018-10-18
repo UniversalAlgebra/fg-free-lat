@@ -439,8 +439,9 @@ A key ingredient in our proof of Theorem~\ref{thm:main} is Lemma~\ref{lem:main}.
 \begin{lemma}\label{lem:main}
 Let $h$ be an epimorphism from $\alg F(X)$ onto a finite lattice $\alg L$.
 Let $K$ be a finite subset of the kernel of $h$.
-Then there exists $N>0$ such that for all $(p,q) \in \<K\>$, if $p\geq \beta_k h(p)$ and 
-$p\ngeq \beta_{k-1}h(p)$, then $q \geq \beta_{k+N}h(q)$.
+Then there exists $N>0$ such that for all $(p,q) \in \<K\>$, if $p\geq \beta_k h(p)$,
+% and $p\ngeq \beta_{k-1}h(p)$, 
+then $q \geq \beta_{k+N}h(q)$.
 \end{lemma}
 
 \begin{remark}
@@ -450,7 +451,7 @@ The context will make clear which $p$ and $q$ we mean.
 \end{remark}
   
 \begin{proof}
-Since $K$ is finite, it should be obvious that we can find an $N>0$ such that 
+Since $K$ is finite, it is obvious that we can find an $N>0$ such that 
 the desired conclusion holds for all $(p, q) \in K$; that is, there exists 
 $N>0$ satisfying the following: $\forall (p,q) \in K$,
 \begin{equation}
@@ -459,13 +460,13 @@ $N>0$ satisfying the following: $\forall (p,q) \in K$,
 p\ngeq \beta_{k-1}(a) \quad \Longrightarrow \quad q \geq \beta_{k+N}(a).
 \end{equation}
 
-\noindent Fix $(p,q) \in \<K\>$ and assume $p \geq \beta_k(a)$ and $p \ngeq \beta_{k-1}(a)$.\\
+\noindent Fix $(p,q) \in \<K\>$ and assume $p \geq \beta_k(a)$.\\
 \\
 {\bf Case 1.} Suppose
 $(p,q) = (p_1, q_1) \wedge (p_2, q_2)$,
 where for each $i$ the pair $(p_i, q_i) \in \<K\>$ satisfies the induction 
 hypothesis~(\ref{eq:condition}).
-Since $p_1  \vee p_2 = p \geq \beta_k(a)$, we have $p_1 \geq \beta_k(a)$ and
+Since $p_1  \wedge p_2 = p \geq \beta_k(a)$, we have $p_1 \geq \beta_k(a)$ and
 $p_2 \geq \beta_k(a)$, so the induction hypothesis yields
 $q_1 \geq \beta_{k+N}(a)$ and $q_2 \geq \beta_{k+N}(a)$, so 
 $q = q_1 \wedge q_2 \geq \beta_{k+N}(a)$, as desired.\\
@@ -475,28 +476,31 @@ $(p,q) = (p_1, q_1) \vee (p_2, q_2)$,
 % $\binom{p}{q} = \binom{p_1}{q_1} \vee \binom{p_2}{q_2}$,
 where for each $i$ the pair $(p_i, q_i) \in \<K\>$ satisfies 
 the induction hypothesis~(\ref{eq:condition}).
-Then, 
+Since $p \geq \beta_k(a)$, there exists a smallest $k'$ such that 
+$p \geq \beta_{k'}(a)$, and since $k'$ is the smallest,
+$p \geq \beta_{k'}(a) \geq \beta_k(a)$, and $p \ngeq \beta_{k'-1}(a)$.\\
+Thus, 
 \[
-p = p_1 \vee p_2 \geq \beta_k(a) = \bigwedge \{w \in H_k \mid h(w) \geq a\},
+p = p_1 \vee p_2 \geq \beta_{k'}(a) = \bigwedge \{w \in H_{k'} \mid h(w) \geq a\},
 \]
 and
-\[
-p = p_1 \vee p_2 \ngeq \beta_{k-1}(a) = \bigwedge \{w \in H_{k-1} \mid h(w) \geq a\}.
-\]
+\begin{equation}\label{eq:contr}
+p = p_1 \vee p_2 \ngeq \beta_{k'-1}(a) = \bigwedge \{w \in H_{k'-1} \mid h(w) \geq a\}.
+\end{equation}
 Recall,
 \[
-H_k = (H_{k-1})^{\vee \wedge} = \{\bigwedge B \mid B \finsub H_{k-1}^{\vee}\},
+H_{k'} = (H_{k'-1})^{\vee \wedge} = \{\bigwedge B \mid B \finsub H_{k'-1}^{\vee}\},
 \]
-so $w \in H_k$ means $w = \bigwedge B$ for some finite set $B$ containing 
-joins of elements of $H_{k-1}$. This puts $p = p_1 \vee p_2$ above a meet of the 
+so $w \in H_{k'}$ means $w = \bigwedge B$ for some finite set $B$ containing 
+joins of elements of $H_{k'-1}$. This puts $p = p_1 \vee p_2$ above a meet of the 
 elements of $B$.
-Therefore Whitman's condition implies that either $p_i \geq \beta_k(a)$ for 
-some $i \in \{1,2\}$,  or $p_1 \vee p_2 \geq w$ for some meetand $w$ of $\beta_k(a)$.  
-In the former case, $q_i \geq \beta_{k+N}(a)$,
+Therefore Whitman's condition implies that either $p_i \geq \beta_{k'}(a)$ for 
+some $i \in \{1,2\}$,  or $p_1 \vee p_2 \geq w$ for some meetand $w$ of $\beta_{k'}(a)$.  
+In the former case, $q_i \geq \beta_{k'+N}(a) \geq \beta_{k+N}(a)$,
 so $q = q_1 \vee q_2 \geq \beta_{k+N}(a)$, as desired.  In the latter case,
-$p = p_1 \vee p_2 \geq w$ for some $w \in H_{k-1}^{\vee}$.  But then $p$ is above each 
-of the joinands of $w$, so $p \geq u$ for some  $u \in H_{k-1}$, yielding 
-$p \geq u \geq \beta_{k-1}(a)$ contradicting our initial hypothesis.
+$p = p_1 \vee p_2 \geq w$ for some $w \in H_{k'-1}^{\vee}$.  But then $p$ is above each 
+of the joinands of $w$, so $p \geq u$ for some  $u \in H_{k'-1}$, yielding 
+$p \geq u \geq \beta_{k'-1}(a)$ contradicting~(\ref{eq:contr}).
 \qed
 
 
