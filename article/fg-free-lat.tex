@@ -442,85 +442,32 @@ A key ingredient in our proof of Theorem~\ref{thm:main} is Lemma~\ref{lem:main}.
 \begin{lemma}\label{lem:main}
 Let $h$ be an epimorphism from $\alg F(X)$ onto a finite lattice $\alg L$.
 Let $K$ be a finite subset of the kernel of $h$.
-Then there exists $N>0$ such that for all $(p,q) \in \<K\>$, if $p\geq \beta_k h(p)$,
-% and $p\ngeq \beta_{k-1}h(p)$, 
-then $q \geq \beta_{k+N}h(q)$.
+Then there exists $N>0$ such that $\forall (p,q) \in \<K\>$, $\forall a\in L$, 
+$p\geq \beta_k(a) \implies q \geq \beta_{k+N}(a)$.
 \end{lemma}
 
-\begin{remark}
-If $K \subseteq \ker h$, then $(p,q) \in \<K\>$ implies $h(p) = h(q)$. 
-% We will use the symbol $a$ to denote this common element; that is, $h(p) = a = h(q)$.
-% The context will make clear which $p$ and $q$ we mean.
-\end{remark}
-  
 \begin{proof}
 Since $K$ is finite, it is obvious that we can find an $N>0$ such that 
 the desired conclusion holds for all $(p, q) \in K$; that is, there exists 
-$N>0$ satisfying the following: $\forall (p,q) \in K$,
+$N>0$ satisfying the following: $\forall (p,q) \in K$, $\forall a \in L$,
 \begin{equation}
   \label{eq:condition}
-  p\geq \beta_k h(p) \implies q \geq \beta_{k+N} h(q).
+  p\geq \beta_k(a) \implies q \geq \beta_{k+N}(a).
 \end{equation}
 
-\noindent Fix $(p,q) \in \<K\>$ and assume $p \geq \beta_k h(p)$.\\
+\noindent Fix $(p,q) \in \<K\>$ and $a\in L$ and assume $p \geq \beta_k(a)$.\\
 \\
 {\bf Case 1.} Suppose
 $(p,q) = (p_1, q_1) \wedge (p_2, q_2)$,
 where for each $i\in \{1,2\}$ the pair $(p_i, q_i) \in \<K\>$ satisfies the induction 
-hypothesis~(\ref{eq:condition}); that is,
-\[
-p_i \geq \beta_kh(p_i) \implies q_i \geq \beta_kh(q_i).
-\]
-Since $p_1  \wedge p_2 = p \geq \beta_k h(p)$, we have $p_1 \geq \beta_k h(p)$ and
-$p_2 \geq \beta_k h(p)$.
-Also, $p = p_1 \wedge p_2$ implies $h(p) = h(p_1) \wedge h(p_2)$.
-Therefore, $p_1 \geq \beta_k h(p_1)$ and
-$p_2 \geq \beta_k h(p_2)$, so the induction hypothesis yields
-$q_1 \geq \beta_{k+N}h(q_1)$ and $q_2 \geq \beta_{k+N}h(q_2)$.
-Now, $q = q_1 \wedge q_2$, so 
-$h(q) = h(q_1) \wedge h(q_2)$.
-If we can prove
-\begin{equation}  \label{eq:ineqbeta}
-\beta_{k+N}h(q_1) \wedge \beta_{k+N}h(q_2) \geq \beta_{k+N}(h(q_1) \wedge h(q_2)),
- % = \beta_{k+N}h(q_1 \wedge q_2),
-\end{equation}
-then we will have,
-\[
-q = q_1 \wedge q_2 \geq \beta_{k+N}h(q_1) \wedge \beta_{k+N}h(q_2)
-\geq \beta_{k+N}(h(q_1) \wedge h(q_2)) = \beta_{k+N}h(q),
-\]
-which is the desired result in Case 1. So it suffices to prove~(\ref{eq:ineqbeta}).
-
-By definition, 
-$\beta_{k+N}h(q_1) \wedge \beta_{k+N}h(q_2)$ is equal to 
-\[
-\bigwedge \{w \in H_{k+N} : h(w) \geqslant h(q_1)\}
-\wedge \bigwedge \{w \in H_{k+N} : h(w) \geqslant h(q_2)\},
-\]
-while
-\[
-\beta_{k+N}(h(q_1) \wedge h(q_2))  = 
-\bigwedge \{w \in H_{k+N} : h(w) \geqslant h(q_1) \wedge h(q_2)\}.
-\]
-Clearly, 
-\[
-h(w) \geqslant h(q_1) \implies h(w) \geqslant h(q_1) \wedge h(q_2),
-\]
-so
-\[
-\{w \in H_{k+N} : h(w) \geqslant h(q_1)\}\subseteq 
-\{w \in H_{k+N} : h(w) \geqslant h(q_1) \wedge h(q_2)\}.
-\]
-Therefore,
-\[
-% \beta_{k+N}h(q_1)  = 
-\bigwedge \{w \in H_{k+N} : h(w) \geqslant h(q_1)\}
-\geq \bigwedge \{w \in H_{k+N} : h(w) \geqslant h(q_1) \wedge h(q_2)\},\]
-so $\beta_{k+N}h(q_1)  \geq \beta_{k+N}(h(q_1) \wedge h(q_2))$, and 
-by the same argument,
-$\beta_{k+N}h(q_2)  \geq \beta_{k+N}(h(q_1) \wedge h(q_2))$.
-Inequality~(\ref{eq:ineqbeta}) now follows.
-
+hypothesis~(\ref{eq:condition}); that is, for every $a\in L$, 
+$p_i \geq \beta_k(a)$ implies $q_i \geq \beta_{k+N}(a)$.
+Since $p_1  \wedge p_2 = p \geq \beta_k (a)$, we have $p_1 \geq \beta_k (a)$ and
+$p_2 \geq \beta_k (a)$.
+% Also, $p = p_1 \wedge p_2$ implies $h(p) = h(p_1) \wedge h(p_2)$.
+Therefore, the induction hypothesis yields
+$q_1 \geq \beta_{k+N}(a)$ and $q_2 \geq \beta_{k+N}(a)$, so
+$q = q_1 \wedge q_2 \geq \beta_{k+N}(a)$, as desired.
 \bigskip
 
 \noindent {\bf Case 2.} Suppose 
@@ -528,22 +475,21 @@ $(p,q) = (p_1, q_1) \vee (p_2, q_2)$,
 % $\binom{p}{q} = \binom{p_1}{q_1} \vee \binom{p_2}{q_2}$,
 where for each $i$ the pair $(p_i, q_i) \in \<K\>$ satisfies 
 the induction hypothesis~(\ref{eq:condition}).
-Since $p \geq \beta_kh(p)$, there exists a smallest $k'$ such that 
-$p \geq \beta_{k'}h(p)$. Since $k'$ is the smallest such number,
+Since $p \geq \beta_k(a)$, there exists a smallest $k'$ such that 
+$p \geq \beta_{k'}(a)$. As $k'$ is the smallest such number,
 \wjd{consider the case $k' = 0$}
-$p \ngeq \beta_{k'-1}h(p)$, and since $k'\leq k$, we have
-$\beta_{k'}h(p) \geq \beta_kh(p)$ 
+$p \ngeq \beta_{k'-1}(a)$, and since $k'\leq k$, we have
+$\beta_{k'}(a) \geq \beta_k(a)$ 
 and $\beta_{k'}h(q) \geq \beta_kh(q)$, so it suffices to prove
 $q \geq \beta_{k'}h(q)$. As such, we can simplify notation
-by renaming $k'$, calling it $k$ instead.
-
+and denote $k'$ by $k$.
 Thus,  we have
 \[
-p = p_1 \vee p_2 \geq \beta_{k}h(p) = \bigwedge \{w \in H_{k'} \mid h(w) \geq h(p)\},
+p = p_1 \vee p_2 \geq \beta_{k}(a) = \bigwedge \{w \in H_{k'} \mid h(w) \geq a\},
 \]
 and
 \begin{equation}\label{eq:contr}
-p = p_1 \vee p_2 \ngeq \beta_{k-1}h(p) = \bigwedge \{w \in H_{k'-1} \mid h(w) \geq h(p)\}.
+p = p_1 \vee p_2 \ngeq \beta_{k-1}(a) = \bigwedge \{w \in H_{k'-1} \mid h(w) \geq a\}.
 \end{equation}
 Recall,
 \[
@@ -554,13 +500,13 @@ joins of elements of $H_{k-1}$. This puts $p = p_1 \vee p_2$ above a meet of the
 elements of $B$.
 Therefore Whitman's condition implies one of the following
 \begin{enumerate}[(a)]
-  \item $p_i \geq \beta_{k}h(p)$ for some $i \in \{1,2\}$;
-  \item $p_1 \vee p_2 \geq w$ for some meetand $w$ of $\beta_{k}h(p)$.    
+  \item $p_i \geq \beta_{k}(a)$ for some $i \in \{1,2\}$;
+  \item $p_1 \vee p_2 \geq w$ for some meetand $w$ of $\beta_{k}(a)$.    
 \end{enumerate}
 Assume Case (a) holds with $i=1$. Then
 \[
-p_1 \geq \beta_{k}h(p)  = \beta_{k}h(p_1 \vee p_2)
-= \bigwedge \{w \in H_{k} \mid h(w) \geq h(p_1 \vee p_2)\}.
+p_1 \geq \beta_{k}(a)
+= \bigwedge \{w \in H_{k} \mid h(w) \geq a\}.
 \] 
 Since $h(w) \geq h(p_1) \vee h(p_2)$ implies $h(w) \geq h(p_1)$, we have,
 \[
@@ -572,10 +518,10 @@ so
 \bigwedge \{w \in H_{k} \mid h(w) \geq h(p_1) \vee h(p_2)\}
 \geq \bigwedge \{w \in H_{k} \mid h(w) \geq h(p_1)\}.
 \]
-That is, $\beta_{k}h(p) \geq \beta_{k}h(p_1)$.
-Similarly, $\beta_{k}h(p) \geq \beta_{k}h(p_2)$. Therefore, 
+That is, $\beta_{k}(a) \geq \beta_{k}h(p_1)$.
+Similarly, $\beta_{k}(a) \geq \beta_{k}h(p_2)$. Therefore, 
 \[
-p_1 \geq \beta_{k}h(p)  \geq \beta_{k}h(p_1) \vee \beta_{k}h(p_2)
+p_1 \geq \beta_{k}(a)  \geq \beta_{k}h(p_1) \vee \beta_{k}h(p_2)
 \geq \beta_{k}h(p_1),
 \]
 from which it follows, by the induction hypothesis, that 
@@ -611,7 +557,7 @@ so
 
 
 \[
-p_i \geq \beta_{k}h(p)  = \beta_{k}h(p_1 \vee p_2)
+p_i \geq \beta_{k}(a)  = \beta_{k}h(p_1 \vee p_2)
 = \bigwedge \{w \in H_{k} \mid h(w) \geq h(p_1 \vee p_2)\}.
 \] 
 Since $h(w) \geq h(p_1) \vee h(p_2)$ implies $h(w) \geq h(p_1)$, we have,
@@ -624,10 +570,10 @@ so
 \bigwedge \{w \in H_{k} \mid h(w) \geq h(p_1) \vee h(p_2)\}
 \geq \bigwedge \{w \in H_{k} \mid h(w) \geq h(p_1)\}.
 \]
-That is, $\beta_{k}h(p) \geq \beta_{k}h(p_1)$.
-Similarly, $\beta_{k}h(p) \geq \beta_{k}h(p_2)$. Therefore, 
+That is, $\beta_{k}(a) \geq \beta_{k}h(p_1)$.
+Similarly, $\beta_{k}(a) \geq \beta_{k}h(p_2)$. Therefore, 
 \[
-p_i \geq \beta_{k}h(p)  \geq \beta_{k}h(p_1) \vee \beta_{k}h(p_2)
+p_i \geq \beta_{k}(a)  \geq \beta_{k}h(p_1) \vee \beta_{k}h(p_2)
 \geq \beta_{k}h(p_i),
 \]
 from which it follows, by the induction hypothesis, that 
@@ -639,7 +585,7 @@ $q = q_1 \vee q_2 \geq \beta_{k+N}h(q_i)$.
 In Case (b) of Whitman's condition,
 $p = p_1 \vee p_2 \geq w$ for some $w \in H_{k-1}^{\vee}$.  But then $p$ is above each 
 of the joinands of $w$, so $p \geq u$ for some  $u \in H_{k-1}$, yielding 
-$p \geq u \geq \beta_{k-1}h(p)$ contradicting~(\ref{eq:contr}).
+$p \geq u \geq \beta_{k-1}(a)$ contradicting~(\ref{eq:contr}).
 \qed
 
 
@@ -674,7 +620,7 @@ finitely generated sublattice of $\alg F \times \alg F$ in this case.
   Lemma~\ref{lem:main} asserts the existence of 
   an $N\in \N$ such that, if $(p,q) \in \<K\>$, if 
   $p\geq \beta_\ell(a)$, and if $p\ngeq \beta_{\ell-1}(a)$, then 
-  $p\geq \beta_{\ell +N} h(p)$.
+  $p\geq \beta_{\ell +N} (a)$.
   Therefore, $(\beta_0(a), \beta_{N+1}(a)) \in \ker h \setminus \<K\>$. 
   Thus $\<K\>\neq \ker h$, as we set out to prove.
 
@@ -2294,7 +2240,7 @@ We have
 \[
 q = q_1 \vee q_2 \geq \beta_{\ell-1+n}h(p_1) \vee \beta_{\ell-1+n}h(p_2) \geq 
 \beta_{\ell+n}h(p_1\vee p_2) =
-\beta_{\ell+n}h(p).
+\beta_{\ell+n}(a).
 \]
 
 Suppose $(p, q) = (p_1\wedge p_2, q_1 \wedge q_2)$, where $p$ has length $\ell$ 
@@ -2305,7 +2251,7 @@ We have
 \[
 q = q_1 \wedge q_2 \geq \beta_{\ell+n}h(p_1) \wedge \beta_{\ell+n}h(p_2) \geq 
 \beta_{\ell+n}h(p_1\wedge p_2) =
-\beta_{\ell+n}h(p).
+\beta_{\ell+n}(a).
 \]
 \end{proof}
 \end{comment}
