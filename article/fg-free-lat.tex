@@ -395,10 +395,13 @@ terms belong to $H_0$,
 \[
 t_1 = x_1 \wedge x_2 \wedge x_3, \quad t_2 = x_2 \wedge x_4, \quad t_3 = x_3 \wedge x_5, \quad t_4 = x_1,
 \]
-and here's a term that belongs to $H_1 \setminus H_0$,
+and here's a term that belongs to $H_1 \setminus H_0$.
 \[
 (t_1 \vee t_2) \wedge (t_3 \vee t_4) = \bigl[(x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)\bigr] \wedge \bigl[(x_3 \wedge x_5)\vee x_1\bigr].
 \]
+Here's another: $t_1 \vee t_2 = (x_1 \wedge x_2 \wedge x_3) \vee (x_2 \wedge x_4)$.
+On the other hand, $t_1 \vee x_2 = (x_1 \wedge x_2 \wedge x_3) \vee x_2\notin H_1\setminus H_0$
+since $t_1 \vee x_2 = x_2 \in H_0$.
 
 Let $h \colon  \alg{F}(X) \to \alg{L}$ be an epimorphism and, 
 for each $y \in L$ and $k< \omega$, define
@@ -446,8 +449,8 @@ then $q \geq \beta_{k+N}h(q)$.
 
 \begin{remark}
 If $K \subseteq \ker h$, then $(p,q) \in \<K\>$ implies $h(p) = h(q)$. 
-We will use the symbol $a$ to denote this common element; that is, $h(p) = a = h(q)$.
-The context will make clear which $p$ and $q$ we mean.
+% We will use the symbol $a$ to denote this common element; that is, $h(p) = a = h(q)$.
+% The context will make clear which $p$ and $q$ we mean.
 \end{remark}
   
 \begin{proof}
@@ -456,52 +459,187 @@ the desired conclusion holds for all $(p, q) \in K$; that is, there exists
 $N>0$ satisfying the following: $\forall (p,q) \in K$,
 \begin{equation}
   \label{eq:condition}
-  p\geq \beta_k (a) \quad \Longrightarrow \quad q \geq \beta_{k+N}(a).
+  p\geq \beta_k h(p) \implies q \geq \beta_{k+N} h(q).
 \end{equation}
 
-\noindent Fix $(p,q) \in \<K\>$ and assume $p \geq \beta_k(a)$.\\
+\noindent Fix $(p,q) \in \<K\>$ and assume $p \geq \beta_k h(p)$.\\
 \\
 {\bf Case 1.} Suppose
 $(p,q) = (p_1, q_1) \wedge (p_2, q_2)$,
-where for each $i$ the pair $(p_i, q_i) \in \<K\>$ satisfies the induction 
-hypothesis~(\ref{eq:condition}).
-Since $p_1  \wedge p_2 = p \geq \beta_k(a)$, we have $p_1 \geq \beta_k(a)$ and
-$p_2 \geq \beta_k(a)$, so the induction hypothesis yields
-$q_1 \geq \beta_{k+N}(a)$ and $q_2 \geq \beta_{k+N}(a)$, so 
-$q = q_1 \wedge q_2 \geq \beta_{k+N}(a)$, as desired.\\
-\\
-{\bf Case 2.} Suppose 
+where for each $i\in \{1,2\}$ the pair $(p_i, q_i) \in \<K\>$ satisfies the induction 
+hypothesis~(\ref{eq:condition}); that is,
+\[
+p_i \geq \beta_kh(p_i) \implies q_i \geq \beta_kh(q_i).
+\]
+Since $p_1  \wedge p_2 = p \geq \beta_k h(p)$, we have $p_1 \geq \beta_k h(p)$ and
+$p_2 \geq \beta_k h(p)$.
+Also, $p = p_1 \wedge p_2$ implies $h(p) = h(p_1) \wedge h(p_2)$.
+Therefore, $p_1 \geq \beta_k h(p_1)$ and
+$p_2 \geq \beta_k h(p_2)$, so the induction hypothesis yields
+$q_1 \geq \beta_{k+N}h(q_1)$ and $q_2 \geq \beta_{k+N}h(q_2)$.
+Now, $q = q_1 \wedge q_2$, so 
+$h(q) = h(q_1) \wedge h(q_2)$.
+If we can prove
+\begin{equation}  \label{eq:ineqbeta}
+\beta_{k+N}h(q_1) \wedge \beta_{k+N}h(q_2) \geq \beta_{k+N}(h(q_1) \wedge h(q_2)),
+ % = \beta_{k+N}h(q_1 \wedge q_2),
+\end{equation}
+then we will have,
+\[
+q = q_1 \wedge q_2 \geq \beta_{k+N}h(q_1) \wedge \beta_{k+N}h(q_2)
+\geq \beta_{k+N}(h(q_1) \wedge h(q_2)) = \beta_{k+N}h(q),
+\]
+which is the desired result in Case 1. So it suffices to prove~(\ref{eq:ineqbeta}).
+
+By definition, 
+$\beta_{k+N}h(q_1) \wedge \beta_{k+N}h(q_2)$ is equal to 
+\[
+\bigwedge \{w \in H_{k+N} : h(w) \geqslant h(q_1)\}
+\wedge \bigwedge \{w \in H_{k+N} : h(w) \geqslant h(q_2)\},
+\]
+while
+\[
+\beta_{k+N}(h(q_1) \wedge h(q_2))  = 
+\bigwedge \{w \in H_{k+N} : h(w) \geqslant h(q_1) \wedge h(q_2)\}.
+\]
+Clearly, 
+\[
+h(w) \geqslant h(q_1) \implies h(w) \geqslant h(q_1) \wedge h(q_2),
+\]
+so
+\[
+\{w \in H_{k+N} : h(w) \geqslant h(q_1)\}\subseteq 
+\{w \in H_{k+N} : h(w) \geqslant h(q_1) \wedge h(q_2)\}.
+\]
+Therefore,
+\[
+% \beta_{k+N}h(q_1)  = 
+\bigwedge \{w \in H_{k+N} : h(w) \geqslant h(q_1)\}
+\geq \bigwedge \{w \in H_{k+N} : h(w) \geqslant h(q_1) \wedge h(q_2)\},\]
+so $\beta_{k+N}h(q_1)  \geq \beta_{k+N}(h(q_1) \wedge h(q_2))$, and 
+by the same argument,
+$\beta_{k+N}h(q_2)  \geq \beta_{k+N}(h(q_1) \wedge h(q_2))$.
+Inequality~(\ref{eq:ineqbeta}) now follows.
+
+\bigskip
+
+\noindent {\bf Case 2.} Suppose 
 $(p,q) = (p_1, q_1) \vee (p_2, q_2)$,
 % $\binom{p}{q} = \binom{p_1}{q_1} \vee \binom{p_2}{q_2}$,
 where for each $i$ the pair $(p_i, q_i) \in \<K\>$ satisfies 
 the induction hypothesis~(\ref{eq:condition}).
-Since $p \geq \beta_k(a)$, there exists a smallest $k'$ such that 
-$p \geq \beta_{k'}(a)$, and since $k'$ is the smallest,
-$p \geq \beta_{k'}(a) \geq \beta_k(a)$, and 
+Since $p \geq \beta_kh(p)$, there exists a smallest $k'$ such that 
+$p \geq \beta_{k'}h(p)$. Since $k'$ is the smallest such number,
 \wjd{consider the case $k' = 0$}
-$p \ngeq \beta_{k'-1}(a)$.
-Thus, 
+$p \ngeq \beta_{k'-1}h(p)$, and since $k'\leq k$, we have
+$\beta_{k'}h(p) \geq \beta_kh(p)$ 
+and $\beta_{k'}h(q) \geq \beta_kh(q)$, so it suffices to prove
+$q \geq \beta_{k'}h(q)$. As such, we can simplify notation
+by renaming $k'$, calling it $k$ instead.
+
+Thus,  we have
 \[
-p = p_1 \vee p_2 \geq \beta_{k'}(a) = \bigwedge \{w \in H_{k'} \mid h(w) \geq a\},
+p = p_1 \vee p_2 \geq \beta_{k}h(p) = \bigwedge \{w \in H_{k'} \mid h(w) \geq h(p)\},
 \]
 and
 \begin{equation}\label{eq:contr}
-p = p_1 \vee p_2 \ngeq \beta_{k'-1}(a) = \bigwedge \{w \in H_{k'-1} \mid h(w) \geq a\}.
+p = p_1 \vee p_2 \ngeq \beta_{k-1}h(p) = \bigwedge \{w \in H_{k'-1} \mid h(w) \geq h(p)\}.
 \end{equation}
 Recall,
 \[
-H_{k'} = (H_{k'-1})^{\vee \wedge} = \{\bigwedge B \mid B \finsub H_{k'-1}^{\vee}\},
+H_{k} = (H_{k-1})^{\vee \wedge} = \{\bigwedge B \mid B \finsub H_{k-1}^{\vee}\},
 \]
-so $w \in H_{k'}$ means $w = \bigwedge B$ for some finite set $B$ containing 
-joins of elements of $H_{k'-1}$. This puts $p = p_1 \vee p_2$ above a meet of the 
+so $w \in H_{k}$ means $w = \bigwedge B$ for some finite set $B$ containing 
+joins of elements of $H_{k-1}$. This puts $p = p_1 \vee p_2$ above a meet of the 
 elements of $B$.
-Therefore Whitman's condition implies that either $p_i \geq \beta_{k'}(a)$ for 
-some $i \in \{1,2\}$,  or $p_1 \vee p_2 \geq w$ for some meetand $w$ of $\beta_{k'}(a)$.  
-In the former case, $q_i \geq \beta_{k'+N}(a) \geq \beta_{k+N}(a)$,
-so $q = q_1 \vee q_2 \geq \beta_{k+N}(a)$, as desired.  In the latter case,
-$p = p_1 \vee p_2 \geq w$ for some $w \in H_{k'-1}^{\vee}$.  But then $p$ is above each 
-of the joinands of $w$, so $p \geq u$ for some  $u \in H_{k'-1}$, yielding 
-$p \geq u \geq \beta_{k'-1}(a)$ contradicting~(\ref{eq:contr}).
+Therefore Whitman's condition implies one of the following
+\begin{enumerate}[(a)]
+  \item $p_i \geq \beta_{k}h(p)$ for some $i \in \{1,2\}$;
+  \item $p_1 \vee p_2 \geq w$ for some meetand $w$ of $\beta_{k}h(p)$.    
+\end{enumerate}
+Assume Case (a) holds with $i=1$. Then
+\[
+p_1 \geq \beta_{k}h(p)  = \beta_{k}h(p_1 \vee p_2)
+= \bigwedge \{w \in H_{k} \mid h(w) \geq h(p_1 \vee p_2)\}.
+\] 
+Since $h(w) \geq h(p_1) \vee h(p_2)$ implies $h(w) \geq h(p_1)$, we have,
+\[
+\{w \in H_{k} \mid h(w) \geq h(p_1) \vee h(p_2)\}
+\subseteq \{w \in H_{k} \mid h(w) \geq h(p_1)\},
+\] 
+so 
+\[
+\bigwedge \{w \in H_{k} \mid h(w) \geq h(p_1) \vee h(p_2)\}
+\geq \bigwedge \{w \in H_{k} \mid h(w) \geq h(p_1)\}.
+\]
+That is, $\beta_{k}h(p) \geq \beta_{k}h(p_1)$.
+Similarly, $\beta_{k}h(p) \geq \beta_{k}h(p_2)$. Therefore, 
+\[
+p_1 \geq \beta_{k}h(p)  \geq \beta_{k}h(p_1) \vee \beta_{k}h(p_2)
+\geq \beta_{k}h(p_1),
+\]
+from which it follows, by the induction hypothesis, that 
+$q_1 \geq \beta_{k+N}h(q_1)$, so 
+$q = q_1 \vee q_2 \geq \beta_{k+N}h(q_1)$.
+
+\bigskip
+
+We still need to prove 
+\[
+q \geq \beta_{k+N}h(q_1 \vee q_2).
+\]
+
+\bigskip
+Of course lattice homomorphisms are order preserving; 
+that is, for all $x, y \in K$, we have $x \geq y  \implies h(x) \geq h(y)$.
+(Proof: $x\geq y$ iff $x \wedge y = y$, which implies 
+$h(x) \wedge h(y) = h(y)$, so $h(x) \geq h(y)$.)
+
+Therefore, 
+\[
+\{w \in H_{k} \mid w \geq q\} \subseteq 
+\{w \in H_{k} \mid h(w) \geq h(q)\}.
+\]
+so
+\[
+\bigwedge \{w \in H_{k} \mid w \geq q\} \geq
+\bigwedge \{w \in H_{k} \mid h(w) \geq h(q)\} = \beta_k h(q).
+\]
+
+
+\bigskip
+
+
+\[
+p_i \geq \beta_{k}h(p)  = \beta_{k}h(p_1 \vee p_2)
+= \bigwedge \{w \in H_{k} \mid h(w) \geq h(p_1 \vee p_2)\}.
+\] 
+Since $h(w) \geq h(p_1) \vee h(p_2)$ implies $h(w) \geq h(p_1)$, we have,
+\[
+\{w \in H_{k} \mid h(w) \geq h(p_1) \vee h(p_2)\}
+\subseteq \{w \in H_{k} \mid h(w) \geq h(p_1)\},
+\] 
+so 
+\[
+\bigwedge \{w \in H_{k} \mid h(w) \geq h(p_1) \vee h(p_2)\}
+\geq \bigwedge \{w \in H_{k} \mid h(w) \geq h(p_1)\}.
+\]
+That is, $\beta_{k}h(p) \geq \beta_{k}h(p_1)$.
+Similarly, $\beta_{k}h(p) \geq \beta_{k}h(p_2)$. Therefore, 
+\[
+p_i \geq \beta_{k}h(p)  \geq \beta_{k}h(p_1) \vee \beta_{k}h(p_2)
+\geq \beta_{k}h(p_i),
+\]
+from which it follows, by the induction hypothesis, that 
+$q_i \geq \beta_{k+N}h(q_i)$, so 
+$q = q_1 \vee q_2 \geq \beta_{k+N}h(q_i)$.
+
+
+
+In Case (b) of Whitman's condition,
+$p = p_1 \vee p_2 \geq w$ for some $w \in H_{k-1}^{\vee}$.  But then $p$ is above each 
+of the joinands of $w$, so $p \geq u$ for some  $u \in H_{k-1}$, yielding 
+$p \geq u \geq \beta_{k-1}h(p)$ contradicting~(\ref{eq:contr}).
 \qed
 
 
