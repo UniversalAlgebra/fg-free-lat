@@ -576,9 +576,9 @@ That is, $\beta_{k}h(p) \geq \beta_{k}h(p_1)$.
 Similarly, $\beta_{k}h(p) \geq \beta_{k}h(p_2)$. Therefore, 
 \[
 p_1 \geq \beta_{k}h(p)  \geq \beta_{k}h(p_1) \vee \beta_{k}h(p_2)
-\geq \beta_{k}h(p_1),
+\geq \beta_{k}h(p_1).
 \]
-from which it follows, by the induction hypothesis, that 
+From this and the induction hypothesis, we have
 $q_1 \geq \beta_{k+N}h(q_1)$, so 
 $q = q_1 \vee q_2 \geq \beta_{k+N}h(q_1)$.
 
@@ -588,23 +588,25 @@ We still need to prove
 \[
 q \geq \beta_{k+N}h(q_1 \vee q_2).
 \]
-
-\bigskip
-Of course lattice homomorphisms are order preserving; 
-that is, for all $x, y \in K$, we have $x \geq y  \implies h(x) \geq h(y)$.
-(Proof: $x\geq y$ iff $x \wedge y = y$, which implies 
-$h(x) \wedge h(y) = h(y)$, so $h(x) \geq h(y)$.)
-
-Therefore, 
 \[
-\{w \in H_{k} \mid w \geq q\} \subseteq 
-\{w \in H_{k} \mid h(w) \geq h(q)\}.
-\]
+\beta_{k+N}h(q_1 \vee q_2)
+= \bigwedge \{w \in H_{k+N} \mid h(w) \geq h(q_1) \vee h(q_2)\}.
+\] 
+Clearly
+\[
+\{w \in H_{k+N} \mid h(w) \geq h(q_1) \vee h(q_2)\}
+= \{w \in H_{k+N} \mid h(w) \geq h(q_1) \text{ and } h(w) \geq h(q_2)\},
+\] 
+which is equal to 
+\[
+\{w \in H_{k+N} \mid h(w) \geq h(q_1)\} \cap \{w \in H_{k+N} \mid h(w) \geq h(q_2)\},
+\] 
 so
-\[
-\bigwedge \{w \in H_{k} \mid w \geq q\} \geq
-\bigwedge \{w \in H_{k} \mid h(w) \geq h(q)\} = \beta_k h(q).
-\]
+\begin{align*}
+  \bigwedge \{w \in H_{k+N} &\mid h(w) \geq h(q_1) \vee h(q_2)\}\\
+&=\bigwedge \{w \in H_{k+N} \mid h(w) \geq h(q_1)\} \cap \{w \in H_{k+N} \mid h(w) \geq h(q_2)\}.
+\end{align*}
+
 
 
 \bigskip
