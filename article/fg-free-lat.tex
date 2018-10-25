@@ -433,6 +433,39 @@ be a lattice epimorphism. For each $a \in L$ and $k < \omega$, we have
 \end{align*}
 \end{theorem}
 
+
+
+Let $\D_0(\mathbf L)$ be the set of all join prime elements of $\mathbf L$, 
+i.e., the set of elements that have no nontrivial join cover. 
+Given $\D_k(\mathbf L)$, define $\D_{k+1}(\mathbf L)$ to be the set of $p \in L$ 
+such that every nontrivial join cover of $p$ refines to a join cover 
+contained in $\D_k(\mathbf L)$, i.e., $p \leq \bigvee S$ nontrivially implies 
+there exists $T \ll S$ with $p \leq \bigvee T$ and $T \subseteq D_k(\mathbf L)$. 
+Note that if $L$ has the minimal join cover refinement property, then 
+$p \in D_{k+1}(\mathbf L)$ iff every minimal nontrivial join
+cover of $p$ is contained in $\D_k(\mathbf L)$.
+
+The definition clearly implies 
+$\D_0(\mathbf L) \subseteq \D_1(\mathbf L) \subseteq \D_2(\mathbf L) \subseteq \cdots$.  
+Let $\D(\mathbf L) = \bigcup \D_i$. For $a \in \D(\mathbf L)$, define the $\D$-\textbf{rank}, $\rho(a)$, 
+to be the least integer $N$ such that $a \in \D_N(\mathbf L)$; for $a \notin \D(L)$, 
+$\rho (a)$ is undefined. 
+The duals of $\D_k(\mathbf L)$, $\D(\mathbf L)$, and $\rho(a)$ are denoted by $\D^d_k(\mathbf L)$, 
+$\D^d(\mathbf L)$, and $\rho^d(a)$, respectively.
+
+\begin{lemma}[\protect{\cite[Lem.~2.7.]{MR1319815}}]\label{lem:2.7}
+Let $\alg K$ be a finitely generated lattice and let $h\colon \alg K \to \alg L$  be a
+homomorphism. For all $w \in K$ and $a\in \D_n(\alg L)$,
+\begin{equation}\label{eq:ast}
+  h(w) \geq a \text{ if and only if } w \geq \beta_n(a).
+\end{equation}
+% Thus in the case when $\D(\alg L) = L$, we obtain that $h$ is lower bounded with
+% $\beta(a) = \beta_{\rho(a)}(a)$ for all $a \in L$.
+\end{lemma}
+Observe that~(\ref{eq:ast}) holds for all $a \in \D(\alg L)$ and $n \geq \rho(a)$
+since, in that case, $a\in \D_{\rho(a)}(\alg L) \subseteq \D_{n}(\alg L)$.
+
+
 \section{Main Theorem}
 
 \begin{theorem}
@@ -471,17 +504,32 @@ $p\geq \beta_k(a) \implies q \geq \beta_{k+N}(a)$.
 \end{lemma}
 
 \begin{proof}
-Since $K$ is finite, it is obvious that we can find an $N>0$ such that 
-the desired conclusion holds for all $(p, q) \in K$; that is, there exists 
-$N>0$ satisfying the following: $\forall (p,q) \in K$, $\forall a \in L$,
+\noindent Fix $(p,q) \in \<K\>$ and $a\in L$ and assume $p \geq \beta_k(a)$.
+
+First we handle the case $a\in \D(\alg L)$.
+Let $N = \max_{a \in \D(\alg L)} \rho (a)$.  
+% Recall, by Lemma~\ref{lem:2.7}, for all $w\in F(X)$ we have $h(w) \geq a$
+% iff $w \geq \beta_{\rho(a)}(a)$.  
+If $k\geq \rho(a)$, then $\beta_{\rho(a)} \geq \beta_k(a)$ and 
+$a \in \D_{\rho(a)}(\alg L)\subseteq  \D_{k}(\alg L)$. By 
+Lemma~\ref{lem:2.7}, $p\geq \beta_k(a)$ iff $h(p) \geq a$. 
+Of course, $h(q) = h(p)$ (since $(p, q) \in \<K\>$ and $K \subseteq \ker h$).
+Therefore, $h(q) \geq a$, so Lemma~\ref{lem:2.7} implies $q \geq 
+\beta_{\rho(a)}(a) \geq \beta_{k}(a) \geq \beta_{k+N}(a)$, as desired.
+If $k < \rho(a)$, then $p \geq \beta_k(a) \geq \beta_{\rho(a)}(a)$, 
+so Lemma~\ref{lem:2.7} implies $a \leq h(p) = h(q)$. 
+Therefore, $q \geq \beta_{\rho(a)}(a) \geq \beta_N(a)\geq \beta_{k+N}(a)$,
+as desired. 
+
+From now on we assume $a\in \J(\alg L) - \D(\alg L)$.
+Since $K$ is finite, it is obvious that there is an $N>0$ such that 
+$\forall (p,q) \in K$, $\forall a \in L$,
 \begin{equation}
   \label{eq:condition}
   p\geq \beta_k(a) \implies q \geq \beta_{k+N}(a).
 \end{equation}
 
-\noindent Fix $(p,q) \in \<K\>$ and $a\in L$ and assume $p \geq \beta_k(a)$.\\
-\\
-{\bf Case 1.} Suppose
+\noindent {\bf Case 1.} Suppose
 $(p,q) = (p_1, q_1) \wedge (p_2, q_2)$,
 where for each $i\in \{1,2\}$ the pair $(p_i, q_i) \in \<K\>$ satisfies the induction 
 hypothesis~(\ref{eq:condition}); that is, for every $a\in L$, 
@@ -509,13 +557,38 @@ and denote $k'$ by $k$.
 Thus, we assume $k$ is the smallest number such that
 \wjd{consider the case $k = 0$}
 % $p \ngeq \beta_{k'-1}(a)$, and s
-\[
+\begin{equation}\label{eq:ih}
 p = p_1 \vee p_2 \geq \beta_{k}(a) = \bigwedge \{w \in H_{k} \mid h(w) \geq a\},
-\]
+\end{equation}
 and therefore
 \begin{equation}\label{eq:contr}
 p = p_1 \vee p_2 \ngeq \beta_{k-1}(a) = \bigwedge \{w \in H_{k-1} \mid h(w) \geq a\}.
 \end{equation}
+
+
+By Lemma~\ref{lem:2.7} above, for all $w \in F(X)$ and $a\in \D_n(\alg L)$, we have
+$h(w) \geq a$ if and only if $w \geq \beta_n(a)$. Therefore, 
+if $a \in \D_{k-1}(\alg L)\subseteq  \D_{k}(\alg L)$, we have
+\begin{equation}\label{eq:256}
+p \geq \beta_{k}(a) \iff h(p) \geq a \text{ and }
+p \ngeq \beta_{k-1}(a) \iff h(p) \ngeq a.
+\end{equation}
+By~(\ref{eq:ih}) 
+and~(\ref{eq:contr}), this leads to the following contradiction:
+\[
+h(p) \geq a \text{ and } h(p) \ngeq a.
+\]
+So it must be the case that $a \notin \D_{k-1}(\alg L)$.
+
+Recall that $\rho(a)$ denotes the least natural number such that $a \in \D_{\rho(a)}(\alg L)$,
+and is undefined if $a\notin \D(\alg L) = \bigcup \D_n(\alg L)$.
+First, consider the case in which $\rho(a) = r$ is defined.
+So it must be the case that $a \notin \D_{k-1}(\alg L)$.
+Since $a \notin \D_{k-1}(\alg L)$, it must be the case that 
+$r \geq k$.  Then $p \geq \beta_k(a)\geq \beta_r(a)$, so $h(p)\geq a$.
+Therefore, $h(q) \geq a$, so $q \geq \beta_r(a)$.
+
+
 Recall,
 \[
 H_{k} = (H_{k-1})^{\vee \wedge} = \{\bigwedge B \mid B \finsub H_{k-1}^{\vee}\},
@@ -575,7 +648,12 @@ $h(u_i) \ngeq a$, %, so $u_i \ngeq \beta_{k-1}(a)$
 yet 
 $h(u_1) \vee \cdots \vee h(u_m) \geq  h(w) \geq a$.  Therefore,
 $S := \{h(u_1), \dots, h(u_m)\} \in \mathcal C(a)$; that is, $S$ is a nontrivial 
-join cover of $a$.  It follows that, for all $j < \omega$,
+join cover of $a$.  So,
+\[
+\bigvee_{1\leq k \leq m}\beta_k h(u_k) \geq \beta_{k+1}(a).
+\]
+
+It follows that, for all $j < \omega$,
 \[
 \beta_{j+1}(a) 
     = \beta_0(a) \wedge \bigwedge_{S \in \mathcal C (a)} \bigvee_{s\in S} \beta_{j}(s) 
