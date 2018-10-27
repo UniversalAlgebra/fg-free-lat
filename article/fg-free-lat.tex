@@ -296,9 +296,9 @@ sublattice of elements between $x$ and $y$; that is,
 \llb x, y \rrb := \{z \in L \mid x \leq z \leq y \}.
 \]
 
-Let $\mathbf K$ and $\mathbf L$ be lattices and suppose $\mathbf L$ has bottom 
+Let $\mathbf K$ and $\alg L$ be lattices and suppose $\alg L$ has bottom 
 and top elements, $0$ and $1$, resp.  
-If $h \colon \mathbf K \to \mathbf L$ is a lattice homomorphism, then for 
+If $h \colon \mathbf K \to \alg L$ is a lattice homomorphism, then for 
 each $a \in L$ consider the sets 
 $h^{-1}\llb a, 1 \rrb = \{x \in K \mid h(x) \geq a\}$ and
 $h^{-1}\llb 0, a \rrb = \{x \in K \mid h(x) \leq a \}$. 
@@ -317,25 +317,25 @@ considering when such extrema exist leads to the notion of
 bounded homomorphism, which is useful for studying the structure of free lattices.
 
 
-A lattice homomorphism $h \colon \mathbf K \to \mathbf L$ is called 
+A lattice homomorphism $h \colon \mathbf K \to \alg L$ is called 
 \textbf{lower bounded} if for every $a \in L$, the set $h^{-1} \llb a, 1 \rrb$ 
 is either empty or has a least element. 
 The least element of a nonempty $h^{-1}\llb a, 1\rrb$ is denoted by $\beta(a)$.
 Thus, if $h$ is a lower bounded homomorphism, then 
-$\beta \colon \mathbf L \rightharpoonup \mathbf K$ 
-is a partial function whose domain is an ideal of $\mathbf L$. 
+$\beta \colon \alg L \rightharpoonup \mathbf K$ 
+is a partial function whose domain is an ideal of $\alg L$. 
 
 Dually, a homomorphism $h$ is called \textbf{upper bounded} if every 
 nonempty $h^{-1}\llb 0, a \rrb$ has a greatest element, called $\alpha (a)$.
 If $h$ is an upper bounded homomorphism, then the domain of 
-$\alpha \colon \mathbf L \rightharpoonup \mathbf K$ 
-is a filter of $\mathbf L$.  
+$\alpha \colon \alg L \rightharpoonup \mathbf K$ 
+is a filter of $\alg L$.  
 A \textbf{bounded} homomorphism is one that is both upper and lower bounded.
 
 These definitions simplify when $h$ is an epimorphism.
 In that case $h$ is lower (upper) bounded if and only if each preimage 
 $h^{-1}\{ a \}$ has a least (greatest) element.
-Likewise, if $L$ is finite, then $h \colon \mathbf K \to \mathbf L$ is lower (upper)
+Likewise, if $L$ is finite, then $h \colon \mathbf K \to \alg L$ is lower (upper)
 bounded if and only if each $h^{-1}\{a\}$ has a least (greatest) element whenever 
 it is nonempty. Of course, every lattice homomorphism on a finite domain is
 bounded.
@@ -352,7 +352,7 @@ $y \leq \alpha (a)$)---so  $\alpha (a \wedge b) = \alpha (a) \wedge \alpha (b)$,
 $a, b$ in the domain of $\alpha$.
 In particular, if $h$ is an epimorphism, then $\alpha$ is 
 a meet homomorphism, and $\beta$ a join homomorphism, 
-from $\mathbf L$ to $\mathbf K$.
+from $\alg L$ to $\mathbf K$.
 
 
 \subsection{Unbounded Homomorphisms.}
@@ -410,7 +410,7 @@ for each $y \in L$ and $k< \omega$, define
 \]
 
 \begin{theorem}[\protect{\cite[Thm.~2.2]{MR1319815}}]\label{thm:2.2}
-   Let $\mathbf K$ be finitely generated, and let $h \colon \mathbf K \to \mathbf L$ be a lattice
+   Let $\mathbf K$ be finitely generated, and let $h \colon \mathbf K \to \alg L$ be a lattice
   homomorphism. If $a \leq h(1_{\mathbf K})$, then
 \begin{enumerate}
 \item $j \leq k$ implies $\beta_j(a) \geq \beta_k(a)$,
@@ -435,23 +435,23 @@ be a lattice epimorphism. For each $a \in L$ and $k < \omega$, we have
 
 
 
-Let $\D_0(\mathbf L)$ be the set of all join prime elements of $\mathbf L$, 
+Let $\D_0(\alg L)$ be the set of all join prime elements of $\alg L$, 
 i.e., the set of elements that have no nontrivial join cover. 
-Given $\D_k(\mathbf L)$, define $\D_{k+1}(\mathbf L)$ to be the set of $p \in L$ 
+Given $\D_k(\alg L)$, define $\D_{k+1}(\alg L)$ to be the set of $p \in L$ 
 such that every nontrivial join cover of $p$ refines to a join cover 
-contained in $\D_k(\mathbf L)$, i.e., $p \leq \bigvee S$ nontrivially implies 
-there exists $T \ll S$ with $p \leq \bigvee T$ and $T \subseteq D_k(\mathbf L)$. 
+contained in $\D_k(\alg L)$, i.e., $p \leq \bigvee S$ nontrivially implies 
+there exists $T \ll S$ with $p \leq \bigvee T$ and $T \subseteq D_k(\alg L)$. 
 Note that if $L$ has the minimal join cover refinement property, then 
-$p \in D_{k+1}(\mathbf L)$ iff every minimal nontrivial join
-cover of $p$ is contained in $\D_k(\mathbf L)$.
+$p \in D_{k+1}(\alg L)$ iff every minimal nontrivial join
+cover of $p$ is contained in $\D_k(\alg L)$.
 
 The definition clearly implies 
-$\D_0(\mathbf L) \subseteq \D_1(\mathbf L) \subseteq \D_2(\mathbf L) \subseteq \cdots$.  
-Let $\D(\mathbf L) = \bigcup \D_i$. For $a \in \D(\mathbf L)$, define the $\D$-\textbf{rank}, $\rho(a)$, 
-to be the least integer $N$ such that $a \in \D_N(\mathbf L)$; for $a \notin \D(L)$, 
+$\D_0(\alg L) \subseteq \D_1(\alg L) \subseteq \D_2(\alg L) \subseteq \cdots$.  
+Let $\D(\alg L) = \bigcup \D_i$. For $a \in \D(\alg L)$, define the $\D$-\textbf{rank}, $\rho(a)$, 
+to be the least integer $N$ such that $a \in \D_N(\alg L)$; for $a \notin \D(\alg L)$, 
 $\rho (a)$ is undefined. 
-The duals of $\D_k(\mathbf L)$, $\D(\mathbf L)$, and $\rho(a)$ are denoted by $\D^d_k(\mathbf L)$, 
-$\D^d(\mathbf L)$, and $\rho^d(a)$, respectively.
+The duals of $\D_k(\alg L)$, $\D(\alg L)$, and $\rho(a)$ are denoted by $\D^d_k(\alg L)$, 
+$\D^d(\alg L)$, and $\rho^d(a)$, respectively.
 
 \begin{lemma}[\protect{\cite[Lem.~2.7.]{MR1319815}}]\label{lem:2.7}
 Let $\alg K$ be a finitely generated lattice and let $h\colon \alg K \to \alg L$  be a
@@ -471,7 +471,7 @@ since, in that case, $a\in \D_{\rho(a)}(\alg L) \subseteq \D_{n}(\alg L)$.
 \begin{theorem}
 \label{thm:main}
 Let $X$ be a finite set, $\alg F (X)$ the free lattice 
-generated by $X$, $\mathbf L = \langle L, \wedge, \vee\rangle$ a finite lattice, and 
+generated by $X$, $\alg L = \langle L, \wedge, \vee\rangle$ a finite lattice, and 
 $h\colon \alg{F}(X) \twoheadrightarrow \mathbf{L}$ a lattice epimorphism 
 that is one-to-one on $X$.
 Then $h$ is bounded if and only if the kernel of $h$ is a finitely generated 
@@ -485,16 +485,6 @@ A key ingredient in our proof of Theorem~\ref{thm:main} is Lemma~\ref{lem:main}.
 % a \wedge y \wedge b \wedge x = (a \wedge x) \wedge (b \wedge y) = x \wedge y,
 % \]
 % has length $0$.
-
-\begin{lemma}\label{lem:prelemmanary}
-If $h$ is an epimorphism from $\alg F(X)$ onto a finite lattice $\alg L$ 
-and if $h$ is not lower bounded, then there exists an unbounded
-class of $\ker h$ containing a join prime element.
-\end{lemma}
-\begin{proof}
-We will show  that if no unbounded class of $\ker h$ has a join prime element, 
-then 
-\end{proof}
 
 \begin{lemma}\label{lem:main}
 Let $h$ be an epimorphism from $\alg F(X)$ onto a finite lattice $\alg L$.
@@ -566,28 +556,6 @@ p = p_1 \vee p_2 \ngeq \beta_{k-1}(a) = \bigwedge \{w \in H_{k-1} \mid h(w) \geq
 \end{equation}
 
 
-By Lemma~\ref{lem:2.7} above, for all $w \in F(X)$ and $a\in \D_n(\alg L)$, we have
-$h(w) \geq a$ if and only if $w \geq \beta_n(a)$. Therefore, 
-if $a \in \D_{k-1}(\alg L)\subseteq  \D_{k}(\alg L)$, we have
-\begin{equation}\label{eq:256}
-p \geq \beta_{k}(a) \iff h(p) \geq a \text{ and }
-p \ngeq \beta_{k-1}(a) \iff h(p) \ngeq a.
-\end{equation}
-By~(\ref{eq:ih}) 
-and~(\ref{eq:contr}), this leads to the following contradiction:
-\[
-h(p) \geq a \text{ and } h(p) \ngeq a.
-\]
-So it must be the case that $a \notin \D_{k-1}(\alg L)$.
-
-Recall that $\rho(a)$ denotes the least natural number such that $a \in \D_{\rho(a)}(\alg L)$,
-and is undefined if $a\notin \D(\alg L) = \bigcup \D_n(\alg L)$.
-First, consider the case in which $\rho(a) = r$ is defined.
-So it must be the case that $a \notin \D_{k-1}(\alg L)$.
-Since $a \notin \D_{k-1}(\alg L)$, it must be the case that 
-$r \geq k$.  Then $p \geq \beta_k(a)\geq \beta_r(a)$, so $h(p)\geq a$.
-Therefore, $h(q) \geq a$, so $q \geq \beta_r(a)$.
-
 
 Recall,
 \[
@@ -612,6 +580,7 @@ In the first case, we have $p_i \geq \beta_{k}(a)$, so the induction hypothesis
 implies $q_i \geq \beta_{k+N}(a)$, so $q = q_1 \vee q_2 \geq \beta_{k+N}(a)$, as desired.
 
 \medskip
+
 
 
 In Case (b), $p = p_1 \vee p_2 \geq u_1 \vee \cdots \vee u_m$, 
@@ -653,96 +622,23 @@ join cover of $a$.  So,
 \bigvee_{1\leq k \leq m}\beta_k h(u_k) \geq \beta_{k+1}(a).
 \]
 
-It follows that, for all $j < \omega$,
-\[
-\beta_{j+1}(a) 
-    = \beta_0(a) \wedge \bigwedge_{S \in \mathcal C (a)} \bigvee_{s\in S} \beta_{j}(s) 
-\leq \beta_0(a) \wedge \bigvee_{1\leq i\leq m} \beta_{j} h(u_i) 
-\]
-Question: do we have 
-\[
-p \geq \beta_0(a) \wedge \bigvee_{1\leq i\leq m} \beta_{k-2} h(u_i)?
-\] 
-If so, then 
-\[
-p \geq \beta_0(a) \wedge \bigvee_{1\leq i\leq m} \beta_{k-2} h(u_i) \geq \beta_{k-1}(a),
-\] 
-a contradiction.
-\[
-\beta_{k-2} h(u_i)  = \bigwedge \{w \in H_{k-2} \mid h(w) \geq h(u_i)\}
-\]
-
-\[p \geq u_1 \vee \cdots \vee u_m,\] 
-
-so 
-
-\[h(p) \geq h(u_1) \vee \cdots \vee h(u_m),\] 
-
-
 
 \bigskip
 
-Recall that 
-\begin{align*}
-\beta_0(a) &= \bigwedge \{x \in X \mid h(x) \geq a \},\\  
-\beta_{k+1}(a) &= \beta_0(a) \wedge \bigwedge_{S \in \mathcal C (a)} \bigvee_{s\in S} \beta_k(s).
-\end{align*}
-
-\bigskip
-
-
-\[
-p \geq \bigwedge \{w \in H_{k} \mid h(w) \geq a\},
-\]
-\[
-H_{k} = (H_{k-1})^{\vee \wedge} = \{\bigwedge B \mid B \finsub H_{k-1}^{\vee}\},
-\]
-so 
-
-\[
-p \geq \bigwedge \{w \in \{\bigwedge B \mid B \finsub H_{k-1}^{\vee}\} \mid h(w) \geq a\},
-\]
-
-\[
-p \ngeq \beta_{k-1}(a) = \bigwedge \{w \in H_{k-1} \mid h(w) \geq a\}.
-\]
-
-\[
-p \ngeq \beta_{k-1}(a) = \bigwedge \{w \in \{\bigwedge B \mid B \finsub H_{k-2}^{\vee}\} \mid h(w) \geq a\}.
-\]
-
-\[
-u_i \in H_{k-1} = \{ \bigwedge B \mid B \finsub H_{k-2}^\vee \}
-\]
-
-\[
-p \geq u_1 \vee \cdots \vee u_m = \bigvee_{1\leq i\leq m} \bigwedge B_i  \; \text{ where all } \;
-B_i \finsub H_{k-2}^\vee
-\]
-
-Fix $i \in \{1, \dots, m\}$. Then,
-\[
-p = p_1 \vee p_2 \geq u_i = \bigwedge B_i \; \text{ where all } \;
-B_i \finsub H_{k-2}^\vee,
-\]
-so 
-\[
-p = p_1 \vee p_2 \geq (v_1 \vee \cdots \vee v_z) \wedge \cdots \wedge  (v'_1 \vee \cdots \vee v'_{z'}) \; \text{ where all } \;
-v_j, v'_j \in H_{k-2},
-\]
-so, by Whitman's condition, either 
-\begin{enumerate}[(a)]
-  \item $p_1 \geq u_i$ or $p_2 \geq u_i$ or
-  \item $p_1 \vee p_2 \geq v_1 \vee \cdots \vee v_z$ for some set of $v_j$'s in $H_{k-2}$.
-\end{enumerate}
-
-
-\bigskip
-
-
-
-\qed
-
+...not sure where to go from here...\\
+\\
+As we saw in the first paragraph of the proof, we can assume that $a$ is join irreducible and does not belong to $\D(\alg L)$;
+that is, $a \in \J(\alg L) - \D(\alg L)$.\\
+\\
+We know $p\geq \beta_k(a) = \bigwedge \{w \in H_k \mid h(w) \geq a\}$.
+Therefore, $h(p) \geq a$.\\
+\\
+Suppose $h(p) = a$.  Then 
+$h(p_1) \vee h(p_2) = h(p_1 \vee p_1) = h(p) = a$, so since $a\in \J(\alg L)$, 
+we must have $h(p_1) = a$ or $h(p_2) = a$.\\
+\\
+...and I'm stuck... again.
+\newpage
 
 \section{Proof of the Main Theorem}
 With Lemma~\ref{lem:main} established, we are now in a position to prove 
@@ -1844,7 +1740,7 @@ Let $\mathcal{V}$ be a nontrivial variety of lattices and let $\mathbf{F}_{\math
 \end{lemma}
 
 \begin{lemma}[\protect{\cite[Lem.~1.4]{MR1319815}}]\label{lem:prime}
-Let $\mathbf L$ be a lattice generated by a set $X$ and let $a \in L$.
+Let $\alg L$ be a lattice generated by a set $X$ and let $a \in L$.
 \begin{enumerate}
 \item 
 If $a$ is join prime, then $a = \bigwedge S$ for some finite subset $S \subseteq X$.
@@ -1972,9 +1868,9 @@ That is,
 \llb x, y \rrb := \{z \in L \mid x \leq z \leq y \}.
 \]
 
-Let $\mathbf K$ and $\mathbf L$ be lattices and suppose $\mathbf L$ has bottom and top elements, 
-$0_{\mathbf L}$ and $1_{\mathbf L}$, resp.  
-If $h \colon \mathbf K \to \mathbf L$ is a lattice homomorphism, then for each
+Let $\mathbf K$ and $\alg L$ be lattices and suppose $\alg L$ has bottom and top elements, 
+$0_{\alg L}$ and $1_{\alg L}$, resp.  
+If $h \colon \mathbf K \to \alg L$ is a lattice homomorphism, then for each
 $a \in L$ we consider the sets $h^{-1}\llb a, 1 \rrb = \{x \in K \mid h(x) \geq a\}$ and
 $h^{-1}\llb 0, a \rrb = \{x \in K \mid h(x) \leq a \}$. 
 When $h^{-1}\llb a, 1 \rrb$ is nonempty,
@@ -1986,26 +1882,26 @@ considering when such extrema exist leads to the notion of
 bounded homomorphism, which in turn helps us understand the structure of free lattices.
 
 
-A lattice homomorphism $h \colon \mathbf K \to \mathbf L$ is \textbf{lower bounded} if for every 
+A lattice homomorphism $h \colon \mathbf K \to \alg L$ is \textbf{lower bounded} if for every 
 $a \in L$, the set $h^{-1} \llb a, 1 \rrb$ is either empty or has a least element. 
 The least element of a nonempty $h^{-1}\llb a, 1\rrb$ is denoted by $\beta_h(a)$, or  
 by $\beta(a)$ when $h$ is clear from context.
 Thus, if $h$ is a lower bounded homomorphism, then 
-$\beta_h \colon \mathbf L \rightharpoonup \mathbf K$ 
-is a partial mapping whose domain is an ideal of $\mathbf L$. 
+$\beta_h \colon \alg L \rightharpoonup \mathbf K$ 
+is a partial mapping whose domain is an ideal of $\alg L$. 
 
 Dually, $h$ is an \textbf{upper bounded} homomorphism if, whenever the set
 $h^{-1}\llb 0, a \rrb$ is nonempty, it has a greatest element, denoted by 
 $\alpha_h(a)$, or $\alpha (a)$.
 For an upper bounded homomorphism, the domain of 
-$\alpha_h \colon \mathbf L \rightharpoonup \mathbf K$ 
-is clearly a filter of $\mathbf L$.  
+$\alpha_h \colon \alg L \rightharpoonup \mathbf K$ 
+is clearly a filter of $\alg L$.  
 A \textbf{bounded} homomorphism is one that is both upper and lower bounded.
 
 These definitions simplify when $h$ is an epimorphism.
 In that case $h$ is lower bounded if and only if each preimage 
 $h^{-1}\{ a \}$ has a least element.
-Likewise, if $L$ is finite, then $h \colon \mathbf K \to \mathbf L$ is lower 
+Likewise, if $L$ is finite, then $h \colon \mathbf K \to \alg L$ is lower 
 bounded if and only if $h^{-1}\{a\}$ has a least element whenever it is nonempty. 
 On the other hand, every homomorphism $h$ from a finite lattice $\mathbf K$ is bounded.
 
@@ -2018,12 +1914,12 @@ Similarly, $\alpha$  is a right adjoint for $h$, so that $h(y) \leq a$ iff
 $y \leq \alpha (a)$, and for $a, b \in \dom \alpha$,
 $\alpha (a \wedge b) = \alpha (a) \wedge \alpha (b)$.
 In particular, if $h$ is an epimorphism, then $\alpha$  and $\beta$  are respectively
-meet and join homomorphisms of $\mathbf L$ into $\mathbf K$.
+meet and join homomorphisms of $\alg L$ into $\mathbf K$.
 For future reference, we note that $\alpha$  and $\beta$  behave correctly with
 respect to composition.
 
 \begin{theorem}[\protect{\cite[Thm.~2.1]{MR1319815}}]
-  Let $f \colon  \mathbf K \to \mathbf L$ and $g \colon \mathbf L \to \mathbf M$ be
+  Let $f \colon  \mathbf K \to \alg L$ and $g \colon \alg L \to \mathbf M$ be
   homomorphisms. If $f, g$ are lower bounded, then $gf \colon  \mathbf K \to  \mathbf M$ is lower
   bounded and $\beta_{gf} = \beta_f \beta_g$. Similarly, if $f, g$
   are upper bounded, then $\alpha_{gf} = \alpha_f \alpha_g$.
@@ -2036,11 +1932,11 @@ respect to composition.
 \end{proof}
 
 We need a way to determine whether a lattice homomorphism
-$h\colon \mathbf K \to \mathbf L$
+$h\colon \mathbf K \to \alg L$
 is upper or lower bounded. The most natural setting for this is
 when the lattice $\mathbf K$ is finitely generated, so from now on 
 we assume $\mathbf K$ is generated by a finite set $X$.
-% There are no special assumptions about $\mathbf L$, nor do we assume that
+% There are no special assumptions about $\alg L$, nor do we assume that
 % $h$ is upper or lower bounded. 
 We want to analyze the sets $h^{-1}\llb a, 1 \rrb$
 for $a \in L$, with the possibility of lower boundedness in mind.
@@ -2052,14 +1948,14 @@ if and only if $a \leq h(1_{\mathbf K})$.
 
 Define a pair of closure operators, 
 denoted by $^\wedge$ and $^\vee$, on  subsets of an arbitrary 
-lattice %$\mathbf L = \langle L, \vee, \wedge\rangle$ as follows: for each 
+lattice %$\alg L = \langle L, \vee, \wedge\rangle$ as follows: for each 
 $L$ as follows: for each $A\subseteq L$,
 \[
 A^\wedge := \{\bigwedge B \mid B \text{ is a finite subset of } A\}.
 \]
 We adopt the following convention: if 
-$\mathbf L$ has a greatest element 
-$1_{\mathbf L}$, then $\bigwedge \emptyset = 1_{\mathbf L}$, and we include 
+$\alg L$ has a greatest element 
+$1_{\alg L}$, then $\bigwedge \emptyset = 1_{\alg L}$, and we include 
 this in $A^\wedge$ for every $A \subseteq L$; otherwise, $\bigwedge \emptyset$ is undefined.  
 The set $A^\vee$ is defined dually.
 % If $\mathbf K = \langle K, \vee, \wedge\rangle$ is a lattice generated by a 
@@ -2071,14 +1967,14 @@ $H_0 := X^\wedge$ and $H_{k+1} := (H_k)^{\vee \wedge}$, for all $k\geqslant 0$.
 By induction, each $H_n = X^{\wedge(\vee\wedge)^n}$ is a finite meet-closed 
 subset of $K$, and $\bigcup H_n = K$, since $X$  generates $K$.
 
-Let $h \colon \mathbf K \to \mathbf L$ be an epimorphism and, 
+Let $h \colon \mathbf K \to \alg L$ be an epimorphism and, 
 for each $y \in L$ and $k< \omega$, define
 \[
 \beta_k(y) = \bigwedge \{w \in H_k : h(w) \geqslant y\}.
 \]
 
 \begin{theorem}[\protect{\cite[Thm.~2.2]{MR1319815}}]\label{thm:2.2}
-   Let $\mathbf K$ be finitely generated, and let $h \colon \mathbf K \to \mathbf L$ be a lattice
+   Let $\mathbf K$ be finitely generated, and let $h \colon \mathbf K \to \alg L$ be a lattice
   homomorphism. If $a \leq h(1_{\mathbf K})$, then
 \begin{enumerate}
 \item $j \leq k$ implies $\beta_j(a) \geq \beta_k(a)$,
@@ -2096,11 +1992,11 @@ A \textbf{join cover} of the element $a \in L$ is a finite
 subset $S \subseteq L$ such that $a \leq \bigvee S$. 
 A join cover $S$ of $a$ is \textit{nontrivial} if $a \nleq s$ for all
 $s \in S$. Let $\mathcal C (a)$ be the set of all nontrivial join 
-covers of $a$ in $\mathbf L$.
+covers of $a$ in $\alg L$.
 
 \begin{theorem}[\protect{\cite[Thm.~2.3]{MR1319815}}]\label{thm:2.3}
 Suppose $\mathbf K$ is generated by a finite set $X$,
-$h \colon \mathbf K \to \mathbf L$ is a homomorphism, $a \leq h(1_{\mathbf K})$, and $k\in \omega$. Then,
+$h \colon \mathbf K \to \alg L$ is a homomorphism, $a \leq h(1_{\mathbf K})$, and $k\in \omega$. Then,
 \begin{align*}
     \beta_0(a) &= \bigwedge \{x \in X \mid h (x) \geq a\},\\
     \beta_{k+1}(a) &= \beta_0(a) \wedge 
@@ -2109,7 +2005,7 @@ $h \colon \mathbf K \to \mathbf L$ is a homomorphism, $a \leq h(1_{\mathbf K})$,
 \end{align*}
 \end{theorem}
 In general, the expression for $\beta_{k+1}(a)$ has some redundant terms, which we can 
-exclude if $\mathbf L$ satisfies a weak finiteness condition that we now define.
+exclude if $\alg L$ satisfies a weak finiteness condition that we now define.
 For finite subsets $A$, $B \subseteq L$, we say $A$ \textit{join refines
 $B$} and write $A \ll B$ if for every $a \in A$ there exists $b \in B$ 
 with $a \leq b$. Theorem~\ref{thm:1.19} states that if $w \in \alg{F}(X)$ and 
@@ -2130,7 +2026,7 @@ if and only if}
 \end{enumerate}
 
 Let $\mathcal M(a)$ denote the set of minimal nontrivial join covers of $a \in L$.
-Let us say that $\mathbf L$ has the \textbf{minimal join cover refinement property} if for each
+Let us say that $\alg L$ has the \textbf{minimal join cover refinement property} if for each
 $a \in L$, $\mathcal M(a)$ is finite and every nontrivial join cover of $a$ refines 
 to a minimal one. Clearly every finite lattice has the minimal join cover refinement 
 property, but so do free lattices.  The following reformulation of Theorem~\ref{thm:2.3} 
@@ -2138,8 +2034,8 @@ simplifies the calculation of $\beta_k$ whenever the minimal join cover refineme
 
 \begin{theorem}[\protect{\cite[Thm.~2.4]{MR1319815}}]\label{thm:2.4}
 Let $\mathbf K$ be generated by the finite set $X$, and let 
-$h \colon \mathbf K \to \mathbf L$ be a lattice homomorphism. 
-If $\mathbf L$ has the minimal join cover refinement property, then
+$h \colon \mathbf K \to \alg L$ be a lattice homomorphism. 
+If $\alg L$ has the minimal join cover refinement property, then
 for each $a \in L$ with $a \leq h(1_{\mathbf K})$ and $k\in \omega$, we have
 \begin{align*}
     \beta_0(a) &= \bigwedge \{x \in X \mid h (x) \geq a\},\\
@@ -2149,8 +2045,8 @@ for each $a \in L$ with $a \leq h(1_{\mathbf K})$ and $k\in \omega$, we have
 \end{align*}
 \end{theorem}
 
-We now look for a condition on the $\mathbf L$ that will insure the 
-homomorphism $h \colon \mathbf K \to \mathbf L$ is lower bounded. From 
+We now look for a condition on the $\alg L$ that will insure the 
+homomorphism $h \colon \mathbf K \to \alg L$ is lower bounded. From 
 Theorem~\ref{thm:2.2}, this will happen iff for each 
 $a \leq h(1_{\mathbf K})$ there exists $N \in \omega$ such
 that $\beta_n(a) = \beta_N(a)$ for all $n \geq N$. In this case, 
@@ -2168,23 +2064,23 @@ The following are equivalent:
 \end{enumerate}
 \end{fact}
 
-Let $D_0(\mathbf L)$ be the set of all join prime elements of $\mathbf L$, 
+Let $D_0(\alg L)$ be the set of all join prime elements of $\alg L$, 
 i.e., the set of elements that have no nontrivial join cover. 
-Given $D_k(\mathbf L)$, define $D_{k+1}(\mathbf L)$ to be the set of $p \in L$ 
+Given $D_k(\alg L)$, define $D_{k+1}(\alg L)$ to be the set of $p \in L$ 
 such that every nontrivial join cover of $p$ refines to a join cover 
-contained in $D_k(\mathbf L)$, i.e., $p \leq \bigvee S$ nontrivially implies 
-there exists $T \ll S$ with $p \leq \bigvee T$ and $T \subseteq D_k(\mathbf L)$. 
+contained in $D_k(\alg L)$, i.e., $p \leq \bigvee S$ nontrivially implies 
+there exists $T \ll S$ with $p \leq \bigvee T$ and $T \subseteq D_k(\alg L)$. 
 Note that if $L$ has the minimal join cover refinement property, then 
-$p \in D_{k+1}(\mathbf L)$ iff every minimal nontrivial join
-cover of $p$ is contained in $D_k(\mathbf L)$.
+$p \in D_{k+1}(\alg L)$ iff every minimal nontrivial join
+cover of $p$ is contained in $D_k(\alg L)$.
 
 The definition clearly implies 
-$D_0(\mathbf L) \subseteq D_1(\mathbf L) \subseteq D_2(\mathbf L) \subseteq \cdots$.  
-Let $D(\mathbf L) = \bigcup D_i$. For $a \in D(\mathbf L)$, define the $D$-\textbf{rank}, $\rho(a)$, 
-to be the least integer $N$ such that $a \in D_N(\mathbf L)$; for $a \notin D(L)$, 
+$D_0(\alg L) \subseteq D_1(\alg L) \subseteq D_2(\alg L) \subseteq \cdots$.  
+Let $D(\alg L) = \bigcup D_i$. For $a \in D(\alg L)$, define the $D$-\textbf{rank}, $\rho(a)$, 
+to be the least integer $N$ such that $a \in D_N(\alg L)$; for $a \notin D(L)$, 
 $\rho (a)$ is undefined. 
-The duals of $D_k(\mathbf L)$, $D(\mathbf L)$, and $\rho(a)$ are denoted by $D^d_k(\mathbf L)$, 
-$D^d(\mathbf L)$, and $\rho^d(a)$, respectively.
+% The duals of $D_k(\alg L)$, $D(\alg L)$, and $\rho(a)$ are denoted by $D^d_k(\alg L)$, 
+% $D^d(\alg L)$, and $\rho^d(a)$, respectively.
 
 % We are interested in the property D(L) = L, i.e., when every element is in
 % Dfc(L) for some k. If A is a finite subset of Dk(L), then \J A G D/c+i(L). Indeed, if
@@ -2270,7 +2166,7 @@ $D^d(\mathbf L)$, and $\rho^d(a)$, respectively.
 As usual, let $X$ be a finite set and let $\alg{F} := \alg{F} (X)$ be the free 
 lattice generated by $X$.
 \begin{proposition}\label{prop:conjecture}
-Suppose $\mathbf L = \langle L, \wedge, \vee\rangle$ is a finite lattice and 
+Suppose $\alg L = \langle L, \wedge, \vee\rangle$ is a finite lattice and 
 $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ a lattice epimorphism.
 Suppose also that there is a class of $\ker h$ containing an infinite descending 
 chain as well as a join prime element of $\alg{F}$. 
@@ -2545,17 +2441,17 @@ Finally, consider the case in which $p_1 \leq y$ and $p_2 \leq z$. In this case 
 \label{sec:bound-homom}
 
 Following Freese, Jezek, Nation~\cite{MR1319815}, we define a pair of closure operators, denoted by superscripts $^\wedge$ and $^\vee$, on  subsets of an arbitrary lattice
-$\mathbf L = \langle L, \vee, \wedge\rangle$ as follows: For each $A\subseteq L$, let
+$\alg L = \langle L, \vee, \wedge\rangle$ as follows: For each $A\subseteq L$, let
 \[
 A^\wedge = \{\bigwedge B : B \text{ is a finite subset of } A\}.
 \]
-We adopt the convention that if $\mathbf L$ has a greatest element $1_{\mathbf L}$, then 
-$\bigwedge \emptyset = 1_{\mathbf L}$, and we include this in $A^\wedge$ for every $A \subseteq L$.
+We adopt the convention that if $\alg L$ has a greatest element $1_{\alg L}$, then 
+$\bigwedge \emptyset = 1_{\alg L}$, and we include this in $A^\wedge$ for every $A \subseteq L$.
 (For lattices without a greatest element, $\bigwedge \emptyset$ is undefined.)  The set $A^\vee$ is defined dually.
 
 If $\mathbf K = \langle K, \vee, \wedge\rangle$ is a lattice generated by a finite set $X$, then we can write $K$ as a union of a chain of subsets $H_0\subseteq H_1 \subseteq \cdots$ defined inductively by setting $H_0 = X^\wedge$ and $H_{k+1} = (H_k)^{\vee \wedge}$, for all $k\geqslant 0$. By induction, each $H_n = X^{\wedge(\vee\wedge)^n}$ is a finite meet-closed subset of $K$, and $\bigcup H_n = K$, since $X$  generates $\mathbf X$.
 
-Let $h \colon \mathbf K \to \mathbf L$ be a lattice epimorphism and for 
+Let $h \colon \mathbf K \to \alg L$ be a lattice epimorphism and for 
 each $y \in L$ and $k< \omega$, define
 \[
 \beta_k(y) = \bigwedge \{w \in H_k : h(w) \geqslant a\}.

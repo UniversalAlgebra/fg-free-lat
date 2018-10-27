@@ -1,0 +1,594 @@
+%% FILE: diffTerm.tex
+%% AUTHOR: William DeMeo, Peter Mayr, Nik Ruskuc
+%% DATE: 14 May 2018
+%% COPYRIGHT: (C) 2018 DeMeo, Mayr, Ruskuk
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                         BIBLIOGRAPHY FILE            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The `filecontents` command will crete a file in the inputs directory called
+%% refs.bib containing the references in the document, in case this file does
+%% not exist already.
+%% If you want to add a BibTeX entry, please don't add it directly to the
+%% refs.bib file.  Instead, add it in this file between the
+%% \begin{filecontents*}{refs.bib} and \end{filecontents*} lines
+%% then delete the existing refs.bib file so it will be automatically generated
+%% again with your new entry the next time you run pdfaltex.
+\begin{filecontents*}{inputs/refs.bib}
+  @book {MR1319815,
+      AUTHOR = {Freese, Ralph and Je{\v{z}}ek, Jaroslav and Nation, J. B.},
+       TITLE = {Free lattices},
+      SERIES = {Mathematical Surveys and Monographs},
+      VOLUME = {42},
+   PUBLISHER = {American Mathematical Society, Providence, RI},
+        YEAR = {1995},
+       PAGES = {viii+293},
+        ISBN = {0-8218-0389-1},
+     MRCLASS = {06B25 (06-02 06-04 06B20 68Q25)},
+    MRNUMBER = {1319815 (96c:06013)},
+  MRREVIEWER = {T. S. Blyth},
+         DOI = {10.1090/surv/042},
+         URL = {http://dx.doi.org/10.1090/surv/042},
+  }
+  @article {MR3239624,
+      AUTHOR = {Valeriote, M. and Willard, R.},
+       TITLE = {Idempotent {$n$}-permutable varieties},
+     JOURNAL = {Bull. Lond. Math. Soc.},
+    FJOURNAL = {Bulletin of the London Mathematical Society},
+      VOLUME = {46},
+        YEAR = {2014},
+      NUMBER = {4},
+       PAGES = {870--880},
+        ISSN = {0024-6093},
+     MRCLASS = {08A05 (06F99 68Q25)},
+    MRNUMBER = {3239624},
+         DOI = {10.1112/blms/bdu044},
+         URL = {http://dx.doi.org/10.1112/blms/bdu044},
+  }
+  @book {MR2839398,
+      AUTHOR = {Bergman, Clifford},
+       TITLE = {Universal algebra},
+      SERIES = {Pure and Applied Mathematics (Boca Raton)},
+      VOLUME = {301},
+        NOTE = {Fundamentals and selected topics},
+   PUBLISHER = {CRC Press, Boca Raton, FL},
+        YEAR = {2012},
+       PAGES = {xii+308},
+        ISBN = {978-1-4398-5129-6},
+     MRCLASS = {08-02 (06-02 08A40 08B05 08B10 08B26)},
+    MRNUMBER = {2839398 (2012k:08001)},
+  MRREVIEWER = {Konrad P. Pi{\'o}ro},
+  }
+  @article{Freese:2009,
+      AUTHOR = {Freese, Ralph and Valeriote, Matthew A.},
+      TITLE = {On the complexity of some {M}altsev conditions},
+      JOURNAL = {Internat. J. Algebra Comput.},
+      FJOURNAL = {International Journal of Algebra and Computation},
+      VOLUME = {19},
+      YEAR = {2009},
+      NUMBER = {1},
+      PAGES = {41--77},
+      ISSN = {0218-1967},
+      MRCLASS = {08B05 (03C05 08B10 68Q25)},
+      MRNUMBER = {2494469 (2010a:08008)},
+      MRREVIEWER = {Clifford H. Bergman},
+      DOI = {10.1142/S0218196709004956},
+      URL = {http://dx.doi.org/10.1142/S0218196709004956}
+    }
+  @article {MR3076179,
+      AUTHOR = {Kearnes, Keith A. and Kiss, Emil W.},
+       TITLE = {The shape of congruence lattices},
+     JOURNAL = {Mem. Amer. Math. Soc.},
+    FJOURNAL = {Memoirs of the American Mathematical Society},
+      VOLUME = {222},
+        YEAR = {2013},
+      NUMBER = {1046},
+       PAGES = {viii+169},
+        ISSN = {0065-9266},
+        ISBN = {978-0-8218-8323-5},
+     MRCLASS = {08B05 (08B10)},
+    MRNUMBER = {3076179},
+  MRREVIEWER = {James B. Nation},
+         DOI = {10.1090/S0065-9266-2012-00667-8},
+         URL = {http://dx.doi.org/10.1090/S0065-9266-2012-00667-8},
+  }
+  @misc{william_demeo_2016_53936,
+    author       = {DeMeo, William and Freese, Ralph},
+    title        = {AlgebraFiles v1.0.1},
+    month        = May,
+    year         = 2016,
+    doi          = {10.5281/zenodo.53936},
+    url          = {http://dx.doi.org/10.5281/zenodo.53936}
+  }
+  @article{FreeseMcKenzie2016,
+    Author = {Freese, Ralph and McKenzie, Ralph},
+    Date-Added = {2016-08-22 19:43:56 +0000},
+    Date-Modified = {2016-08-22 19:45:50 +0000},
+    Journal = {Algebra Universalis},
+    Title = {Mal'tsev families of varieties closed under join or Mal'tsev product},
+    Year = {to appear}
+  }
+  @misc{UACalc,
+    Author = {Ralph Freese and Emil Kiss and Matthew Valeriote},
+    Date-Added = {2014-11-20 01:52:20 +0000},
+    Date-Modified = {2014-11-20 01:52:20 +0000},
+    Note = {Available at: {\verb+www.uacalc.org+}},
+    Title = {Universal {A}lgebra {C}alculator},
+    Year = {2011}
+  }
+  @incollection {MR0472614,
+      AUTHOR = {J{\'o}nsson, B. and Nation, J. B.},
+       TITLE = {A report on sublattices of a free lattice},
+   BOOKTITLE = {Contributions to universal algebra ({C}olloq., {J}\'ozsef
+                {A}ttila {U}niv., {S}zeged, 1975)},
+       PAGES = {223--257. Colloq. Math. Soc. J\'anos Bolyai, Vol. 17},
+   PUBLISHER = {North-Holland, Amsterdam},
+        YEAR = {1977},
+     MRCLASS = {06A20},
+    MRNUMBER = {0472614},
+  MRREVIEWER = {Ralph Freese},
+  }
+  @article {MR0313141,
+      AUTHOR = {McKenzie, Ralph},
+       TITLE = {Equational bases and nonmodular lattice varieties},
+     JOURNAL = {Trans. Amer. Math. Soc.},
+    FJOURNAL = {Transactions of the American Mathematical Society},
+      VOLUME = {174},
+        YEAR = {1972},
+       PAGES = {1--43},
+        ISSN = {0002-9947},
+     MRCLASS = {06A20 (08A15)},
+    MRNUMBER = {0313141},
+  MRREVIEWER = {G. Gr{\"a}tzer},
+  }
+  \end{filecontents*}
+  %:biblio
+  %\documentclass[12pt]{amsart}
+  \documentclass[12pt,reqno]{amsart}
+  
+  %%%%%%% wjd: added these packages vvvvvvvvvvvvvvvvvvvvvvvvv
+  % PAGE GEOMETRY
+  % These settings are for letter format
+  \def\OPTpagesize{8.5in,11in}     % Page size
+  \def\OPTtopmargin{1in}     % Margin at the top of the page
+  \def\OPTbottommargin{1in}  % Margin at the bottom of the page
+  %% \def\OPTinnermargin{0.5in}    % Margin on the inner side of the page
+  \def\OPTinnermargin{1.5in}    % Margin on the inner side of the page
+  \def\OPTbindingoffset{0in} % Extra offset on the inner side
+  %% \def\OPToutermargin{0.75in}   % Margin on the outer side of the page
+  \def\OPToutermargin{1.5in}   % Margin on the outer side of the page
+  \usepackage[papersize={\OPTpagesize},
+               twoside,
+               includehead,
+               top=\OPTtopmargin,
+               bottom=\OPTbottommargin,
+               inner=\OPTinnermargin,
+               outer=\OPToutermargin,
+               bindingoffset=\OPTbindingoffset]{geometry}
+  \usepackage{url,amssymb,enumerate,tikz,scalefnt}
+  \usepackage[normalem]{ulem} % for \sout (strikeout)   wjd: could remove this in final draft
+  \usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+  \usepackage{algorithm2e}
+  \usepackage{stmaryrd}
+  
+  \newcommand\alg[1]{\ensuremath{\mathbf{#1}}}
+  %% uncomment the next line if we want to revert to the "set" minus notation
+  %% \renewcommand{\mysetminus}{\ensuremath{\setminus}} 
+  
+  \usepackage[yyyymmdd,hhmmss]{datetime}
+  \usepackage{background}
+  \backgroundsetup{
+    position=current page.east,
+    angle=-90,
+    nodeanchor=east,
+    vshift=-1cm,
+    hshift=8cm,
+    opacity=1,
+    scale=1,
+    contents={\textcolor{gray!80}{WORK IN PROGRESS.  DO NOT DISTRIBUTE. (compiled on \today\ at \currenttime)}}
+  }
+  %%%%%%  (end wjd addition of packages)
+  
+  
+  \usepackage{pdfcomment}
+  \usepackage{color}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{amsfonts}
+  \usepackage{mathtools}
+  \usepackage{amscd}
+  %% \usepackage{exers}
+  \usepackage{inputs/wjdlatexmacs}
+  
+  \usepackage[mathcal]{euscript}
+  \usepackage{comment}
+  \usepackage{tikz}
+  \usetikzlibrary{math} %needed tikz library
+  
+  \renewcommand{\th}[2]{#1\mathrel{\theta}#2}
+  \newcommand{\infixrel}[3]{#2\mathrel{#1}#3}
+  \newcommand\llb{\ensuremath{\llbracket}}
+  \newcommand\rrb{\ensuremath{\rrbracket}}
+  
+  %%////////////////////////////////////////////////////////////////////////////////
+  %% Theorem styles
+  \numberwithin{equation}{section}
+  \theoremstyle{plain}
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem{prop}[theorem]{Prop.}
+  \theoremstyle{definition}
+  \newtheorem{conjecture}{Conjecture}
+  \newtheorem{claim}[theorem]{Claim}
+  \newtheorem{subclaim}{Subclaim}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{definition}[theorem]{Definition}
+  \newtheorem{notation}[theorem]{Notation}
+  \newtheorem{Fact}[theorem]{Fact}
+  \newtheorem*{fact}{Fact}
+  \newtheorem{example}[theorem]{Example}
+  \newtheorem{examples}[theorem]{Examples}
+  \newtheorem{exercise}{Exercise}
+  \newtheorem*{lem}{Lemma}
+  \newtheorem*{cor}{Corollary}
+  \newtheorem*{remark}{Remark}
+  \newtheorem*{remarks}{Remarks}
+  \newtheorem*{obs}{Observation}
+  
+  \title[Kernel of $\alg F(x,y,z) \twoheadrightarrow \alg F_{\alg M_3}(0,1,2)$]{Kernel of the homomorphism from $\alg F (x,y,z)$ onto the
+  free modular lattice on three generators}
+  % \author[W.~DeMeo]{William DeMeo}
+  \email{williamdemeo@gmail.com}
+  %% \urladdr{http://williamdemeo.github.io}
+  %% \address{University of Colorado\\Mathematics Dept\\Boulder 80309\\USA}
+  
+  % \author[P.~Mayr]{Peter Mayr}
+  \email{Peter.Mayr@colorado.edu}
+  %% \urladdr{}
+  %% \address{University of Colorado\\Mathematics Dept\\Boulder 80309\\USA}
+  
+  % \author[N.~Ru\v{s}kuc]{Nik Ru\v{s}kuc}
+  \email{nik.ruskuc@st-andrews.ac.uk}
+  %% \urladdr{}
+  %% \address{University of St. Andrews\\Mathematics Dept\\St. Andrews, Scottland}
+  
+  %% \thanks{The first and second authors were supported by the National
+  %% Science Foundation under Grant No...}
+  
+  \date{\today}
+  
+  \begin{document}
+  
+  \maketitle
+  
+  \section{J.B.'s Example}
+
+  \newcommand{\dotsize}{1.5pt}
+  \tikzstyle{lat} = [circle,draw,inner sep=\dotsize]
+  \newcommand{\figscale}{1}
+  
+  \begin{figure}[!h]
+  \begin{tikzpicture}[scale=\figscale]
+    \foreach \j in {0,...,8} {
+      \node[lat] (0\j) at (0,\j) {};
+    }
+    \foreach \j in {1,2,4,6,7} {
+      \node[lat] (n1\j) at (-1,\j) {};
+      \node[lat] (1\j) at (1,\j) {};
+    }
+    \foreach \j in {3,5} {
+      \node[lat] (n2\j) at (-2,\j) {};
+      \node[lat] (2\j) at (2,\j) {};
+    }
+    \node[lat] (n34) at (-3,4) {};
+    \node[lat] (34) at (3,4) {};
+  
+    \draw[semithick] (00) -- (01);
+    \draw[semithick] (02) -- (03) -- (04) -- (05) -- (06);
+    \draw[semithick] (07) -- (08);
+    \draw[semithick] (n16) -- (n17);
+    \draw[semithick] (16) -- (17);
+    \draw[semithick] (n11) -- (n12);
+    \draw[semithick] (11) -- (12);
+  
+    \draw[semithick] (00) -- (n11) -- (02) -- (11) -- (00);
+    \draw[semithick] (06) -- (n17) -- (08) -- (17) -- (06);
+  
+    \draw[semithick] (01) -- (n12) -- (n23) -- (n34);
+    \draw[semithick] (01) -- (12) -- (23) -- (34);
+    \draw[semithick] (12) -- (03) -- (n14) -- (n25);
+    \draw[semithick] (n12) -- (03) -- (14) -- (25);
+    \draw[semithick] (23) -- (14) -- (05) -- (n16);
+    \draw[semithick] (n23) -- (n14) -- (05) -- (16);
+    \draw[semithick] (34) -- (25) -- (16) -- (07);
+    \draw[semithick] (n34) -- (n25) -- (n16) -- (07);
+    \node[lat] (n13) at (-1,3) {};
+    \node[lat] (n15) at (-1,5) {};
+    \node[lat] (n24) at (-2,4) {};
+    \draw[thick,blue] (02) -- (n13) -- (n24) -- (n15) -- (06);
+    \draw[thick,blue] (n13) -- (04) -- (n15);
+  
+    \node (07) at (0,7) [blue,circle,fill,inner sep=\dotsize]{};
+    \node (n17) at (-1,7) [blue,circle,fill,inner sep=\dotsize]{};
+    \node (17) at (1,7) [blue,circle,fill,inner sep=\dotsize]{};
+    \node (x) at (-3,4) [circle,fill,inner sep=\dotsize]{};
+    \node (y) at (3,4) [circle,fill,inner sep=\dotsize]{};
+    \node (n23) at (-2,3) [red,circle,fill,inner sep=\dotsize]{};
+    \node (n13) at (-1,3) [red,circle,fill,inner sep=\dotsize]{};
+    \node (23) at (2,3) [red,circle,fill,inner sep=\dotsize]{};
+    \node (05) at (0,5) [green,circle,fill,inner sep=\dotsize]{};
+    \node (z) at (-2,4) [circle,fill,inner sep=\dotsize]{};
+    \draw (x) node[left] {$0$};
+    \draw (17) node[right] {$1 \vee 2$};
+    \draw (n17) node[left] {$0 \vee 2$};
+    \draw (n23) node[left] {$a = 0 \wedge (1 \vee 2)$};
+    \draw (23) node[right] {$b = 1 \wedge (0 \vee 2)$};
+    \draw (y) node[right] {$1$};
+    \draw (z) node[left] {$2$};
+    \end{tikzpicture}
+    \caption{The free lattice over $M_3$ generated by $\{0, 1, 2\}$.}
+    % blue dots: $0 \vee 1$, $0 \vee 2$, $1 \vee 2$;
+    % green dot: $(0 \vee 1) \wedge (0 \vee 2)  \wedge (1 \vee 2)$; 
+    % red dots: $0 \wedge (1 \vee 2)$, $1 \wedge (0 \vee 2)$, $2 \wedge (0 \vee 1)$.}
+    % a yellow dot marks $(0 \wedge 1) \vee (0 \wedge 2)  = (0 \wedge 1) \vee (1 \wedge 2) = (0 \wedge 2)\vee (1 \wedge 2)$; 
+    % green dots mark $0 \wedge 1$, $0 \wedge 2$, and $1 \wedge 2$; \\
+    \label{fig:1}
+  \end{figure}
+  
+  
+
+J.B.~Nation showed us an example of a finite lattice $\alg L$ 
+and an epimorphism $h \colon \alg F(x,y,z) \to \alg L$
+for which the unbounded $h$-kernel classes do not contain generators of $\alg{F}(x,y,z)$;
+however, these unbounded classes do map onto join prime elements of $\alg L$.
+
+In this note we show how to exploit the existence of join prime elements in the image of 
+infinite $h$-kernel classes, and the fact that there are three unbounded 
+$h$-kernel classes forming an antichain, to prove that the kernel of $h$ 
+is not a finitely generated subalgebra of $\alg{F} \times \alg{F}$.
+\begin{proposition}
+  \label{prop:2.2}
+Let $\mathbf{F} = \mathbf{F}(x,y,z)$, and let $\mathbf{L} = \mathbf{F}_{\mathbf{M}_3}(0,1,2)$ (see Figure~\ref{fig:1}).  
+Let $h\colon \mathbf{F} \twoheadrightarrow \mathbf{L}$ be the epimorphism induced by $x\mapsto 0$, $y\mapsto 1$, $z\mapsto 2$. Then $\operatorname{ker}h$ is not finitely generated.  
+\end{proposition}
+
+To prove this proposition we will need some notation that, for situations like ours, 
+is a standard way to write certain sequences of elements of $\alg{F}$. (See, e.g.,~\cite{MR1319815}.) 
+Let $a = 0 \wedge (1 \vee 2)$, $b = 1 \wedge (0 \vee 2)$, $c = 2 \wedge (0 \vee 1)$.
+For each $d\in \{a, b, c\}$, define the sequences $\{\alpha_n(d)\}$ and $\{\beta_n(d)\}$ 
+by the following recursive formulas:
+\begin{alignat*}{3}
+  \alpha_0(a) &=& x \vee (y \wedge z) \qquad \alpha_{n+1}(a)   &= &x \vee (\alpha_n(b) \wedge \alpha_n(c))\\
+  \alpha_0(b) &=& y \vee (x \wedge z)\qquad \alpha_{n+1}(b)   &= &y \vee (\alpha_n(a) \wedge \alpha_n(c))\\
+  \alpha_0(c)   &=& z \vee (x \wedge y)\qquad  \alpha_{n+1}(c)   &= &z \vee (\alpha_n(a) \wedge \alpha_n(b))
+\end{alignat*}
+and 
+\begin{alignat*}{3}
+  \beta_0(a)   &= &x \wedge (y \vee z)  \qquad \beta_{n+1}(a)   &= &x \wedge (\beta_n(b) \vee \beta_n(c))\\
+  \beta_0(b)   &= & y \wedge (x \vee z)  \qquad  \beta_{n+1}(b)   &=& y \wedge (\beta_n(a) \vee \beta_n(c))\\
+  \beta_0(c)   &= &z \wedge (x \vee y) \qquad   \beta_{n+1}(c)   &=& z \wedge (\beta_n(a) \vee \beta_n(b))
+\end{alignat*}
+It is not hard to show that for each $d \in \{a,b,c\}$, the sequence $\alpha_k(d)$ (resp., $\beta_k(d)$) is
+an infinite ascending (resp., descending) chain.
+
+Now, suppose $K \subseteq \alg{F} \times \alg{F}$ is a finite set. 
+We wish to prove $\<K\> \neq \ker h$.
+
+\subsection{Exploiting non-upper boundedness}
+First, we show there exists $N < \omega$ such that 
+for all $(p, q) \in \<K\>$ 
+the following implications hold:
+\begin{align}
+  p \leq \alpha_0(a) &\implies q \leq \alpha_N(a); \label{eq:acc01}\\
+  p \leq \alpha_0(b) &\implies q \leq \alpha_N(b); \label{eq:acc02}\\ 
+  p \leq \alpha_0(c) &\implies q \leq \alpha_N(c); \label{eq:acc03}
+  % p \leq w_0 &\implies q \leq w_N. \label{eq:acc04}\\
+  % p \geq \beta_0(a) &\implies q \geq \beta_N(a); \label{eq:dcc01}\\
+  % p \geq \beta_0(b) &\implies q \geq \beta_N(b); \label{eq:dcc02}\\ 
+  % p \geq \beta_0(c) &\implies q \geq \beta_N(c); \label{eq:dcc03}\\
+  % p \geq m_0 &\implies q \geq m_N. \label{eq:dcc04}
+\end{align}
+Let us give a name to the set of strictly ascending 
+sequences involved in implications~(\ref{eq:acc01})--(\ref{eq:acc03}), say, 
+$\mathcal A = \{\{\alpha_n(a)\}, \{\alpha_n(b)\}, \{\alpha_n(c)\}\}$. %, \{w_n\}\}.
+%   and let $\mathcal D$ denote the set of strictly descending sequences.
+% $\mathcal D = \{\{\beta_n(a)\}, \{\beta_n(b)\}, \{\beta_n(c)\}, \{m_n\}\}$.
+Obviously we can find, for each sequence $s \in \mathcal A$, % \cup \mathcal D$,
+a number $N_s < \omega$ such that the implication involving $s$
+holds for $N = N_s$ and for all of the (finitely many) pairs in $K$.  
+Therefore, all of these implications will hold for $(p, q) \in K$ if we take 
+$N = \max \{N_{s} : s \in \mathcal A\}$. % \cup \mathcal D\}$.
+In fact, for this choice of $N$, implications~(\ref{eq:acc01})--(\ref{eq:acc03}) 
+are satisfied not only for every $(p, q) \in K$, but also for all $(p, q) \in \<K\>$,
+as we now prove.
+
+\begin{claim}\label{claim:main_alpha}
+  The implications~(\ref{eq:acc01})--(\ref{eq:acc03}) hold for all $(p,q) \in \<K\>$.
+  \end{claim}
+  \begin{proof}
+    Fix $(p, q) \in  \<K\>$. 
+  
+    In case $(p,q)$ belongs to the finite set $K$, all eight implications were already 
+    established in the paragraph immediately preceding the statement of the claim.
+    
+    \medskip
+    \noindent \textbf{Case 1.}
+    Suppose $(p,q) = (p_1, q_1) \wedge (p_2, q_2)$, and assume (the induction hypothesis) 
+    that~(\ref{eq:acc01})--(\ref{eq:acc03}) hold for
+    $(p_i,q_i)$ $i\in \{1,2\}$.
+    We now prove that, under these assumptions, $(p,q)$ 
+    satisfies~(\ref{eq:acc01})--(\ref{eq:acc03}).
+    
+    Assume $p = p_1\wedge p_2 \leq \alpha_0(a)$; we must show 
+    $q=q_1\wedge q_2 \leq \alpha_N(a)$.
+    The hypothesis $p_1\wedge p_2 \leq \alpha_0(a) = x\vee (y \wedge z)$, along with 
+    Whitman's Condition (W+), implies that one of the following holds:
+    \begin{enumerate}
+      \item   $p_1=x$;  
+      \item   $p_2=x$;  
+      \item   $p_1\leq \alpha_0(a)$;  
+      \item   $p_2\leq \alpha_0(a)$;  
+      \item   $p_1\wedge p_2 \leq y \wedge z$;  
+    \end{enumerate}
+    In the first case we have $p_1 = x \leq x \vee (y \wedge z) = \alpha_0(a)$, so
+    the induction hypothesis implies $q_1\leq \alpha_N(a)$, so 
+    $q = q_1\wedge q_2\leq \alpha_N(a)$, as desired.  
+    Notice that the first four items in the list submit to the same argument,
+    so we are left with the fifth case, 
+    in which $p_1\wedge p_2 \leq y \wedge z$. 
+    This implies in particular that $p_1\wedge p_2 \leq y$, and $y$ is meet prime, so 
+    $p_i\leq y$ for some $i\in \{1,2\}$.  
+    But then, $p_i \leq \alpha_0(b) = y\vee (x\wedge z)$, and the induction hypothesis
+    yields $q_i \leq \alpha_N(b)$.
+    Similarly, $p_1\wedge p_2 \leq z$ implies 
+    $p_j\leq z$ for some $j\in \{1,2\}$, so $q_j \leq \alpha_N(c)$.
+    This yields the desired result,
+    \[
+    q = q_1\wedge q_2 \leq \alpha_N(b) \wedge \alpha_N(c) 
+    \leq x \vee (\alpha_N(b)\wedge \alpha_N(c)) = \alpha_N(a).
+    \] 
+  
+    \medskip
+    \noindent \textbf{Case 2.}
+    Next, suppose $p = p_1\vee p_2 \leq \alpha_0(a)$; we show 
+    $q = q_1 \vee q_2 \leq \alpha_N(a)$. 
+    The relation $p_1\vee p_2 \leq \alpha_0(a)$ implies 
+    $p_1\leq \alpha_0(a)$ and $p_2\leq \alpha_0(a)$, 
+    so by the induction hypothesis we have 
+    $q_1\leq \alpha_N(a)$ and $q_2\leq \alpha_N(a)$.  
+    Therefore, $q = q_1 \vee q_2 \leq \alpha_N(a)$, as desired.
+
+    We have thus shown that $(p,q)$ satisfies~(\ref{eq:acc01}).
+    It is obvious that the same argument may be applied to prove 
+    implications~(\ref{eq:acc02}) and~(\ref{eq:acc03}) as well.
+  \end{proof}
+
+  
+  It follows Claim~\ref{claim:main_alpha} that 
+  $\<K\> \neq \ker h$. Indeed, if we take $(p, q)$ to be 
+  % since $\{\alpha_n(a)\}$ is a strictly increasing sequence, 
+  % $\alpha_N(a) < \alpha_{N+1}(a)$, so 
+  the pair $(\alpha_0(a), \alpha_{N+1}(a))$, then  $h(p) = a = h(q)$, 
+  so $(p,q) \in \ker h$, but this choice of $(p,q)$ does not satisfy 
+  condition~(\ref{eq:acc01}). On 
+  the other hand, by Claim~\ref{claim:main_alpha} all pairs in $\<K\>$ 
+  satisfy~(\ref{eq:acc01})--(\ref{eq:acc03}) when $K$ is a finite set.   The 
+  proof of Proposition~\ref{prop:2.2} is now complete.\qed
+  
+
+  \subsection{Exploiting non-lower boundedness}
+  It seems non-upper boundedness (and a result like Claim~(\ref{claim:main_alpha}) 
+that exploits it) is all we need to prove that
+$\ker h$ is not finitely generated.
+
+In this example, $h$ is neither upper nor lower bounded,
+and we could have proved an analog of Claim~\ref{claim:main_alpha} 
+that exploits the fact that $h$ is not \emph{lower} bounded,
+and then used this to prove Proposition~\ref{prop:2.2} (instead of 
+using Claim~\ref{claim:main_alpha}).
+
+We now state and prove the analog of Claim~\ref{claim:main_alpha}.
+We will show there exists $N < \omega$ such that 
+for all $(p, q) \in \<K\>$ 
+the following implications hold:
+\begin{align}
+  p \geq \beta_0(a) &\implies q \geq \beta_N(a); \label{eq:dcc01}\\
+  p \geq \beta_0(b) &\implies q \geq \beta_N(b); \label{eq:dcc02}\\ 
+  p \geq \beta_0(c) &\implies q \geq \beta_N(c); \label{eq:dcc03}
+\end{align}
+Let $\mathcal D = \{\{\beta_n(a)\}, \{\beta_n(b)\}, \{\beta_n(c)\}\}$
+denote the set of strictly descending 
+sequences involved in implications~(\ref{eq:dcc01})--(\ref{eq:dcc03}).
+
+Obviously we can find, for each sequence $s \in \mathcal D$,
+a number $N_s < \omega$ such that the implication involving that sequence 
+holds for $N = N_s$ and for all of the (finitely many) pairs in $K$.  
+Therefore, all three implications will hold for $(p, q) \in K$ if we take 
+$N = \max \{N_{s} : s \in \mathcal D\}$.
+In fact, for this choice of $N$, all implications~(\ref{eq:dcc01})--(\ref{eq:dcc03}) hold 
+not only for every $(p, q) \in K$, but also for all $(p, q) \in \<K\>$,
+as we now prove.
+
+\begin{claim}\label{claim:main_beta}
+  The implications~(\ref{eq:dcc01})--(\ref{eq:dcc03}) hold for all $(p,q) \in \<K\>$.
+  \end{claim}
+  \begin{proof}
+    Fix $(p, q) \in  \<K\>$. 
+  
+    In case $(p,q)$ belongs to the finite set $K$, the implications were already 
+    justified in the paragraph immediately preceding the statement of the claim.
+    
+    \medskip
+    \noindent \textbf{Case 1.}
+    Suppose $(p,q) = (p_1, q_1) \wedge (p_2, q_2)$, and assume (the induction hypothesis) 
+    that~(\ref{eq:dcc01})--(\ref{eq:dcc03}) are satisfied 
+    by $(p_i,q_i)$ $i\in \{1,2\}$.
+    % We now prove that, under these assumptions, $(p,q)$
+    % satisfies~(\ref{eq:dcc01})--(\ref{eq:dcc03}).
+    We must show $q=q_1\wedge q_2 \geq \beta_N(a)$.
+
+    The relation $p_1\wedge p_2 \geq \beta_0(a)$ implies 
+    $p_1\geq \beta_0(a)$ and $p_2\geq \beta_0(a)$, 
+    so by the induction hypothesis we have 
+    $q_1\geq \beta_N(a)$ and $q_2\geq \beta_N(a)$.  
+    Therefore, $q = q_1 \vee q_2 \geq \beta_N(a)$, as desired.
+    
+
+    \medskip
+    \noindent \textbf{Case 2.}
+    Next, suppose $p = p_1\vee p_2 \geq \beta_0(a)$; we show 
+    $q = q_1 \vee q_2 \geq \beta_N(a)$. 
+    The relation $p_1\vee p_2 \geq \beta_0(a) = x \wedge (y \vee z)$ along with 
+    Whitman's Condition (W+), implies that one of the following holds:
+    \begin{enumerate}
+      \item   $p_1=x$;  
+      \item   $p_2=x$;  
+      \item   $p_1\geq \beta_0(a)$;  
+      \item   $p_2\geq \beta_0(a)$;  
+      \item   $p_1\vee p_2 \geq y \vee z$;  
+    \end{enumerate}
+    In the first case we have $p_1 = x \geq x \wedge (y \vee z) = \beta_0(a)$, so
+    the induction hypothesis implies $q_1\geq \beta_N(a)$, so 
+    $q = q_1\vee q_2\leq \alpha_N(a)$, as desired.  
+    Notice that the first four items in the list submit to the same argument,
+    so we are left with the fifth case, 
+    in which $p_1\vee p_2 \geq y \vee z$. 
+    This implies in particular that $p_1\vee p_2 \geq y$, and, since $y$ is join prime,
+    we have $p_i\geq y$ for some $i\in \{1,2\}$.  
+    But then, $p_i \geq \beta_0(b) = y\wedge (x\vee z)$, and the induction hypothesis
+    yields $q_i \geq \beta_N(b)$.
+    Similarly, $p_1\vee p_2 \geq z$ implies 
+    $p_j\geq z$ for some $j\in \{1,2\}$, so $q_j \geq \beta_N(c)$.
+    This yields the desired result,
+    \[
+    q = q_1\vee q_2 \geq \beta_N(b) \vee \beta_N(c) 
+    \geq x \wedge (\beta_N(b)\vee \beta_N(c)) = \beta_N(a).
+    \]                   
+    We have thus shown that $(p,q)$ satisfies the implication~(\ref{eq:dcc01}).
+    It is obvious that the same argument applies to the 
+    implications~(\ref{eq:dcc02})--(\ref{eq:dcc03}).
+  \end{proof}
+  
+
+\bigskip
+
+\bibliographystyle{alphaurl}
+\bibliography{inputs/refs}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%  END OF DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bigskip
+Please direct comments, questions, or suggestions to:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%  END OF DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
