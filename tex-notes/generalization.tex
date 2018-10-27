@@ -362,6 +362,13 @@ Then $\operatorname{ker}h$ is not finitely generated.
 
 % To prove this proposition we will need some notation that, for situations like ours, 
 % is a standard way to write certain sequences of elements of $\alg{F}$. (See, e.g.,~\cite{MR1319815}.) 
+\begin{remarks}
+  The meet (join) prime elements in $\alg F(X)$ are precisely the generators and the 
+  joins (meets) of generators. So part of the hypotheses amounts to assuming that 
+  $r$, $s$, and $t$ are all either (1) generators and/or their joins, or (2) generators 
+  and/or their meets.  For example, we might have $r = x$, $s = y \vee z$, $t = x \vee z$.
+  These would satisfy the first set of hypotheses of the proposition.
+\end{remarks}
 \begin{proof}\
 Suppose $K \subseteq F(X) \times F(X)$ is a finite set. 
 We must prove $\<K\> \neq \ker h$.
@@ -565,14 +572,14 @@ as we now prove.
       \item   $p_1\vee p_2 \geq r$;  
       \item   $p_1\vee p_2 \geq s \vee t$;  
     \end{enumerate}
-    In the first case, where $p_1 \geq \beta_0(a)$, 
+    In the first case, $p_1 \geq \beta_0(a)$, so
     the induction hypothesis implies $q_1\geq \beta_N(a)$, so 
-    $q = q_1\vee q_2\leq \beta_N(a)$, as desired.  
+    $q = q_1\vee q_2\geq \beta_N(a)$, as desired.  
     The second case is similar.
     In the third case, $p_1 \vee p_2 \geq r$, and $r$ is join prime, so 
     $p_i \geq r$ for some $i\in \{1,2\}$.  Since $r\geq r \wedge (s\vee t) = \beta_0(a)$, 
     the induction hypothesis implies $q_i \geq \beta_N(a)$, 
-    so $q = q_1\vee q_2\leq \beta_N(a)$.
+    so $q = q_1\vee q_2\geq \beta_N(a)$.
     Finally, in the fourth case, $p_1\vee p_2 \geq s \vee t$. 
     In particular, $p_1\vee p_2 \geq s$, and, since $s$ is join prime,
     we have $p_i\geq s$ for some $i\in \{1,2\}$.  
