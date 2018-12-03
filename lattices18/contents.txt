@@ -1,0 +1,22 @@
+A collection of our notes on fiber products of lattices:
+
+fg-free-lat4    my latest write-up with references to the following
+fg-free-lat2    kernels of bounded homs are fg
+scan2   comments on the proof that kernels of bounded homs are fg
+unbounded-lattice-example   Nik's example of an unbounded hom with fg kernel
+subdirect18   the previous version of Nik's example 7.5
+
+
+
+Random remarks:
+
+
+1) The 14 element lattice L on which Nik's example is based is just the subgroup lattice of (Z_2)^3.
+
+Equivalently without top and bottom L is the projective plane of order 2. Nik's description is based on its presentation with the difference set {0,1,3} in Z_7.
+
+I don't see whether the infinite lattice N is some known object but I now believe that Nik's example is less random than what I previously thought.
+
+2) Generating the kernel of \psi: N -> L seems to use that N is not modular in an essential way. It's unclear to me whether there exists some unbounded h: A -> B for a modular lattice A such that ker h is finitely generated.
+
+3) My experiments with A the free modular lattice on 4 elements went nowhere because I could not find a good description of its elements.
