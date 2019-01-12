@@ -1,6 +1,6 @@
 # PLEASE NOTE: 
 
-**The contents of this repository have been moved to a private place on bitbucket as we prepare the article for publication.  If you need access to the private repository, please send an email to [william demeo @ gmail](mailto:williamdemeo@gmail.com)**
+## The contents of this repository have been moved to a private place on bitbucket as we prepare the article for publication.  If you need access to the private repository, please send an email to [william demeo @ gmail](mailto:williamdemeo@gmail.com)
 
 
 
